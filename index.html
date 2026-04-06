@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chén Trà Nhỏ – Câu Chuyện Lớn | Le'Monet Art Café</title>
+  <meta name="description"
+    content="Chén Trà Nhỏ – nơi gác lại điện thoại, giữ lấy kỷ niệm. Thưởng trà Việt chất lượng tại Le'Monet Art Café, Quận 2, TP.HCM. Ghé tiệm từ 8 giờ sáng mỗi ngày." />
+  <meta property="og:title" content="Chén Trà Nhỏ – Câu Chuyện Lớn" />
+  <meta property="og:description"
+    content="Gác lại điện thoại, giữ lấy kỷ niệm. Thưởng trà Việt tại Le'Monet Art Café." />
+  <!-- Local fonts loaded via @font-face in style.css -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- SVG Symbols for Icons -->
+  <svg width="0" height="0" style="display: none;" aria-hidden="true">
+    <defs>
+      <g id="svg-leaf">
+        <path d="M2 22C2 22 2 12 12 2C22 2 22 12 22 12C22 22 12 22 2 22Z" />
+        <path d="M2 22L12 12" />
+      </g>
+      <g id="svg-flower">
+        <circle cx="12" cy="12" r="3" />
+        <path
+          d="M12 9A3 3 0 0 0 12 3 A3 3 0 0 0 12 9M12 15A3 3 0 0 1 12 21 A3 3 0 0 1 12 15M9 12A3 3 0 0 0 3 12 A3 3 0 0 0 9 12M15 12A3 3 0 0 1 21 12 A3 3 0 0 1 15 12" />
+      </g>
+      <g id="svg-teacup">
+        <path d="M4 8V14C4 17.31 6.69 20 10 20H12C15.31 20 18 17.31 18 14V8H4Z" />
+        <path d="M18 10H20C21.1 10 22 10.9 22 12C22 13.1 21.1 14 20 14H18" />
+        <path d="M8 3V5M12 3V5M16 3V5" />
+      </g>
+      <g id="svg-teapot">
+        <path d="M7 10h10v6a5 5 0 0 1-5 5v0a5 5 0 0 1-5-5v-6Z" />
+        <path d="M12 4v2" />
+        <path d="M10 4h4" />
+        <path d="M17 12a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3h-2" />
+        <path d="M7 12C5 12 3 10 3 8l3 2" />
+      </g>
+      <g id="svg-coffee">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+        <line x1="6" y1="1" x2="6" y2="4" />
+        <line x1="10" y1="1" x2="10" y2="4" />
+        <line x1="14" y1="1" x2="14" y2="4" />
+      </g>
+      <g id="svg-milk-tea">
+        <path d="M6 7l1.5-3h9L18 7" />
+        <rect x="6" y="7" width="12" height="15" rx="2" />
+        <path d="M11 2L13 7" />
+      </g>
+      <g id="svg-sparkle">
+        <path d="M12 3L14.5 9.5L21 12L14.5 14.5L12 21L9.5 14.5L3 12L9.5 9.5L12 3Z" />
+      </g>
+      <g id="svg-bell-off">
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+        <path d="M18.63 13A17.89 17.89 0 0 1 18 8" />
+        <path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14" />
+        <path d="M18 8a6 6 0 0 0-9.33-5" />
+        <line x1="1" y1="1" x2="23" y2="23" />
+      </g>
+      <g id="svg-cards">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        <path d="M13 19V21L9 17H5A2 2 0 0 1 3 15V7" />
+      </g>
+      <g id="svg-gift">
+        <rect x="3" y="8" width="18" height="4" rx="1" />
+        <path d="M12 8v13" />
+        <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
+        <path d="M7.5 8a2.5 2.5 0 0 1 0-5 4.8 8 0 0 1 4.5 5 4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />
+      </g>
+      <g id="svg-calendar">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+      </g>
+      <g id="svg-pin">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </g>
+      <g id="svg-clock">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </g>
+      <g id="svg-heart">
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </g>
+      <g id="svg-sunset">
+        <path d="M3 17h18" />
+        <path d="M12 17a6 6 0 0 0-6-6h12a6 6 0 0 0-6 6Z" />
+        <path d="M12 3v3" />
+        <path d="M6 7l2 2" />
+        <path d="M18 7l-2 2" />
+      </g>
+      <g id="svg-bamboo">
+        <path d="M8 22V2M16 22V2M5 11l3-1M5 5l3-1M20 16l-4-1M20 8l-4-1" />
+      </g>
+      <g id="svg-party">
+        <path
+          d="M5.8 11.3 2 22l10.7-3.79M4 22l3-3M22 6l-3-3M13 13.5l1.5-1.5M10.5 11l-1.5 1.5M16.5 17l-1.5 1.5M16.5 7.5L15 6M20.5 11.5L19 10" />
+      </g>
+    </defs>
+  </svg>
+
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__logo-symbol">茶</span>
+      <span class="nav__logo-text">Chén Trà Nhỏ</span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#story">Câu Chuyện</a></li>
+      <li><a href="#campaign">15 Phút</a></li>
+      <li><a href="#tea">Tinh Hoa Trà</a></li>
+      <li><a href="#booking" class="nav__cta-link">Đặt Chỗ</a></li>
+    </ul>
+    <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="navMobile">
+    <ul>
+      <li><a href="#story" onclick="closeMobileMenu()">Câu Chuyện</a></li>
+      <li><a href="#campaign" onclick="closeMobileMenu()">15 Phút</a></li>
+      <li><a href="#tea" onclick="closeMobileMenu()">Tinh Hoa Trà</a></li>
+      <li><a href="#booking" onclick="closeMobileMenu()">Đặt Chỗ</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1: HERO
+  ============================================================ -->
+  <section class="hero" id="home">
+    <div class="hero__frame">
+      <!-- Content Centered -->
+      <div class="hero__content-centered">
+        <p class="hero__label">Le'Monet Art Café · Bộ sưu tập Trà Việt</p>
+        <h1 class="hero__title">
+          <span>CHÉN TRÀ NHỎ</span>
+          <em>Câu Chuyện Lớn</em>
+        </h1>
+        <p class="hero__slogan">"Uống một chén trà, giữ lấy kỷ niệm."</p>
+        
+        <!-- Illustration now in flow -->
+        <div class="hero__main-visual">
+          <img src="hero_teapot_illustration.png" alt="Ấm trà nghệ thuật" class="hero__teapot-img" />
+        </div>
+
+        <div class="hero__cta-wrap">
+          <a href="#story" class="btn btn--primary" id="heroCta">
+            <span>Khám phá ngay</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#booking" class="btn btn--ghost">Ghé tiệm nhâm nhi</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Side Tabs -->
+    <div class="hero__side-tabs">
+      <a href="#story" class="hero__tab hero__tab--1">Câu Chuyện</a>
+      <a href="#campaign" class="hero__tab hero__tab--2">15 Phút</a>
+      <a href="#tea" class="hero__tab hero__tab--3">Tinh Hoa</a>
+      <a href="#booking" class="hero__tab hero__tab--4">Đặt Chỗ</a>
+    </div>
+
+    <!-- Bottom Scenery (Hills only) -->
+    <div class="hero__bottom-scene">
+      <div class="hero__hills-wrap">
+        <svg viewBox="0 0 1440 160" preserveAspectRatio="none" class="hero__hills-svg">
+          <path d="M0,120 Q200,40 400,90 Q600,140 800,60 Q1000,0 1200,80 Q1320,120 1440,50 L1440,160 L0,160 Z" fill="#5A8F4E" opacity="0.25" />
+          <path d="M0,140 Q300,80 600,120 Q900,155 1200,100 Q1360,70 1440,130 L1440,160 L0,160 Z" fill="#5A8F4E" opacity="0.45" />
+          <path d="M0,155 Q360,110 720,145 Q1080,175 1440,140 L1440,160 L0,160 Z" fill="#3D5A35" opacity="0.6" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="hero__bg-wrap">
+      <div class="hero__sky-texture"></div>
+    </div>
+  </section>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2: CÂU CHUYỆN TRI ÂN
+  ============================================================ -->
+  <section class="story" id="story">
+    <div class="story__bg-layer" data-parallax data-speed="0.2"></div>
+
+    <!-- Floating decorative leaves -->
+    <div class="story__leaves" aria-hidden="true">
+      <span class="s-leaf s-leaf--1"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--green-dark)">
+          <use href="#svg-teacup"></use>
+        </svg></span>
+      <span class="s-leaf s-leaf--2"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--green-pale)">
+          <use href="#svg-leaf"></use>
+        </svg></span>
+      <span class="s-leaf s-leaf--3"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--pink)">
+          <use href="#svg-flower"></use>
+        </svg></span>
+      <span class="s-leaf s-leaf--4"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--green-lush)">
+          <use href="#svg-leaf"></use>
+        </svg></span>
+    </div>
+
+    <div class="container">
+      <div class="story__grid">
+
+        <!-- Illustration side -->
+        <div class="story__visual" data-reveal="left">
+          <div class="story__illustration-frame">
+            <img src="tribute_father_scene.png"
+              alt="Người cha và con gái tí hon ngồi bên chén trà lớn, lá trà bay bổng xung quanh"
+              class="story__illustration" />
+            <div class="story__frame-ornament top-left"></div>
+            <div class="story__frame-ornament bottom-right"></div>
+          </div>
+          <!-- Floating badge -->
+          <div class="story__badge">
+            <span class="story__badge-icon"><svg viewBox="0 0 24 24" class="icon-svg" style="font-size: 1.25em">
+                <use href="#svg-teapot"></use>
+              </svg></span>
+            <span>Yêu thương qua từng chén trà</span>
+          </div>
+        </div>
+
+        <!-- Text side -->
+        <div class="story__text" data-reveal="right">
+          <span class="section-label">Câu Chuyện</span>
+          <h2 class="story__title">Từ Những Buổi Trà<br /><em>Sau Bữa Cơm Cùng Ba</em></h2>
+
+          <div class="story__divider">
+            <span class="story__divider-leaf"><svg viewBox="0 0 24 24" class="icon-svg"
+                style="color: var(--green-light)">
+                <use href="#svg-leaf"></use>
+              </svg></span>
+          </div>
+
+          <p class="story__body">
+            Chén Trà Nhỏ ra đời từ một ký ức rất đỗi giản dị — những buổi chiều ngồi cùng Ba, tay cầm chén trà còn ấm,
+            chẳng nói nhiều nhưng lòng thấy đủ đầy.
+          </p>
+          <p class="story__body">
+            Trà không chỉ là thức uống. Đó là ngôn ngữ của sự hiện diện — khi bạn ngồi xuống, rót một chén, và chọn ở
+            lại trong khoảnh khắc đó với người mình yêu thương.
+          </p>
+          <p class="story__body story__body--highlight">
+            Chén Trà Nhỏ là món quà tri ân Ba — người đã dạy con rằng: những điều nhỏ bé nhất mới là những điều đáng nhớ
+            nhất. <em>Tháng 8 · 2025</em>
+          </p>
+
+          <div class="story__tags">
+            <span class="tag"><svg viewBox="0 0 24 24" class="icon-svg">
+                <use href="#svg-teacup"></use>
+              </svg> Trà Việt thuần túy</span>
+            <span class="tag"><svg viewBox="0 0 24 24" class="icon-svg">
+                <use href="#svg-leaf"></use>
+              </svg> Nguyên liệu tự nhiên</span>
+            <span class="tag"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--gold-deep)">
+                <use href="#svg-heart"></use>
+              </svg> Yêu thương gia đình</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tea stream transition -->
+    <div class="section-transition section-transition--story" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,20 Q360,70 720,30 Q1080,0 1440,50 L1440,80 L0,80 Z" fill="#2D4A1E" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: CHIẾN DỊCH 15 PHÚT
+  ============================================================ -->
+  <section class="campaign" id="campaign">
+
+    <div class="campaign__bg-pattern" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="campaign__header" data-reveal="up">
+        <span class="section-label section-label--light">Chiến Dịch</span>
+        <h2 class="campaign__title">15 PHÚT<br /><em>CÙNG NGƯỜI THÂN</em></h2>
+        <p class="campaign__subtitle">Uống Một Chén Trà · Giữ Lại Kỷ Niệm</p>
+      </div>
+
+      <!-- Campaign illustration -->
+      <div class="campaign__scene" data-reveal="up">
+        <img src="box02.png" alt="Nhân vật tí hon bỏ điện thoại vào hộp và ngồi trò chuyện bên ấm trà"
+          class="campaign__illustration" />
+        <div class="campaign__scene-label">
+          <span><svg viewBox="0 0 24 24" class="icon-svg" style="margin-right:4px; font-size: 1.25em">
+              <use href="#svg-bell-off"></use>
+            </svg> Cất điện thoại vào đây</span>
+        </div>
+      </div>
+
+      <!-- 4 Steps -->
+      <div class="steps" data-reveal="up">
+        <div class="steps__connector" aria-hidden="true">
+          <svg viewBox="0 0 900 20" preserveAspectRatio="none">
+            <path d="M0,10 Q225,0 450,10 Q675,20 900,10" stroke="#E8B84B" stroke-width="2" fill="none"
+              stroke-dasharray="8,4" />
+          </svg>
+        </div>
+
+        <div class="step" id="step1" tabindex="0">
+          <div class="step__icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-bell-off"></use>
+            </svg></div>
+          <div class="step__number">01</div>
+          <h3 class="step__title">Gác lại âu lo</h3>
+          <p class="step__desc">Đặt điện thoại vào hộp "Kỷ Niệm". Trong 15 phút, thế giới có thể đợi.</p>
+        </div>
+
+        <div class="step" id="step2" tabindex="0">
+          <div class="step__icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-teacup"></use>
+            </svg></div>
+          <div class="step__number">02</div>
+          <h3 class="step__title">Thưởng trà đậm vị</h3>
+          <p class="step__desc">Thưởng thức trà Việt thuần khiết — từng ngụm là một khoảnh khắc chậm lại.</p>
+        </div>
+
+        <div class="step" id="step3" tabindex="0">
+          <div class="step__icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-cards"></use>
+            </svg></div>
+          <div class="step__number">03</div>
+          <h3 class="step__title">Phá băng bằng thẻ bài</h3>
+          <p class="step__desc">Rút thẻ "Chuyện Chén Trà Nhỏ" — những câu hỏi nhẹ nhàng mở ra những cuộc trò chuyện sâu
+            sắc.</p>
+        </div>
+
+        <div class="step" id="step4" tabindex="0">
+          <div class="step__icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-gift"></use>
+            </svg></div>
+          <div class="step__number">04</div>
+          <h3 class="step__title">Nhận quà tri ân</h3>
+          <p class="step__desc">Postcard viết tay & bánh quy trà — món quà nhỏ ghi lại khoảnh khắc lớn.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Transition -->
+    <div class="section-transition" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,50 Q400,10 800,60 Q1100,90 1440,30 L1440,80 L0,80 Z" fill="#F5EDD8" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION: HƯỚNG DẪN THAM GIA (TUTORIAL VIDEOS)
+  ============================================================ -->
+  <section class="tutorial" id="tutorial">
+    <!-- Placeholder for tea table background -->
+    <div class="tutorial__bg" style="background-image: url('tea_table_bg_placeholder.png');"></div>
+    <div class="tutorial__overlay"></div>
+
+    <div class="container">
+      <div class="tutorial__header" data-reveal="up">
+        <span class="section-label">Gắn Kết Yêu Thương</span>
+        <h2 class="tutorial__title">Hành Trình Của<br /><em>Chén Trà Nhỏ</em></h2>
+        <p class="tutorial__subtitle">Từ ý tưởng trên trang giấy đến chén trà trên tay bạn</p>
+      </div>
+
+      <div class="tutorial__track-wrap" data-reveal="up">
+        <div class="tutorial__track">
+          
+          <!-- Video 1 -->
+          <div class="tutorial__item">
+            <div class="tutorial__video-card">
+              <div class="tutorial__video-wrap">
+                <div class="tutorial__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                <p class="tutorial__video-placeholder-text">Clip 1<br/><small>(Chèn video tại đây)</small></p>
+              </div>
+              <h3 class="tutorial__video-title">Booth Ngày Thử Trà</h3>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="tutorial__item">
+            <div class="tutorial__video-card">
+              <div class="tutorial__video-wrap">
+                <div class="tutorial__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                <p class="tutorial__video-placeholder-text">Clip 2<br/><small>(Chèn video tại đây)</small></p>
+              </div>
+              <h3 class="tutorial__video-title">Trải nghiệm 15 Phút<br/>Cùng Người Thân</h3>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="tutorial__item">
+            <div class="tutorial__video-card">
+              <div class="tutorial__video-wrap">
+                <div class="tutorial__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+                <p class="tutorial__video-placeholder-text">Clip 3<br/><small>(Chèn video tại đây)</small></p>
+              </div>
+              <h3 class="tutorial__video-title">Câu Chuyện của<br/>Chén Trà Nhỏ</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Nút vuốt ngang trên mobile -->
+      <p class="gallery__hint" style="text-align: center; margin-top: 16px; color: var(--ink-soft);">⟷ Vuốt ngang để lướt xem</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY KHÁCH HÀNG
+  ============================================================ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery__header" data-reveal="up">
+        <span class="section-label">Câu Chuyện Khách Hàng</span>
+        <h2 class="gallery__title">Những Khoảnh Khắc<br /><em>Đẹp Tại Tiệm</em></h2>
+        <p class="gallery__subtitle">Nơi lưu giữ những kỷ niệm của bạn cùng chúng tôi</p>
+      </div>
+
+      <div class="gallery__track-wrap" data-reveal="up">
+        <div class="gallery__track">
+          <div class="gallery__item">
+            <img src="customer_photos/1.jpg" alt="Khách hàng thưởng trà tại Le'Monet 1" class="gallery__img" />
+          </div>
+          <div class="gallery__item">
+            <img src="customer_photos/2.jpg" alt="Khoảnh khắc 15 phút tại tiệm 2" class="gallery__img" />
+          </div>
+          <div class="gallery__item">
+            <img src="customer_photos/3.jpg" alt="Khách hàng chụp ảnh check-in 3" class="gallery__img" />
+          </div>
+          <div class="gallery__item">
+            <img src="customer_photos/4.jpg" alt="Khách hàng thư giãn với trà 4" class="gallery__img" />
+          </div>
+          <div class="gallery__item">
+            <img src="customer_photos/5.jpg" alt="Trải nghiệm trà Việt tại Le'Monet 5" class="gallery__img" />
+          </div>
+          <div class="gallery__item">
+            <img src="customer_photos/6.jpg" alt="Khách hàng chụp ảnh kỷ niệm 6" class="gallery__img" />
+          </div>
+        </div>
+      </div>
+      <p class="gallery__hint">⟷ Vuốt ngang để lướt xem</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4: TINH HOA TRÀ VIỆT
+  ============================================================ -->
+  <section class="teas" id="tea">
+
+    <!-- Parallax tea fields -->
+    <div class="teas__parallax-wrap">
+      <div class="teas__field-layer teas__field-layer--far" data-parallax data-speed="0.1">
+        <img src="tea_terraces_illustration.png" alt="Ruộng bậc thang trà xanh mướt, nông dân thu hoạch lá trà"
+          class="teas__field-img" />
+      </div>
+      <div class="teas__overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+      <div class="teas__header" data-reveal="up">
+        <span class="section-label">Tinh Hoa Trà Việt</span>
+        <h2 class="teas__title">Từ Đất Trời Việt Nam<br /><em>Đến Chén Trà Của Bạn</em></h2>
+        <p class="teas__subtitle">Trà chất lượng · Nguồn gốc rõ ràng · Không pha tạp chất</p>
+      </div>
+
+      <!-- Quality badges -->
+      <div class="quality-badges" data-reveal="up">
+        <div class="quality-badge">
+          <span class="quality-badge__icon"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--green-lush)">
+              <use href="#svg-leaf"></use>
+            </svg></span>
+          <span class="quality-badge__text">100% Trà Việt</span>
+        </div>
+        <div class="quality-badge">
+          <span class="quality-badge__icon"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--gold)">
+              <use href="#svg-sparkle"></use>
+            </svg></span>
+          <span class="quality-badge__text">Không pha tạp</span>
+        </div>
+        <div class="quality-badge">
+          <span class="quality-badge__icon"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--pink)">
+              <use href="#svg-pin"></use>
+            </svg></span>
+          <span class="quality-badge__text">Nguồn gốc rõ ràng</span>
+        </div>
+        <div class="quality-badge">
+          <span class="quality-badge__icon"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--green-dark)">
+              <use href="#svg-bamboo"></use>
+            </svg></span>
+          <span class="quality-badge__text">Tự nhiên thuần khiết</span>
+        </div>
+      </div>
+
+      <!-- Product Carousel -->
+      <div class="carousel" id="teaCarousel" data-reveal="up">
+        <div class="carousel__track" id="carouselTrack">
+
+          <div class="tea-card tea-card--featured" id="tea-lemonet-special">
+            <div class="tea-card__illustration">
+              <div class="tea-card__teacup"><svg viewBox="0 0 24 24" class="icon-svg" style="font-size:1.5em">
+                  <use href="#svg-sparkle"></use>
+                </svg></div>
+              <div class="tea-card__leaves"><svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-sparkle"></use>
+                </svg> <svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-sparkle"></use>
+                </svg></div>
+            </div>
+            <div class="tea-card__color-blob" style="background: linear-gradient(135deg, #f5c842, #c8963c);"></div>
+            <span class="tea-card__number">01</span>
+            <span class="tea-card__featured-badge">Đặc Biệt</span>
+            <h3 class="tea-card__name">Le'Monet Đặc Biệt</h3>
+            <p class="tea-card__desc">Công thức độc quyền của Le'Monet — vị thơm béo hòa vào nền trà tinh tế. Chút hoài
+              niệm trong từng ngụm.</p>
+            <div class="tea-card__tags">
+              <span>Độc quyền</span>
+              <span>Béo thơm</span>
+            </div>
+          </div>
+
+          <div class="tea-card" id="tea-nhai-mot-ong">
+            <div class="tea-card__illustration">
+              <div class="tea-card__teacup"><svg viewBox="0 0 24 24" class="icon-svg" style="font-size:1.5em">
+                  <use href="#svg-teacup"></use>
+                </svg></div>
+              <div class="tea-card__leaves"><svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-flower"></use>
+                </svg> <svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-flower"></use>
+                </svg></div>
+            </div>
+            <div class="tea-card__color-blob" style="background: linear-gradient(135deg, #e8f5d0, #c8e8a0);"></div>
+            <span class="tea-card__number">02</span>
+            <h3 class="tea-card__name">Lục Trà Sữa Nhài Mật Ong</h3>
+            <p class="tea-card__desc">Trà xanh ướp hoa nhài tinh tế. Hương thơm thanh nhẹ, vị ngọt hậu dài. Dành cho
+              những buổi sáng bình yên.</p>
+            <div class="tea-card__tags">
+              <span>Hương Nhài</span>
+              <span>Thanh mát</span>
+            </div>
+          </div>
+
+          <div class="tea-card" id="tea-hongkong">
+            <div class="tea-card__illustration">
+              <div class="tea-card__teacup"><svg viewBox="0 0 24 24" class="icon-svg" style="font-size:1.5em">
+                  <use href="#svg-coffee"></use>
+                </svg></div>
+              <div class="tea-card__leaves"><svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-leaf"></use>
+                </svg> <svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-leaf"></use>
+                </svg></div>
+            </div>
+            <div class="tea-card__color-blob" style="background: linear-gradient(135deg, #f5deb3, #d4a853);"></div>
+            <span class="tea-card__number">03</span>
+            <h3 class="tea-card__name">Trà Sữa Hongkong</h3>
+            <p class="tea-card__desc">Hồng trà đậm vị pha cùng sữa tươi béo ngậy. Phong cách Hồng Kông cổ điển, quyến rũ
+              từ ngụm đầu tiên.</p>
+            <div class="tea-card__tags">
+              <span>Hồng Trà</span>
+              <span>Đậm đà</span>
+            </div>
+          </div>
+
+          <div class="tea-card" id="tea-hong-tra-sua">
+            <div class="tea-card__illustration">
+              <div class="tea-card__teacup"><svg viewBox="0 0 24 24" class="icon-svg" style="font-size:1.5em">
+                  <use href="#svg-milk-tea"></use>
+                </svg></div>
+              <div class="tea-card__leaves"><svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-flower"></use>
+                </svg></div>
+            </div>
+            <div class="tea-card__color-blob" style="background: linear-gradient(135deg, #f8c8c0, #e8857a);"></div>
+            <span class="tea-card__number">04</span>
+            <h3 class="tea-card__name">Hồng Trà Sữa</h3>
+            <p class="tea-card__desc">Màu đậm quyến rũ, vị trà đậm hòa quyện cùng sữa kem tươi mát. Lựa chọn hoàn hảo
+              cho buổi chiều.</p>
+            <div class="tea-card__tags">
+              <span>Hồng Trà</span>
+              <span>Nồng Ấm</span>
+            </div>
+          </div>
+
+          <div class="tea-card" id="tea-olong-rang">
+            <div class="tea-card__illustration">
+              <div class="tea-card__teacup"><svg viewBox="0 0 24 24" class="icon-svg" style="font-size:1.5em">
+                  <use href="#svg-teapot"></use>
+                </svg></div>
+              <div class="tea-card__leaves"><svg viewBox="0 0 24 24" class="icon-svg">
+                  <use href="#svg-leaf"></use>
+                </svg></div>
+            </div>
+            <div class="tea-card__color-blob" style="background: linear-gradient(135deg, #d4a86a, #8b6340);"></div>
+            <span class="tea-card__number">05</span>
+            <h3 class="tea-card__name">Trà Sữa Ôlong Rang</h3>
+            <p class="tea-card__desc">Ôlong rang lửa nhẹ, hương thơm gỗ trầm ấm áp. Vị đậm sâu, hậu vị ngọt thanh đọng
+              lại rất lâu.</p>
+            <div class="tea-card__tags">
+              <span>Ôlong</span>
+              <span>Thơm Rang</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Carousel controls -->
+        <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="Trước">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="Tiếp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Dots -->
+        <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Danh sách trà">
+          <button class="carousel__dot carousel__dot--active" role="tab" aria-label="Le'Monet Đặc Biệt"
+            data-index="0"></button>
+          <button class="carousel__dot" role="tab" aria-label="Nhài Một Ông" data-index="1"></button>
+          <button class="carousel__dot" role="tab" aria-label="Hongkong" data-index="2"></button>
+          <button class="carousel__dot" role="tab" aria-label="Hồng Trà Sữa" data-index="3"></button>
+          <button class="carousel__dot" role="tab" aria-label="Ôlong Rang" data-index="4"></button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       SECTION 5: FOOTER + CTA
+  ============================================================ -->
+  <footer class="footer" id="booking">
+
+    <!-- Decorative sky gradient -->
+    <div class="footer__sky" aria-hidden="true">
+      <div class="footer__cloud footer__cloud--1"></div>
+      <div class="footer__cloud footer__cloud--2"></div>
+      <div class="footer__cloud footer__cloud--3"></div>
+    </div>
+
+    <div class="container">
+
+      <!-- Closing poem -->
+      <div class="footer__poem" data-reveal="up">
+        <div class="footer__poem-decoration"><svg viewBox="0 0 24 24" class="icon-svg" style="color: var(--gold-deep)">
+            <use href="#svg-sunset"></use>
+          </svg></div>
+        <blockquote class="footer__poem-text">
+          "Chút rực rỡ của nắng sớm đọng lại trong vị thanh khiết từ cam và chanh... đợi bạn ghé tiệm nhâm nhi từ 8 giờ
+          sáng mỗi ngày."
+        </blockquote>
+        <cite>— Chén Trà Nhỏ, Le'Monet Art Café</cite>
+      </div>
+
+      <!-- Booking form -->
+      <div class="booking" data-reveal="up">
+        <div class="booking__header">
+          <span class="booking__icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-calendar"></use>
+            </svg></span>
+          <h2 class="booking__title">Đặt Chỗ Nhâm Nhi</h2>
+          <p class="booking__subtitle">Chúng tôi sẽ dành riêng một góc nhỏ ấm áp cho bạn</p>
+        </div>
+
+        <form class="booking__form" id="bookingForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="guestName">Tên của bạn</label>
+              <input class="form-input" type="text" id="guestName" name="guestName" placeholder="Nguyễn Văn A"
+                required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="guestPhone">Số điện thoại</label>
+              <input class="form-input" type="tel" id="guestPhone" name="guestPhone" placeholder="0901 234 567"
+                required />
+            </div>
+          </div>
+
+          <div class="form-row form-row--3">
+            <div class="form-group">
+              <label class="form-label" for="guestCount">Số người</label>
+              <select class="form-input form-select" id="guestCount" name="guestCount" required>
+                <option value="">Chọn...</option>
+                <option value="1">1 người</option>
+                <option value="2">2 người</option>
+                <option value="3">3 người</option>
+                <option value="4">4 người</option>
+                <option value="5+">5+ người</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="guestDate">Ngày hẹn</label>
+              <input class="form-input" type="date" id="guestDate" name="guestDate" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="guestTime">Giờ hẹn</label>
+              <select class="form-input form-select" id="guestTime" name="guestTime" required>
+                <option value="">Chọn giờ...</option>
+                <option value="08:00">8:00 sáng</option>
+                <option value="09:00">9:00 sáng</option>
+                <option value="10:00">10:00 sáng</option>
+                <option value="11:00">11:00 sáng</option>
+                <option value="13:00">1:00 chiều</option>
+                <option value="14:00">2:00 chiều</option>
+                <option value="15:00">3:00 chiều</option>
+                <option value="16:00">4:00 chiều</option>
+                <option value="17:00">5:00 chiều</option>
+                <option value="18:00">6:00 chiều</option>
+                <option value="19:00">7:00 tối</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="guestNote">Ghi chú (tuỳ chọn)</label>
+            <textarea class="form-input form-textarea" id="guestNote" name="guestNote"
+              placeholder="Bạn muốn ngồi góc yên tĩnh, gần cửa sổ, hoặc có dịp đặc biệt...?" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full" id="submitBooking">
+            <span>Đặt Hẹn Ngay <svg viewBox="0 0 24 24" class="icon-svg">
+                <use href="#svg-sparkle"></use>
+              </svg></span>
+          </button>
+
+          <div class="booking__success" id="bookingSuccess" role="alert" aria-live="polite">
+            <span style="display:block; text-align:center;"><svg viewBox="0 0 24 24" class="icon-svg"
+                style="font-size: 2.5em; margin-bottom:12px; color:var(--green-lush)">
+                <use href="#svg-party"></use>
+              </svg></span>
+            <p>Cảm ơn bạn đã đặt chỗ! Chúng tôi sẽ liên hệ xác nhận sớm nhất có thể. Hẹn gặp bạn tại tiệm! <svg
+                viewBox="0 0 24 24" class="icon-svg" style="margin-left: 4px">
+                <use href="#svg-teacup"></use>
+              </svg></p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Location info -->
+      <div class="footer__info" data-reveal="up">
+        <div class="footer__info-card">
+          <span class="footer__info-icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-pin"></use>
+            </svg></span>
+          <div>
+            <strong>Địa Chỉ</strong>
+            <p>Lakeview City, Quận 2<br />TP. Hồ Chí Minh</p>
+          </div>
+        </div>
+        <div class="footer__info-card">
+          <span class="footer__info-icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-clock"></use>
+            </svg></span>
+          <div>
+            <strong>Giờ Mở Cửa</strong>
+            <p>8:00 sáng – 10:00 tối<br />Mỗi ngày trong tuần</p>
+          </div>
+        </div>
+        <div class="footer__info-card">
+          <span class="footer__info-icon"><svg viewBox="0 0 24 24" class="icon-svg">
+              <use href="#svg-teacup"></use>
+            </svg></span>
+          <div>
+            <strong>Le'Monet Art Café</strong>
+            <p>Nơi nghệ thuật & trà<br />gặp nhau</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer__bottom">
+        <div class="footer__logo">
+          <span>茶</span>
+          <span>Chén Trà Nhỏ</span>
+        </div>
+        <p class="footer__copy">© 2025 Le'Monet Art Café · Tất cả quyền được bảo lưu · Thiết kế với <svg
+            viewBox="0 0 24 24" class="icon-svg" style="color:var(--gold-deep); width:0.9em; height:0.9em">
+            <use href="#svg-heart"></use>
+          </svg></p>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/lemonetartcafe" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/lemonet.artcafe/" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@lemonet.art.cafe" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
