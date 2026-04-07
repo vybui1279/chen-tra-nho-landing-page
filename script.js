@@ -143,6 +143,25 @@ if (dateInput) {
   dateInput.min = today.toISOString().split('T')[0];
 }
 
+const phoneInput = document.getElementById('guestPhone');
+if (phoneInput) {
+  phoneInput.addEventListener('input', (e) => {
+    // Chỉ cho phép số
+    let val = e.target.value.replace(/\D/g, '');
+    
+    // Giới hạn 10 số
+    if (val.length > 10) val = val.substring(0, 10);
+    
+    // Ép phải bắt đầu bằng số 0 nếu có nhập (Vietnamese phone standard)
+    if (val.length > 0 && val[0] !== '0') {
+      val = '0' + val;
+      if (val.length > 10) val = val.substring(0, 10);
+    }
+    
+    e.target.value = val;
+  });
+}
+
 if (form) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
