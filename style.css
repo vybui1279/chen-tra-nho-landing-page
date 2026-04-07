@@ -1479,7 +1479,7 @@ blockquote { font-family: var(--font-accent); }
   font-size: 1rem;
 }
 .footer__copy {
-  font-size: .78rem;
+  font-size: .95rem;
   color: var(--ink-soft);
 }
 .footer__social {
