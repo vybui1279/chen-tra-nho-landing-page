@@ -5,19 +5,19 @@
 
 /* ── Local Fonts ────────────────────────────────────────── */
 @font-face {
-  font-family: 'SVN-Abril Fatface';
-  src: url('SVN-Abril Fatface.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'SVNAbrilFatface';
+  src: url('./svn-abril-fatface.ttf') format('truetype');
+  font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'AfacadFlux';
-  src: url('AfacadFlux-VariableFont_slnt,wght.ttf') format('truetype');
+  src: url('./afacad-flux-variable.ttf') format('truetype');
   font-weight: 100 1000;
-  font-style: oblique -10deg 0deg;
-  font-display: swap;
+  font-style: normal;
+  font-display: block;
 }
 
 /* ── Variables ─────────────────────────────────────────── */
@@ -39,9 +39,9 @@
   --white:         #FEFCF7;
   --campaign-bg:   #2D4A1E;
 
-  --font-display:  'SVN-Abril Fatface', Georgia, serif;
+  --font-display:  'SVNAbrilFatface', Georgia, serif;
   --font-body:     'AfacadFlux', 'Be Vietnam Pro', sans-serif;
-  --font-accent:   'SVN-Abril Fatface', Georgia, serif;
+  --font-accent:   'SVNAbrilFatface', Georgia, serif;
 
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -71,6 +71,9 @@ body {
   color: var(--ink);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  font-variation-settings: 'slnt' 0;
 }
 
 img { display: block; max-width: 100%; }
@@ -101,7 +104,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
 h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); font-weight: 400; }
 h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 400; }
 h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 400; }
-p  { line-height: 1.75; }
+p  { line-height: 1.8; }
 em { font-style: italic; }
 blockquote { font-family: var(--font-accent); }
 
@@ -228,7 +231,7 @@ blockquote { font-family: var(--font-accent); }
   gap: 10px;
   font-family: var(--font-display);
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--white);
 }
 .nav__logo-symbol {
@@ -322,7 +325,7 @@ blockquote { font-family: var(--font-accent); }
 .nav__mobile a {
   font-family: var(--font-display);
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--ink);
   transition: color .25s;
 }
@@ -371,7 +374,7 @@ blockquote { font-family: var(--font-accent); }
 }
 
 .hero__label {
-  font-size: .85rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: .2em;
   color: var(--ink-soft);
@@ -397,7 +400,7 @@ blockquote { font-family: var(--font-accent); }
 
 .hero__slogan {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--ink-mid);
   margin-bottom: 24px;
   font-weight: 400;
@@ -637,7 +640,7 @@ blockquote { font-family: var(--font-accent); }
 .story__body {
   color: var(--ink-mid);
   margin-bottom: 16px;
-  font-size: .97rem;
+  font-size: 1.15rem;
 }
 .story__body--highlight {
   background: rgba(232,184,75,.12);
@@ -706,7 +709,7 @@ blockquote { font-family: var(--font-accent); }
 .campaign__title em { color: var(--gold); }
 .campaign__subtitle {
   color: rgba(245,237,216,.65);
-  font-size: .95rem;
+  font-size: 1.1rem;
   letter-spacing: .06em;
 }
 
@@ -797,7 +800,7 @@ blockquote { font-family: var(--font-accent); }
   margin-bottom: 10px;
 }
 .step__desc {
-  font-size: .82rem;
+  font-size: .98rem;
   color: rgba(245,237,216,.65);
   line-height: 1.65;
 }
@@ -837,7 +840,7 @@ blockquote { font-family: var(--font-accent); }
 .tutorial__title em { color: var(--green-lush); font-size: 0.85em; }
 .tutorial__subtitle {
   color: var(--ink-soft);
-  font-size: .95rem;
+  font-size: 1.1rem;
 }
 
 .tutorial__track-wrap {
@@ -952,7 +955,7 @@ blockquote { font-family: var(--font-accent); }
 .gallery__title em { color: var(--green-lush); font-size: 0.85em; }
 .gallery__subtitle {
   color: var(--ink-soft);
-  font-size: .95rem;
+  font-size: 1.1rem;
   letter-spacing: .06em;
 }
 
@@ -1104,7 +1107,7 @@ blockquote { font-family: var(--font-accent); }
   border: 1px solid rgba(90,143,78,.18);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
-  font-size: .83rem;
+  font-size: .95rem;
   font-weight: 500;
   color: var(--ink-mid);
   transition: var(--transition);
@@ -1212,7 +1215,7 @@ blockquote { font-family: var(--font-accent); }
   margin-bottom: 10px;
 }
 .tea-card__desc {
-  font-size: .82rem;
+  font-size: .98rem;
   color: var(--ink-soft);
   line-height: 1.65;
   margin-bottom: 16px;
@@ -1310,7 +1313,7 @@ blockquote { font-family: var(--font-accent); }
 }
 .footer__poem-decoration { font-size: 2.5rem; margin-bottom: 20px; }
 .footer__poem-text {
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   color: var(--ink);
   font-style: italic;
   line-height: 1.8;
@@ -1347,7 +1350,7 @@ blockquote { font-family: var(--font-accent); }
   margin-bottom: 8px;
 }
 .booking__subtitle {
-  font-size: .88rem;
+  font-size: 1.05rem;
   color: var(--ink-soft);
   font-style: italic;
 }
@@ -1364,7 +1367,7 @@ blockquote { font-family: var(--font-accent); }
 
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-label {
-  font-size: .8rem;
+  font-size: .95rem;
   font-weight: 600;
   letter-spacing: .05em;
   color: var(--ink-mid);
@@ -1433,7 +1436,7 @@ blockquote { font-family: var(--font-accent); }
 .footer__info-icon { font-size: 1.6rem; flex-shrink: 0; }
 .footer__info-card strong {
   display: block;
-  font-size: .8rem;
+  font-size: .95rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1441,7 +1444,7 @@ blockquote { font-family: var(--font-accent); }
   margin-bottom: 4px;
 }
 .footer__info-card p {
-  font-size: .83rem;
+  font-size: 1rem;
   color: var(--ink-soft);
   line-height: 1.6;
 }
