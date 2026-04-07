@@ -111,7 +111,7 @@ blockquote { font-family: var(--font-accent); }
 .section-label {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: .75rem;
+  font-size: .95rem;
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -151,7 +151,7 @@ blockquote { font-family: var(--font-accent); }
   padding: 14px 32px;
   border-radius: 999px;
   font-family: var(--font-body);
-  font-size: .95rem;
+  font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: .04em;
   transition: var(--transition);
@@ -230,7 +230,7 @@ blockquote { font-family: var(--font-accent); }
   align-items: center;
   gap: 10px;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 400;
   color: var(--white);
 }
@@ -252,7 +252,7 @@ blockquote { font-family: var(--font-accent); }
   gap: 36px;
 }
 .nav__links a {
-  font-size: .88rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--white);
   letter-spacing: .03em;
@@ -274,9 +274,9 @@ blockquote { font-family: var(--font-accent); }
 .nav__cta-link {
   background: var(--green-lush);
   color: var(--white) !important;
-  padding: 8px 20px;
+  padding: 10px 24px;
   border-radius: 999px;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   box-shadow: 0 3px 14px rgba(90,143,78,.35);
 }
 .nav__cta-link::after { display: none !important; }
@@ -664,7 +664,7 @@ blockquote { font-family: var(--font-accent); }
   color: var(--green-dark);
   border: 1px solid rgba(90,143,78,.20);
   border-radius: 999px;
-  font-size: .8rem;
+  font-size: .95rem;
   font-weight: 500;
   transition: var(--transition);
 }
@@ -787,7 +787,7 @@ blockquote { font-family: var(--font-accent); }
 }
 .step__number {
   font-family: var(--font-display);
-  font-size: .75rem;
+  font-size: .9rem;
   font-weight: 700;
   letter-spacing: .15em;
   color: var(--gold);
@@ -795,7 +795,7 @@ blockquote { font-family: var(--font-accent); }
 }
 .step__title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: var(--cream);
   margin-bottom: 10px;
 }
@@ -1107,7 +1107,7 @@ blockquote { font-family: var(--font-accent); }
   border: 1px solid rgba(90,143,78,.18);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
-  font-size: .95rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--ink-mid);
   transition: var(--transition);
@@ -1210,7 +1210,7 @@ blockquote { font-family: var(--font-accent); }
   margin-bottom: 6px;
 }
 .tea-card__name {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--ink);
   margin-bottom: 10px;
 }
@@ -1226,7 +1226,7 @@ blockquote { font-family: var(--font-accent); }
   flex-wrap: wrap;
 }
 .tea-card__tags span {
-  font-size: .72rem;
+  font-size: .85rem;
   padding: 3px 10px;
   background: rgba(90,143,78,.08);
   color: var(--green-dark);
@@ -1466,7 +1466,7 @@ blockquote { font-family: var(--font-accent); }
   align-items: center;
   gap: 10px;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 .footer__logo span:first-child {
