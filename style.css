@@ -80,6 +80,11 @@ img { display: block; max-width: 100%; }
 a  { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { border: none; cursor: pointer; font-family: inherit; }
+input, select, textarea, button {
+  font-family: inherit;
+  font-variation-settings: 'slnt' 0;
+  font-synthesis: none;
+}
 
 .container {
   max-width: 1200px;
