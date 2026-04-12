@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thuê Không Gian Sáng Tạo — Le'Monet Art Café</title>
+  <meta name="description" content="Thuê phòng làm việc, dạy học, workshop tại Le'Monet Art Café Quận 2. 3 gói linh hoạt, không gian nghệ thuật, đặt chỗ dễ dàng qua Fanpage." />
+  <meta property="og:title" content="Thuê Không Gian Sáng Tạo — Le'Monet Art Café" />
+  <meta property="og:description" content="Thuê phòng làm việc, dạy học, workshop tại Le'Monet Art Café Quận 2. 3 gói linh hoạt, không gian nghệ thuật." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* ============================================================
+       THUÊ PHÒNG PAGE — Pastel Spring Palette
+       Inspired by: water reflection aqua · spring botanical blue
+       · blush pink · editorial cream
+       Le'Monet Art Café · 2025
+    ============================================================ */
+
+    /* ── Color System ─────────────────────────────────────── */
+    :root {
+      /* Sky blues — deeper, more readable */
+      --sky:         #2A7FA8;
+      --sky-mid:     #5AAACE;
+      --sky-light:   #C0DFF0;
+      --sky-pale:    #EBF5FB;
+
+      /* Blush pinks */
+      --blush:       #C96A7D;
+      --blush-mid:   #E29AAA;
+      --blush-light: #F6D8DF;
+      --blush-pale:  #FDF2F5;
+
+      /* Mint / sage */
+      --sage:        #4F7A49;
+      --sage-light:  #82AA7C;
+      --sage-pale:   #E2EDE0;
+
+      /* Lavender */
+      --lavender:    #6B64B2;
+      --lavender-pale: #ECEAF8;
+
+      /* Warm peach accent */
+      --peach:       #F0BC9A;
+      --peach-pale:  #FDF0E8;
+
+      /* Section backgrounds */
+      --bg-hero:    linear-gradient(155deg, #EBF5FB 0%, #FDF2F5 40%, #E2EDE0 100%);
+      --bg-alt-1:   #EBF5FB;
+      --bg-alt-2:   #FDF2F5;
+      --bg-dark:    #1A3A4A;
+    }
+
+    /* ── Font additions ───────────────────────────────────── */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .tp-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 120px 24px 80px;
+      background: var(--bg-hero);
+    }
+
+    .tp-hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../assets/images/hero_water_ripple.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      opacity: 1;
+    }
+
+    .tp-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(26, 58, 74, 0.45) 0%, rgba(26, 58, 74, 0.2) 100%);
+      z-index: 1;
+    }
+
+    /* Floating color orbs — like the water reflection image */
+    .tp-hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(123,189,212,0.35) 0%, transparent 70%);
+      top: -100px; left: -100px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .tp-hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(232,160,173,0.30) 0%, transparent 70%);
+      bottom: -80px; right: -60px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .tp-hero__content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 820px;
+    }
+
+    .tp-hero__supertitle {
+      display: inline-block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 10px 28px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    }
+
+    .tp-hero__title {
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+      font-family: var(--font-display);
+      text-shadow: 0 4px 12px rgba(0,0,0,0.38);
+    }
+
+    .tp-hero__title em {
+      color: var(--white);
+      font-style: italic;
+      opacity: 0.95;
+    }
+
+    .tp-hero__subtext {
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.95);
+      line-height: 1.95;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .tp-hero__cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Hero-specific Button Glass styles */
+    .tp-hero .btn--sky {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .tp-hero .btn--sky:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .tp-hero .btn--blush-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .tp-hero .btn--blush-ghost:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--white);
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .tp-hero__scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      animation: bounceDown 2.2s ease-in-out infinite;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(9px); }
+    }
+
+    /* ── Sections Shared ─────────────────────────────────── */
+    .tp-section {
+      padding: 100px 24px;
+    }
+
+    /* Sky-tinted sections */
+    .tp-section--sky {
+      background: var(--bg-alt-1);
+    }
+
+    /* Blush-tinted sections */
+    .tp-section--blush {
+      background: var(--bg-alt-2);
+    }
+
+    /* Lavender-tinted */
+    .tp-section--lavender {
+      background: var(--lavender-pale);
+    }
+
+    /* Dark teal CTA */
+    .tp-section--dark {
+      background: var(--bg-dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tp-section--dark::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(123,189,212,0.12) 0%, transparent 65%);
+      top: -200px; right: -200px;
+      pointer-events: none;
+    }
+
+    .tp-section--dark::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(232,160,173,0.10) 0%, transparent 65%);
+      bottom: -150px; left: -100px;
+      pointer-events: none;
+    }
+
+    .tp-section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    /* Labels — color variants */
+    .tp-section-label {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      color: var(--sky);
+      background: rgba(42, 127, 168, 0.10);
+      border: 1px solid rgba(42, 127, 168, 0.25);
+    }
+
+    .tp-section-label--blush {
+      color: var(--blush);
+      background: rgba(201, 106, 125, 0.10);
+      border-color: rgba(201, 106, 125, 0.28);
+    }
+
+    .tp-section-label--sage {
+      color: var(--sage);
+      background: rgba(79, 122, 73, 0.10);
+      border-color: rgba(79, 122, 73, 0.22);
+    }
+
+    .tp-section-label--lavender {
+      color: var(--lavender);
+      background: rgba(107, 100, 178, 0.12);
+      border-color: rgba(107, 100, 178, 0.28);
+    }
+
+    .tp-section-label--light {
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .tp-section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--ink);
+      font-family: var(--font-display);
+      margin-bottom: 16px;
+    }
+
+    .tp-section-title em { color: var(--sky); }
+    .tp-section-title em.blush { color: var(--blush); }
+    .tp-section-title em.lavender { color: var(--lavender); }
+
+    .tp-section-title--light { color: #EDF6FB; }
+
+    .tp-section-subtitle {
+      color: var(--ink-soft);
+      font-size: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    .tp-section-subtitle--light {
+      color: rgba(237, 246, 251, 0.70);
+    }
+
+    /* ── Section 2: Highlights ───────────────────────────── */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .highlight-card {
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Card 1 — sky blue */
+    .highlight-card:nth-child(1) {
+      background: linear-gradient(160deg, #fff 60%, var(--sky-light) 100%);
+      border: 1px solid rgba(123, 189, 212, 0.2);
+    }
+
+    .highlight-card:nth-child(1)::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--sky-mid), var(--sky));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    /* Card 2 — blush pink */
+    .highlight-card:nth-child(2) {
+      background: linear-gradient(160deg, #fff 60%, var(--blush-light) 100%);
+      border: 1px solid rgba(232, 160, 173, 0.2);
+    }
+
+    .highlight-card:nth-child(2)::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blush-mid), var(--blush));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    /* Card 3 — sage green */
+    .highlight-card:nth-child(3) {
+      background: linear-gradient(160deg, #fff 60%, var(--sage-pale) 100%);
+      border: 1px solid rgba(125, 155, 118, 0.2);
+    }
+
+    .highlight-card:nth-child(3)::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--sage-light), var(--sage));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .highlight-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .highlight-card__icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      margin: 0 auto 24px;
+      flex-shrink: 0;
+    }
+
+    .highlight-card__icon svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+    }
+
+    .highlight-card__title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .highlight-card__desc {
+      color: var(--ink-soft);
+      font-size: 1.4rem;
+      line-height: 1.8;
+    }
+
+    /* ── Section 3: Rooms ────────────────────────────────── */
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .room-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+    }
+
+    .room-card:nth-child(1) { border: 1px solid rgba(123, 189, 212, 0.2); }
+    .room-card:nth-child(2) { border: 1px solid rgba(232, 160, 173, 0.2); }
+    .room-card:nth-child(3) { border: 1px solid rgba(125, 155, 118, 0.2); }
+
+    .room-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .room-card__image-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 260px;
+    }
+
+    .room-card__image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .room-card:hover .room-card__image-wrap img {
+      transform: scale(1.05);
+    }
+
+    /* Overlay tint per card */
+    .room-card:nth-child(1) .room-card__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26, 58, 74, 0.65) 0%, rgba(123,189,212,0.1) 60%, transparent 100%);
+    }
+
+    .room-card:nth-child(2) .room-card__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(100, 30, 50, 0.55) 0%, rgba(232,160,173,0.1) 60%, transparent 100%);
+    }
+
+    .room-card:nth-child(3) .room-card__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(42, 61, 36, 0.60) 0%, rgba(125,155,118,0.1) 60%, transparent 100%);
+    }
+
+    .room-card__badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      backdrop-filter: blur(6px);
+    }
+
+    .room-card:nth-child(1) .room-card__badge { background: rgba(123,189,212,0.75); }
+    .room-card:nth-child(2) .room-card__badge { background: rgba(232,160,173,0.80); }
+    .room-card:nth-child(3) .room-card__badge { background: rgba(125,155,118,0.75); }
+
+    .room-card__body { padding: 28px; }
+
+    .room-card__num {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .room-card:nth-child(1) .room-card__num { color: var(--sky); }
+    .room-card:nth-child(2) .room-card__num { color: var(--blush); }
+    .room-card:nth-child(3) .room-card__num { color: var(--sage); }
+
+    .room-card__name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .room-card__tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .room-card__tag {
+      font-size: 1.05rem;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .room-card:nth-child(1) .room-card__tag {
+      background: var(--sky-pale);
+      color: var(--sky);
+      border: 1px solid rgba(123,189,212,0.25);
+    }
+
+    .room-card:nth-child(2) .room-card__tag {
+      background: var(--blush-pale);
+      color: var(--blush);
+      border: 1px solid rgba(232,160,173,0.25);
+    }
+
+    .room-card:nth-child(3) .room-card__tag {
+      background: var(--sage-pale);
+      color: var(--sage);
+      border: 1px solid rgba(125,155,118,0.25);
+    }
+
+    /* ── Section 4: Decision Table ───────────────────────── */
+    .decision-table-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(123, 189, 212, 0.2);
+    }
+
+    .decision-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.2rem;
+    }
+
+    .decision-table thead {
+      background: linear-gradient(90deg, var(--sky) 0%, var(--sky-mid) 100%);
+      color: var(--white);
+    }
+
+    .decision-table th {
+      padding: 18px 24px;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .decision-table td {
+      padding: 22px 24px;
+      border-bottom: 1px solid rgba(42, 127, 168, 0.1);
+      color: var(--ink-mid);
+      line-height: 1.65;
+      font-size: 1.35rem;
+    }
+
+    .decision-table tr:last-child td { border-bottom: none; }
+
+    .decision-table tr:nth-child(even) td { background: var(--sky-pale); }
+    .decision-table tr:hover td { background: rgba(123,189,212,0.08); }
+
+    .decision-table .plan-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: var(--sky);
+    }
+
+    .plan-badge--star { color: var(--blush); }
+
+    /* ── Section 5: Packages ─────────────────────────────── */
+    .packages-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .pkg-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 48px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .pkg-card:hover { box-shadow: var(--shadow-md); }
+
+    /* Pkg 01 — sky blue accent */
+    #goi-01 {
+      border: 1px solid rgba(123,189,212,0.2);
+    }
+
+    #goi-01::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px; height: 100%;
+      background: linear-gradient(180deg, var(--sky-mid), var(--sky));
+    }
+
+    #goi-01 .pkg-card__number { color: var(--sky); }
+    #goi-01 .pkg-card__price-block { background: var(--sky-pale); border: 1px solid rgba(123,189,212,0.15); }
+    #goi-01 .pkg-benefit__icon { background: var(--sky-light); color: var(--sky); }
+    #goi-01 .btn--pkg { background: linear-gradient(135deg, var(--sky), #5AA8CC); }
+
+    /* Pkg 02 — blush pink accent (featured) */
+    #goi-02 {
+      border: 1px solid rgba(232,160,173,0.25);
+      background: linear-gradient(135deg, #fff 70%, var(--blush-pale) 100%);
+    }
+
+    #goi-02::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px; height: 100%;
+      background: linear-gradient(180deg, var(--blush-mid), var(--blush));
+    }
+
+    #goi-02 .pkg-card__number { color: var(--blush); }
+    #goi-02 .pkg-card__name { color: var(--blush); }
+    #goi-02 .pkg-card__price-block { background: var(--blush-pale); border: 1px solid rgba(232,160,173,0.18); }
+    #goi-02 .pkg-benefit__icon { background: var(--blush-light); color: var(--blush); }
+    #goi-02 .pkg-card__comparison { color: var(--blush); background: rgba(232,160,173,0.08); }
+
+    /* Pkg 03 — sage green accent */
+    #goi-03 {
+      border: 1px solid rgba(125,155,118,0.2);
+    }
+
+    #goi-03::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px; height: 100%;
+      background: linear-gradient(180deg, var(--sage-light), var(--sage));
+    }
+
+    #goi-03 .pkg-card__number { color: var(--sage); }
+    #goi-03 .pkg-card__price-block { background: var(--sage-pale); border: 1px solid rgba(125,155,118,0.15); }
+    #goi-03 .pkg-benefit__icon { background: var(--sage-pale); color: var(--sage); }
+    #goi-03 .pkg-card__comparison { color: var(--sage); background: rgba(125,155,118,0.08); }
+
+    /* Shared pkg parts */
+    .pkg-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .pkg-card__number {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .pkg-card__name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .pkg-card__most-badge {
+      background: linear-gradient(135deg, var(--blush-mid), var(--blush));
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      align-self: flex-start;
+      margin-top: 4px;
+      box-shadow: 0 3px 12px rgba(232,160,173,0.4);
+    }
+
+    .pkg-card__price-block {
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pkg-price-main {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    .pkg-price-unit { font-size: 1.1rem; color: var(--ink-soft); }
+
+    .pkg-price-extra {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .pkg-card__meta { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+
+    .pkg-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+    }
+
+    .pkg-meta-icon { font-size: 1rem; }
+
+    .pkg-card__desc {
+      color: var(--ink-mid);
+      font-size: 1.45rem;
+      line-height: 1.9;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .pkg-card__benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .pkg-benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1.35rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    .pkg-benefit__icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pkg-card__note {
+      font-size: 1.25rem;
+      color: var(--ink-soft);
+      background: rgba(42,127,168,0.07);
+      border-left: 3px solid var(--sky-mid);
+      padding: 16px 22px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 24px;
+    }
+
+    #goi-03 .pkg-card__note {
+      background: rgba(79,122,73,0.07);
+      border-left-color: var(--sage-light);
+    }
+
+    .pkg-card__comparison {
+      font-size: 1.3rem;
+      border-radius: var(--radius-sm);
+      padding: 18px 24px;
+      margin-bottom: 24px;
+      line-height: 1.75;
+    }
+
+    /* Unified booking button for packages */
+    .btn--pkg {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.4rem;
+      padding: 14px 36px;
+      font-weight: 600;
+      color: var(--white);
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(0,0,0,.12);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    #goi-01 .btn--pkg { background: linear-gradient(135deg, var(--sky) 0%, #5FA8C8 100%); box-shadow: 0 4px 16px rgba(123,189,212,.4); }
+    #goi-01 .btn--pkg:hover { filter: brightness(1.08); transform: translateY(-3px); }
+    #goi-02 .btn--pkg { background: linear-gradient(135deg, var(--blush) 0%, #D4889A 100%); box-shadow: 0 4px 16px rgba(232,160,173,.4); }
+    #goi-02 .btn--pkg:hover { filter: brightness(1.08); transform: translateY(-3px); }
+    #goi-03 .btn--pkg { background: linear-gradient(135deg, var(--sage) 0%, #5a7a54 100%); box-shadow: 0 4px 16px rgba(125,155,118,.4); }
+    #goi-03 .btn--pkg:hover { filter: brightness(1.1); transform: translateY(-3px); }
+
+    /* Package 3 pricing table */
+    .pkg-table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: var(--radius-md);
+      box-shadow: 0 2px 16px rgba(45,36,22,.06);
+    }
+
+    .pkg-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.15rem;
+      min-width: 500px;
+    }
+
+    .pkg-table thead {
+      background: linear-gradient(90deg, #2A4A38 0%, #1A3D30 100%);
+      color: var(--cream);
+    }
+
+    .pkg-table th {
+      padding: 15px 18px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pkg-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(125,155,118,0.12);
+      color: var(--ink-mid);
+      font-size: 1.15rem;
+    }
+
+    .pkg-table tr:last-child td { border-bottom: none; }
+    .pkg-table tr:nth-child(odd) td { background: rgba(125,155,118,0.04); }
+
+    .pkg-table tr.pkg-table--featured-row td {
+      background: rgba(232,160,173,0.08);
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .star-label { display: inline-flex; align-items: center; gap: 4px; }
+
+    /* ── Section 6: Calendar ─────────────────────────────── */
+    .calendar-embed-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(123,189,212,0.2);
+    }
+
+    .calendar-embed-placeholder {
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, var(--sky-pale) 0%, var(--blush-pale) 100%);
+    }
+
+    .calendar-embed-placeholder__icon {
+      font-size: 4rem;
+      opacity: 0.45;
+    }
+
+    .calendar-embed-placeholder__text {
+      font-size: 1.3rem;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    .calendar-embed-placeholder small {
+      font-size: 1.05rem;
+      opacity: 0.68;
+    }
+
+    /* ── Section 7: Booking CTA (dark teal) ──────────────── */
+    .booking-cta {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .qr-placeholder {
+      width: 220px;
+      height: 220px;
+      background: rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      margin: 0 auto 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      border: 2px dashed rgba(123,189,212,0.5);
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      gap: 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    .qr-placeholder__icon { font-size: 3rem; opacity: 0.5; }
+
+    .booking-cta__steps {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .booking-cta__step-item { display: flex; align-items: center; gap: 8px; }
+
+    .booking-cta__step-num {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(123,189,212,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #EDF6FB;
+    }
+
+    .booking-cta__arrow {
+      color: rgba(123,189,212,0.5);
+      font-size: 1.2rem;
+    }
+
+    .booking-cta__fanpage-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--sky-mid);
+      font-size: 1.2rem;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: color 0.25s;
+      margin-top: 16px;
+    }
+
+    .booking-cta__fanpage-link:hover { color: var(--blush-mid); }
+
+    /* CTA button in dark section */
+    .btn--cta-main {
+      background: linear-gradient(135deg, var(--sky) 0%, var(--sky-mid) 100%);
+      color: var(--white);
+      box-shadow: 0 6px 24px rgba(123,189,212,0.5);
+      border: none;
+      font-size: 1.35rem;
+      padding: 18px 48px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn--cta-main:hover {
+      filter: brightness(1.1);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(123,189,212,0.65);
+    }
+
+    /* ── Scroll Reveal ────────────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s cubic-bezier(.4,0,.2,1), transform 0.65s cubic-bezier(.4,0,.2,1);
+    }
+
+    [data-reveal="left"]  { transform: translateX(-32px); }
+    [data-reveal="right"] { transform: translateX(32px); }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translate(0);
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .highlights-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .rooms-grid      { grid-template-columns: 1fr 1fr; }
+      .pkg-card        { padding: 32px 28px; }
+    }
+
+    @media (max-width: 640px) {
+      .tp-hero { padding: 100px 20px 60px; }
+      .tp-section { padding: 72px 20px; }
+      .rooms-grid { grid-template-columns: 1fr; }
+      .pkg-card { padding: 28px 20px; }
+      .decision-table th, .decision-table td { padding: 14px 14px; }
+      .tp-hero__cta { flex-direction: column; align-items: center; }
+    }
+  </style>
+
+
+
+
+
+
+
+<body>
+  <!-- SVG Icons Sprite -->
+  <svg width="0" height="0" style="display: none;" aria-hidden="true">
+    <defs>
+      <g id="svg-leaf">
+        <path d="M2 22C2 22 2 12 12 2C22 2 22 12 22 12C22 22 12 22 2 22Z" />
+        <path d="M2 22L12 12" />
+      </g>
+      <g id="svg-palette">
+        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.5-.6 1.5-1.5 0-.4-.1-.8-.4-1.1-.3-.3-.4-.8-.4-1.2 0-.9.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.9-4.5-8.7-10-8.7Z"/>
+        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
+        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
+        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+      </g>
+      <g id="svg-teacup">
+        <path d="M4 8V14C4 17.31 6.69 20 10 20H12C15.31 20 18 17.31 18 14V8H4Z" />
+        <path d="M18 10H20C21.1 10 22 10.9 22 12C22 13.1 21.1 14 20 14H18" />
+        <path d="M8 3V5M12 3V5M16 3V5" />
+      </g>
+    </defs>
+  </svg>
+
+  <!-- ============================================================
+       NAV (same structure as index)
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="../index.html" class="nav__logo">
+      <img src="../assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" class="nav__logo-img">
+      <span class="nav__logo-text">Le'Monet Art Café</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../index.html">Chén Trà Nhỏ</a></li>
+      <li><a href="thue-phong.html" class="nav__cta-link nav__cta-link--active">Thuê Không Gian</a></li>
+      <li><a href="../index.html#booking" class="nav__cta-link">Đặt Chỗ</a></li>
+    </ul>
+    <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="navMobile">
+    <ul>
+      <li><a href="../index.html" onclick="closeMobileMenu()">Chén Trà Nhỏ</a></li>
+      <li><a href="thue-phong.html" onclick="closeMobileMenu()">Thuê Không Gian</a></li>
+      <li><a href="../index.html#booking" onclick="closeMobileMenu()">Đặt Chỗ</a></li>
+    </ul>
+  </div>
+
+
+  <!-- ============================================================
+       SECTION 1 — HERO
+  ============================================================ -->
+  <section class="tp-hero" id="home">
+    <div class="tp-hero__bg"></div>
+
+    <div class="tp-hero__content" data-reveal="up">
+      <div style="display: flex; justify-content: center; margin-bottom: 24px;">
+        <img src="../assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.6);" />
+      </div>
+      <span class="tp-hero__supertitle">Le'Monet Art Café · Quận 2</span>
+      <h1 class="tp-hero__title">
+        Cảm Hứng Không Đến Từ<br>
+        <em>Bàn Làm Việc Quen Thuộc</em>
+      </h1>
+      <p class="tp-hero__subtext">
+        Khi bốn bức tường ở nhà không còn cho bạn ý tưởng nào — Le'Monet là nơi bạn cần. Một không gian mang hơi thở nghệ thuật, đủ yên tĩnh để tập trung, đủ ấm áp để sáng tạo — thay thế hoàn toàn văn phòng truyền thống.
+      </p>
+      <div class="tp-hero__cta">
+        <a href="#packages" class="btn btn--sky">
+          Xem các gói
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a href="#dat-cho" class="btn btn--blush-ghost">Đặt chỗ ngay</a>
+      </div>
+    </div>
+
+    <div class="tp-hero__scroll-hint">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Cuộn để khám phá
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 2 — 3 ĐIỂM NHẤN
+  ============================================================ -->
+  <section class="tp-section tp-section--sky" id="highlights">
+    <div class="container">
+      <div class="tp-section-header" data-reveal="up">
+        <span class="tp-section-label">Tại Sao Le'Monet</span>
+        <h2 class="tp-section-title">Nhiều Hơn Một Phòng Họp</h2>
+        <p class="tp-section-subtitle">Không gian được thiết kế để kích thích sáng tạo — không phải chỉ để ngồi.</p>
+      </div>
+
+      <div class="highlights-grid">
+        <div class="highlight-card" data-reveal="up">
+          <div class="highlight-card__icon" style="background: var(--sage-pale); color: var(--sage-dark);">
+            <svg class="icon-svg"><use href="#svg-leaf"></use></svg>
+          </div>
+          <h3 class="highlight-card__title">Yên Tĩnh</h3>
+          <p class="highlight-card__desc">Không gian riêng tư, không bị làm phiền — để bạn thực sự tập trung vào công việc.</p>
+        </div>
+
+        <div class="highlight-card" data-reveal="up">
+          <div class="highlight-card__icon" style="background: var(--blush-pale); color: var(--blush);">
+            <svg class="icon-svg"><use href="#svg-palette"></use></svg>
+          </div>
+          <h3 class="highlight-card__title">Nghệ Thuật</h3>
+          <p class="highlight-card__desc">Hơi thở sáng tạo trong từng góc tiệm — nguồn cảm hứng bạn không tìm thấy ở văn phòng thông thường.</p>
+        </div>
+
+        <div class="highlight-card" data-reveal="up">
+          <div class="highlight-card__icon" style="background: var(--sky-pale); color: var(--sky);">
+            <svg class="icon-svg"><use href="#svg-teacup"></use></svg>
+          </div>
+          <h3 class="highlight-card__title">Được Chăm Sóc</h3>
+          <p class="highlight-card__desc">Tea break, tinh dầu thiên nhiên, ưu đãi menu — làm việc ở đây như được chiều.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 3 — KHÔNG GIAN CỦA LE'MONET
+  ============================================================ -->
+  <section class="tp-section tp-section--blush" id="spaces">
+    <div class="container">
+      <div class="tp-section-header" data-reveal="up">
+        <span class="tp-section-label tp-section-label--blush">Không Gian</span>
+        <h2 class="tp-section-title">Không Gian Của Le'Monet</h2>
+        <p class="tp-section-subtitle">Ba phòng — ba cách làm việc — một vibe chung là cảm hứng.</p>
+      </div>
+
+      <div class="rooms-grid">
+        <div class="room-card" data-reveal="left">
+          <div class="room-card__image-wrap">
+            <img src="../assets/images/room_cam_hung.png" alt="Căn Phòng Xanh Le'Monet" loading="lazy" />
+            <div class="room-card__overlay"></div>
+          </div>
+          <div class="room-card__body">
+            <p class="room-card__num">Phòng 01</p>
+            <h3 class="room-card__name">Căn Phòng Xanh</h3>
+            <div class="room-card__tags">
+              <span class="room-card__tag">👥 10–14 người</span>
+              <span class="room-card__tag">🍿 Ấm cúng</span>
+              <span class="room-card__tag">🎨 Nghệ thuật</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-card" data-reveal="up">
+          <div class="room-card__image-wrap">
+            <img src="../assets/images/room_van_phong.png" alt="Thư Viện Bàn Lớn Le'Monet" loading="lazy" />
+            <div class="room-card__overlay"></div>
+          </div>
+          <div class="room-card__body">
+            <p class="room-card__num">Phòng 02</p>
+            <h3 class="room-card__name">Thư Viện Bàn Lớn</h3>
+            <div class="room-card__tags">
+              <span class="room-card__tag">👥 10–14 người</span>
+              <span class="room-card__tag">📚 Tri thức</span>
+              <span class="room-card__tag">✨ Tinh tế</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-card" data-reveal="right">
+          <div class="room-card__image-wrap">
+            <img src="../assets/images/room_lop_hoc.png" alt="Phòng Họp Có Ban Công Le'Monet" loading="lazy" />
+            <div class="room-card__overlay"></div>
+          </div>
+          <div class="room-card__body">
+            <p class="room-card__num">Phòng 03</p>
+            <h3 class="room-card__name">Phòng Họp Có Ban Công</h3>
+            <div class="room-card__tags">
+              <span class="room-card__tag">👥 12–30 người</span>
+              <span class="room-card__tag">🍃 Thoáng mát</span>
+              <span class="room-card__tag">🔒 Riêng tư</span>
+              <span class="room-card__tag">🚻 Vệ sinh riêng</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 4 — BẠN ĐANG CẦN GÌ?
+  ============================================================ -->
+  <section class="tp-section tp-section--lavender" id="decision">
+    <div class="container">
+      <div class="tp-section-header" data-reveal="up">
+        <span class="tp-section-label tp-section-label--lavender">Chọn Gói</span>
+        <h2 class="tp-section-title">Bạn Đang Phân Vân Chọn Gói Nào?</h2>
+        <p class="tp-section-subtitle">Tìm tình huống phù hợp nhất với bạn bên dưới.</p>
+      </div>
+
+      <div class="decision-table-wrap" data-reveal="up">
+        <table class="decision-table" role="table" aria-label="Bảng hướng dẫn chọn gói phù hợp">
+          <thead>
+            <tr>
+              <th>Tình huống của bạn</th>
+              <th>Nên chọn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cần phòng ngay hôm nay, không báo trước</td>
+              <td><span class="plan-badge">Gói 01</span></td>
+            </tr>
+            <tr>
+              <td>Muốn làm việc thoải mái, được chăm sóc, máy chiếu sẵn sàng</td>
+              <td><span class="plan-badge plan-badge--star">Gói 02 ⭐</span></td>
+            </tr>
+            <tr>
+              <td>Dạy học / workshop đều đặn, muốn địa điểm cố định</td>
+              <td><span class="plan-badge">Gói 03</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 5 — CÁC GÓI THUÊ
+  ============================================================ -->
+  <section class="tp-section tp-section--sky" id="packages">
+    <div class="container">
+      <div class="tp-section-header" data-reveal="up">
+        <span class="tp-section-label">Bảng Giá</span>
+        <h2 class="tp-section-title">Các Gói Thuê</h2>
+        <p class="tp-section-subtitle">3 gói linh hoạt — phù hợp với mọi nhu cầu từ họp nhóm đến lớp học định kỳ.</p>
+      </div>
+
+      <div class="packages-stack">
+
+        <!-- GÓI 01 -->
+        <div class="pkg-card" id="goi-01" data-reveal="up">
+          <div class="pkg-card__header">
+            <div>
+              <p class="pkg-card__number">GÓI 01</p>
+              <h3 class="pkg-card__name">Khởi Đầu Cảm Hứng</h3>
+            </div>
+          </div>
+
+          <div class="pkg-card__price-block">
+            <span class="pkg-price-main">200.000 VNĐ</span>
+            <span class="pkg-price-unit">/ 2 tiếng</span>
+            <p class="pkg-price-extra">Thêm giờ: +50.000 VNĐ mỗi tiếng tiếp theo</p>
+          </div>
+
+          <div class="pkg-card__meta">
+            <span class="pkg-meta-item"><span class="pkg-meta-icon">👥</span> 10–14 người</span>
+          </div>
+
+          <p class="pkg-card__desc">
+            Họp nhóm, quay video, làm việc cần không gian riêng tư, yên tĩnh — không muốn bị làm phiền.
+          </p>
+
+          <p style="font-weight:600; color:var(--ink); margin-bottom:14px;">Cách đặt chỗ:</p>
+          <div class="pkg-card__benefits">
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">🏃</span>
+              <span><strong>Ghé trực tiếp</strong> — Báo nhân viên, nếu có phòng trống là book được ngay. Không cần chuẩn bị gì trước.</span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">📱</span>
+              <span><strong>Đặt trước qua Fanpage</strong> — Để chắc chắn có phòng vào đúng giờ bạn muốn, đặc biệt khung giờ sáng & trưa thường kín sớm.</span>
+            </div>
+          </div>
+
+          <a href="#dat-cho" class="btn--pkg">Đặt chỗ qua Fanpage →</a>
+        </div>
+
+
+        <!-- GÓI 02 -->
+        <div class="pkg-card pkg-card--featured" id="goi-02" data-reveal="up">
+          <div class="pkg-card__header">
+            <div>
+              <p class="pkg-card__number">GÓI 02</p>
+              <h3 class="pkg-card__name">Văn Phòng Sáng Tạo</h3>
+            </div>
+            <span class="pkg-card__most-badge">⭐ Được chọn nhiều nhất</span>
+          </div>
+
+          <div class="pkg-card__price-block">
+            <span class="pkg-price-main">450.000 VNĐ</span>
+            <span class="pkg-price-unit">/ 2 tiếng</span>
+            <p class="pkg-price-extra">Thêm giờ: +50.000 VNĐ mỗi tiếng tiếp theo</p>
+          </div>
+
+          <div class="pkg-card__meta">
+            <span class="pkg-meta-item"><span class="pkg-meta-icon">👥</span> 10–14 người</span>
+          </div>
+
+          <p class="pkg-card__desc">
+            Đổi môi trường làm việc, thoát khỏi bàn quen thuộc, tìm lại cảm hứng — và vẫn muốn được chăm sóc tử tế trong lúc làm việc.
+          </p>
+
+          <p style="font-weight:600; color:var(--ink); margin-bottom:14px;">Bạn nhận được:</p>
+          <div class="pkg-card__benefits">
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">🍵</span>
+              <span><strong>Mini Tea Break</strong> — trà trái cây, bánh, kẹo nạp năng lượng giữa buổi</span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">🌸</span>
+              <span><strong>Xông tinh dầu thiên nhiên</strong> — không gian thơm, dễ tập trung, sáng tạo hơn</span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">📽</span>
+              <span><strong>Miễn phí máy chiếu</strong> — thuyết trình, brainstorm, pitching đều ổn</span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">🏷</span>
+              <span><strong>Giảm 10% toàn bộ menu</strong> nước & đồ ăn trong thời gian thuê</span>
+            </div>
+          </div>
+
+          <div class="pkg-card__comparison">
+            💡 So với Gói 01: Chênh 250K — nhưng bạn đã có tea break, tinh dầu, máy chiếu. Nếu buổi làm việc kéo dài hơn 2 tiếng, Gói 02 thường hời hơn — hiệu suất hơn.
+          </div>
+
+          <div class="pkg-card__note">
+            ⏰ Vui lòng đặt chỗ qua Fanpage trước ít nhất <strong>24 tiếng</strong>.
+          </div>
+
+          <a href="#dat-cho" class="btn--pkg">Đặt chỗ qua Fanpage →</a>
+        </div>
+
+
+        <!-- GÓI 03 -->
+        <div class="pkg-card" id="goi-03" data-reveal="up">
+          <div class="pkg-card__header">
+            <div>
+              <p class="pkg-card__number">GÓI 03</p>
+              <h3 class="pkg-card__name">Lớp Học Cảm Hứng</h3>
+            </div>
+          </div>
+
+          <div class="pkg-card__price-block">
+            <span class="pkg-price-unit" style="font-size:1rem;">📅 Thứ 2 – Thứ 6 &nbsp;·&nbsp; ⏱ Tối đa 3 tiếng/buổi &nbsp;·&nbsp; <span class="pkg-meta-icon">👥</span> 12–30 người</span>
+          </div>
+
+          <p class="pkg-card__desc">
+            Dạy ngoại ngữ, dạy kỹ năng, tổ chức workshop thủ công định kỳ — và muốn một "địa điểm cố định", tiện nghi.
+          </p>
+
+          <p style="font-weight:600; color:var(--ink); margin-bottom:14px;">Bảng giá theo tháng:</p>
+          <div class="pkg-table-wrap">
+            <table class="pkg-table" role="table" aria-label="Bảng giá Gói 03 Lớp Học Cảm Hứng">
+              <thead>
+                <tr>
+                  <th>Gói</th>
+                  <th>Số buổi</th>
+                  <th>Tổng giờ</th>
+                  <th>Đơn giá</th>
+                  <th>Tổng / tháng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Người Quen</td>
+                  <td>4 buổi <small>(1/tuần)</small></td>
+                  <td>12 giờ</td>
+                  <td>65K/giờ</td>
+                  <td><strong>780.000 VNĐ</strong></td>
+                </tr>
+                <tr class="pkg-table--featured-row">
+                  <td><span class="star-label">⭐ Người Thân</span></td>
+                  <td>8 buổi <small>(2/tuần)</small></td>
+                  <td>24 giờ</td>
+                  <td>55K/giờ</td>
+                  <td><strong>1.320.000 VNĐ</strong></td>
+                </tr>
+                <tr>
+                  <td>Người Nhà</td>
+                  <td>12 buổi <small>(3/tuần)</small></td>
+                  <td>36 giờ</td>
+                  <td>50K/giờ</td>
+                  <td><strong>1.800.000 VNĐ</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="font-weight:600; color:var(--ink); margin: 24px 0 14px;">Tiện ích đi kèm:</p>
+          <div class="pkg-card__benefits">
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">📦</span>
+              <span><strong>Gửi đồ dùng workshop tại tiệm</strong> — màu vẽ, vải, dụng cụ dạy học — khỏi mang đi mang về mỗi buổi</span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">📋</span>
+              <span><strong>Đặt bảng thông tin lớp học</strong> ngay tại cửa tiệm — tiệm giúp bạn quảng bá miễn phí</span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">📽</span>
+              <span><strong>Miễn phí máy chiếu</strong></span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">🏷</span>
+              <span><strong>Giảm 10% menu</strong> Food & Drink cho cả host lẫn học viên</span>
+            </div>
+            <div class="pkg-benefit">
+              <span class="pkg-benefit__icon">💧</span>
+              <span><strong>Nước lọc / trà đá</strong> phục vụ tại phòng</span>
+            </div>
+          </div>
+
+          <div class="pkg-card__comparison">
+            💡 Tính ra: Chưa tới 50K–65K/giờ — rẻ hơn nhiều so với thuê lẻ, và bạn có hẳn một <strong>"địa điểm thương hiệu"</strong> của riêng mình.
+          </div>
+
+          <div class="pkg-card__note">
+            ⏰ Vui lòng đặt chỗ qua Fanpage trước ít nhất <strong>24 tiếng</strong>.
+          </div>
+
+          <a href="#dat-cho" class="btn--pkg">Đặt chỗ qua Fanpage →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 — LỊCH TRỐNG
+  ============================================================ -->
+  <section class="tp-section" id="lich" style="background: white;">
+    <div class="container">
+      <div class="tp-section-header" data-reveal="up">
+        <span class="tp-section-label">Lịch Phòng</span>
+        <h2 class="tp-section-title">Kiểm Tra <em>Khung Giờ Trống</em></h2>
+        <p class="tp-section-subtitle">Xem lịch bên dưới để biết phòng đang trống khung giờ nào trước khi nhắn tin đặt chỗ.</p>
+      </div>
+
+      <div class="calendar-embed-wrap" data-reveal="up">
+        <!-- Nhúng Google Calendar Embed tại đây -->
+        <!-- THAY THẾ TOÀN BỘ div.calendar-embed-placeholder bằng thẻ <iframe> của Google Calendar -->
+        <div class="calendar-embed-placeholder">
+          <span class="calendar-embed-placeholder__icon">📅</span>
+          <p class="calendar-embed-placeholder__text">
+            Lịch phòng sẽ được hiển thị tại đây<br>
+            <small>Nhúng Google Calendar embed code vào đây</small>
+          </p>
+        </div>
+        <!-- Ví dụ embed (bỏ comment khi đã có src thực):
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=Asia/Ho_Chi_Minh"
+          style="border:0; width:100%; height:600px;"
+          frameborder="0"
+          scrolling="no"
+          title="Lịch phòng Le'Monet">
+        </iframe>
+        -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 7 — ĐẶT CHỖ NGAY
+  ============================================================ -->
+  <footer class="tp-section tp-section--dark" id="dat-cho">
+    <div class="container">
+      <div class="tp-section-header" data-reveal="up">
+        <span class="tp-section-label tp-section-label--light">Liên Hệ</span>
+        <h2 class="tp-section-title tp-section-title--light">Đặt Chỗ Ngay</h2>
+        <p class="tp-section-subtitle tp-section-subtitle--light">Quét mã → Nhắn tin → Le'Monet xác nhận trong vòng vài tiếng.</p>
+      </div>
+
+      <div class="booking-cta" data-reveal="up">
+
+        <div class="booking-cta__steps">
+          <span class="booking-cta__step-item">
+            <span class="booking-cta__step-num">1</span>
+            Quét mã QR
+          </span>
+          <span class="booking-cta__arrow">→</span>
+          <span class="booking-cta__step-item">
+            <span class="booking-cta__step-num">2</span>
+            Nhắn tin đặt chỗ
+          </span>
+          <span class="booking-cta__arrow">→</span>
+          <span class="booking-cta__step-item">
+            <span class="booking-cta__step-num">3</span>
+            Le'Monet xác nhận
+          </span>
+        </div>
+
+        <!-- QR Code placeholder — thay thế bằng ảnh QR Code thực -->
+        <div class="qr-placeholder" role="img" aria-label="QR Code Fanpage Le'Monet Art Café">
+          <span class="qr-placeholder__icon">▣</span>
+          <span>QR Code Fanpage<br>Le'Monet Art Café</span>
+          <small style="opacity:0.6; font-size:0.78rem;">(Thay thế bằng ảnh QR Code thực)</small>
+        </div>
+
+        <a href="https://www.facebook.com/lemonetartcafe"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="booking-cta__fanpage-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          Hoặc nhắn tin trực tiếp qua Fanpage Le'Monet
+        </a>
+
+      </div>
+
+      <!-- Footer bottom -->
+      <div style="border-top: 1px solid rgba(245,237,216,0.12); margin-top: 64px; padding-top: 32px; text-align:center;">
+        <a href="../index.html" style="display:inline-flex; align-items:center; gap:10px; color:var(--cream); font-family:var(--font-display); font-size:1.2rem; margin-bottom:12px;">
+          <img src="../assets/images/logo_lemonet.png" alt="Logo" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,0.2);">
+          Le'Monet Art Café
+        </a>
+        <p style="color:rgba(245,237,216,0.5); font-size:0.88rem; margin-top:8px;">© 2025 Le'Monet Art Café · Quận 2, TP. Hồ Chí Minh</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script>
+    /* Nav scroll */
+    const nav = document.getElementById('nav');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+      if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    /* Mobile menu */
+    const hamburger  = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobile');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* Back to top */
+    if (backToTop) {
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    /* Smooth scroll for anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    /* Reveal on scroll */
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+    revealEls.forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 3) * 0.1}s`;
+      revealObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>

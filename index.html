@@ -4,17 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chén Trà Nhỏ – Câu Chuyện Lớn | Le'Monet Art Café</title>
+  <title>Le'Monet Art Café – Gác lại điện thoại, giữ lấy kỷ niệm</title>
   <meta name="description"
-    content="Chén Trà Nhỏ – nơi gác lại điện thoại, giữ lấy kỷ niệm. Thưởng trà Việt chất lượng tại Le'Monet Art Café, Quận 2, TP.HCM. Ghé tiệm từ 8 giờ sáng mỗi ngày." />
-  <meta property="og:title" content="Chén Trà Nhỏ – Câu Chuyện Lớn" />
+    content="Le'Monet Art Café – nơi gác lại điện thoại, giữ lấy kỷ niệm. Không gian trà nghệ thuật & sáng tạo tại Quận 2, TP.HCM. Ghé tiệm từ 8 giờ sáng mỗi ngày." />
+  <meta property="og:title" content="Le'Monet Art Café – Gác lại điện thoại, giữ lấy kỷ niệm" />
   <meta property="og:description"
     content="Gác lại điện thoại, giữ lấy kỷ niệm. Thưởng trà Việt tại Le'Monet Art Café." />
   <!-- Local fonts loaded via @font-face in style.css -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -114,13 +114,12 @@
   ============================================================ -->
   <nav class="nav" id="nav">
     <div class="nav__logo">
-      <span class="nav__logo-symbol">茶</span>
-      <span class="nav__logo-text">Chén Trà Nhỏ</span>
+      <img src="assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" class="nav__logo-img">
+      <span class="nav__logo-text">Le'Monet Art Café</span>
     </div>
     <ul class="nav__links">
-      <li><a href="#story">Câu Chuyện</a></li>
-      <li><a href="#campaign">15 Phút</a></li>
-      <li><a href="#tea">Tinh Hoa Trà</a></li>
+      <li><a href="#nav">Chén Trà Nhỏ</a></li>
+      <li><a href="pages/thue-phong.html">Thuê Không Gian</a></li>
       <li><a href="#booking" class="nav__cta-link">Đặt Chỗ</a></li>
     </ul>
     <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
@@ -131,9 +130,8 @@
   <!-- Mobile menu -->
   <div class="nav__mobile" id="navMobile">
     <ul>
-      <li><a href="#story" onclick="closeMobileMenu()">Câu Chuyện</a></li>
-      <li><a href="#campaign" onclick="closeMobileMenu()">15 Phút</a></li>
-      <li><a href="#tea" onclick="closeMobileMenu()">Tinh Hoa Trà</a></li>
+      <li><a href="#nav" onclick="closeMobileMenu()">Chén Trà Nhỏ</a></li>
+      <li><a href="pages/thue-phong.html">Thuê Không Gian</a></li>
       <li><a href="#booking" onclick="closeMobileMenu()">Đặt Chỗ</a></li>
     </ul>
   </div>
@@ -145,6 +143,9 @@
     <div class="hero__frame">
       <!-- Content Centered -->
       <div class="hero__content-centered">
+        <div style="display: flex; justify-content: center; margin-bottom: 24px;">
+          <img src="assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.6);" />
+        </div>
         <p class="hero__label">Le'Monet Art Café · Bộ sưu tập Trà Việt</p>
         <h1 class="hero__title">
           <span>CHÉN TRÀ NHỎ</span>
@@ -154,7 +155,7 @@
         
         <!-- Illustration now in flow -->
         <div class="hero__main-visual">
-          <img src="hero_teapot_illustration.png" alt="Ấm trà nghệ thuật" class="hero__teapot-img" />
+          <img src="assets/images/hero_teapot_illustration.png" alt="Ấm trà nghệ thuật" class="hero__teapot-img" />
         </div>
 
         <div class="hero__cta-wrap">
@@ -224,7 +225,7 @@
         <!-- Illustration side -->
         <div class="story__visual" data-reveal="left">
           <div class="story__illustration-frame">
-            <img src="tribute_father_scene.png"
+            <img src="assets/images/tribute_father_scene.png"
               alt="Người cha và con gái tí hon ngồi bên chén trà lớn, lá trà bay bổng xung quanh"
               class="story__illustration" />
             <div class="story__frame-ornament top-left"></div>
@@ -304,7 +305,7 @@
 
       <!-- Campaign illustration -->
       <div class="campaign__scene" data-reveal="up">
-        <img src="box02.png" alt="Nhân vật tí hon bỏ điện thoại vào hộp và ngồi trò chuyện bên ấm trà"
+        <img src="assets/images/box02.png" alt="Nhân vật tí hon bỏ điện thoại vào hộp và ngồi trò chuyện bên ấm trà"
           class="campaign__illustration" />
         <div class="campaign__scene-label">
           <span><svg viewBox="0 0 24 24" class="icon-svg" style="margin-right:4px; font-size: 1.25em">
@@ -375,7 +376,7 @@
   ============================================================ -->
   <section class="tutorial" id="tutorial">
     <!-- Placeholder for tea table background -->
-    <div class="tutorial__bg" style="background-image: url('tea_table_bg_placeholder.png');"></div>
+    <div class="tutorial__bg" style="background-image: url('assets/images/tea_table_bg_placeholder.png');"></div>
     <div class="tutorial__overlay"></div>
 
     <div class="container">
@@ -442,22 +443,22 @@
       <div class="gallery__track-wrap" data-reveal="up">
         <div class="gallery__track">
           <div class="gallery__item">
-            <img src="customer_photos/1.jpg" alt="Khách hàng thưởng trà tại Le'Monet 1" class="gallery__img" />
+            <img src="assets/images/customer_photos/1.jpg" alt="Khách hàng thưởng trà tại Le'Monet 1" class="gallery__img" />
           </div>
           <div class="gallery__item">
-            <img src="customer_photos/2.jpg" alt="Khoảnh khắc 15 phút tại tiệm 2" class="gallery__img" />
+            <img src="assets/images/customer_photos/2.jpg" alt="Khoảnh khắc 15 phút tại tiệm 2" class="gallery__img" />
           </div>
           <div class="gallery__item">
-            <img src="customer_photos/3.jpg" alt="Khách hàng chụp ảnh check-in 3" class="gallery__img" />
+            <img src="assets/images/customer_photos/3.jpg" alt="Khách hàng chụp ảnh check-in 3" class="gallery__img" />
           </div>
           <div class="gallery__item">
-            <img src="customer_photos/4.jpg" alt="Khách hàng thư giãn với trà 4" class="gallery__img" />
+            <img src="assets/images/customer_photos/4.jpg" alt="Khách hàng thư giãn với trà 4" class="gallery__img" />
           </div>
           <div class="gallery__item">
-            <img src="customer_photos/5.jpg" alt="Trải nghiệm trà Việt tại Le'Monet 5" class="gallery__img" />
+            <img src="assets/images/customer_photos/5.jpg" alt="Trải nghiệm trà Việt tại Le'Monet 5" class="gallery__img" />
           </div>
           <div class="gallery__item">
-            <img src="customer_photos/6.jpg" alt="Khách hàng chụp ảnh kỷ niệm 6" class="gallery__img" />
+            <img src="assets/images/customer_photos/6.jpg" alt="Khách hàng chụp ảnh kỷ niệm 6" class="gallery__img" />
           </div>
         </div>
       </div>
@@ -473,7 +474,7 @@
     <!-- Parallax tea fields -->
     <div class="teas__parallax-wrap">
       <div class="teas__field-layer teas__field-layer--far" data-parallax data-speed="0.1">
-        <img src="tea_terraces_illustration.png" alt="Ruộng bậc thang trà xanh mướt, nông dân thu hoạch lá trà"
+        <img src="assets/images/tea_terraces_illustration.png" alt="Ruộng bậc thang trà xanh mướt, nông dân thu hoạch lá trà"
           class="teas__field-img" />
       </div>
       <div class="teas__overlay" aria-hidden="true"></div>
@@ -795,8 +796,8 @@
       <!-- Footer bottom -->
       <div class="footer__bottom">
         <div class="footer__logo">
-          <span>茶</span>
-          <span>Chén Trà Nhỏ</span>
+          <img src="assets/images/logo_lemonet.png" alt="Logo" style="width:32px; height:32px; border-radius:50%; object-fit:cover;">
+          <span>Le'Monet Art Café</span>
         </div>
         <p class="footer__copy">© 2025 Le'Monet Art Café · Tất cả quyền được bảo lưu · Thiết kế với <svg
             viewBox="0 0 24 24" class="icon-svg" style="color:var(--gold-deep); width:0.9em; height:0.9em">
@@ -834,7 +835,7 @@
     </svg>
   </button>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
