@@ -179,16 +179,7 @@
       <a href="#booking" class="hero__tab hero__tab--4">Đặt Chỗ</a>
     </div>
 
-    <!-- Bottom Scenery (Hills only) -->
-    <div class="hero__bottom-scene">
-      <div class="hero__hills-wrap">
-        <svg viewBox="0 0 1440 160" preserveAspectRatio="none" class="hero__hills-svg">
-          <path d="M0,120 Q200,40 400,90 Q600,140 800,60 Q1000,0 1200,80 Q1320,120 1440,50 L1440,160 L0,160 Z" fill="#5A8F4E" opacity="0.25" />
-          <path d="M0,140 Q300,80 600,120 Q900,155 1200,100 Q1360,70 1440,130 L1440,160 L0,160 Z" fill="#5A8F4E" opacity="0.45" />
-          <path d="M0,155 Q360,110 720,145 Q1080,175 1440,140 L1440,160 L0,160 Z" fill="#3D5A35" opacity="0.6" />
-        </svg>
-      </div>
-    </div>
+    <!-- Removed hero__bottom-scene waves as requested -->
 
     <!-- Background Elements -->
     <div class="hero__bg-wrap">
@@ -655,6 +646,32 @@
   </section>
 
   <!-- ============================================================
+       SECTION: KHẢO SÁT NHẬN QUÀ
+  ============================================================ -->
+  <section class="survey-cta" id="survey">
+    <div class="container">
+      <div class="survey-cta__card" data-reveal="up">
+        <div class="survey-cta__content">
+          <span class="section-label">Món Quà Tri Ân</span>
+          <h2 class="survey-cta__title">Bạn sẵn sàng tham gia khảo sát để nhận món quà thú vị chứ?</h2>
+          <p class="survey-cta__text">Ý kiến của bạn giúp chúng tôi hoàn thiện hơn mỗi ngày.<br>Chỉ mất 1 phút để nhận ngay phần quà bất ngờ từ Chén Trà Nhỏ.</p>
+          <div class="survey-cta__action">
+            <a href="pages/khao-sat.html" class="btn btn--primary">
+              <span>Tham gia khảo sát ngay</span>
+              <svg viewBox="0 0 24 24" class="icon-svg">
+                <use href="#svg-gift"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="survey-cta__visual">
+          <img src="assets/images/survey_gift_illustration.png" alt="Món quà bất ngờ từ Chén Trà Nhỏ" class="survey-cta__img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SECTION 5: FOOTER + CTA
   ============================================================ -->
   <footer class="footer" id="booking">
@@ -834,6 +851,15 @@
       <path d="M18 15l-6-6-6 6" />
     </svg>
   </button>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox__overlay"></div>
+    <div class="lightbox__container">
+      <button class="lightbox__close" aria-label="Đóng hình ảnh">&times;</button>
+      <img class="lightbox__img" id="lightboxImg" src="" alt="Gallery Full View" />
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>

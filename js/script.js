@@ -271,5 +271,43 @@ if (heroSection) {
   });
 }
 
+/* ── Lightbox Logic ───────────────────────────────────────── */
+const lightbox    = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const galleryImgs = document.querySelectorAll('.gallery__img');
+const closeBtn    = lightbox ? lightbox.querySelector('.lightbox__close') : null;
+const overlay     = lightbox ? lightbox.querySelector('.lightbox__overlay') : null;
+
+if (lightbox && lightboxImg && galleryImgs.length > 0) {
+  // Open lightbox
+  galleryImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('lightbox--active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Lock scroll
+    });
+  });
+
+  // Close lightbox function
+  const closeLightbox = () => {
+    lightbox.classList.remove('lightbox--active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; // Unlock scroll
+    // Optional: clear src after animation
+    setTimeout(() => { if(!lightbox.classList.contains('lightbox--active')) lightboxImg.src = ''; }, 400);
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (overlay) overlay.addEventListener('click', closeLightbox);
+
+  // Close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('lightbox--active')) {
+      closeLightbox();
+    }
+  });
+}
+
 /* ── Init ────────────────────────────────────────────────── */
 updateCarousel(0, false);
