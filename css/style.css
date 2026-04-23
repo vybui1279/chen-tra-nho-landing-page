@@ -39,6 +39,12 @@
   --white:         #FEFCF7;
   --campaign-bg:   #2D4A1E;
 
+  /* Theme Sky (used in thue-phong) */
+  --sky:           #2A7FA8;
+  --sky-mid:       #5AAACE;
+  --sky-light:     #C0DFF0;
+  --sky-pale:      #EBF5FB;
+
   --font-display:  'SVNAbrilFatface', Georgia, serif;
   --font-body:     'AfacadFlux', 'Be Vietnam Pro', sans-serif;
   --font-accent:   'SVNAbrilFatface', Georgia, serif;
@@ -241,6 +247,13 @@ blockquote { font-family: var(--font-accent); }
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   padding: 12px 40px;
+}
+/* Sky Theme Override */
+.tp-page .nav {
+  background: var(--sky);
+}
+.tp-page .nav.scrolled {
+  background: #1A3A4A;
 }
 
 .nav__logo {
