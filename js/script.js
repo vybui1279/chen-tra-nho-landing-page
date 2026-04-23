@@ -17,8 +17,10 @@ if (hamburger && mobileMenu) {
 }
 
 function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
+  if (mobileMenu) {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 }
 
 /* ── Parallax on scroll ──────────────────────────────────── */
