@@ -3,12 +3,7 @@
    Le'Monet Art Café · 2025
 ============================================================ */
 
-/* ── Navbar scroll behaviour ─────────────────────────────── */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-  backToTop.classList.toggle('visible', window.scrollY > 400);
-});
+
 
 /* ── Mobile hamburger menu ───────────────────────────────── */
 const hamburger  = document.getElementById('navHamburger');
@@ -235,15 +230,54 @@ function shakeField(el) {
   }, { once: true });
 }
 
+/* ── Navbar & ToC scroll behaviour ────────────────────────── */
+const nav = document.getElementById('nav');
+const tpToc = document.getElementById('tpToc');
+const backToTop = document.getElementById('backToTop');
+const sections = document.querySelectorAll('section, footer');
+const tocLinks = document.querySelectorAll('.toc-bar__link');
+
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY;
+  
+  nav.classList.toggle('scrolled', scrollPos > 40);
+  if (backToTop) backToTop.classList.toggle('visible', scrollPos > 400);
+  if (tpToc) tpToc.classList.toggle('scrolled', scrollPos > 500);
+
+  // Highlight active section in ToC
+  let currentId = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 150;
+    if (scrollPos >= sectionTop) {
+      if (section.getAttribute('id')) currentId = section.getAttribute('id');
+    }
+  });
+  
+  if (currentId) {
+    tocLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+    });
+  }
+}, { passive: true });
+
 /* ── Smooth scroll for anchor links ─────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
     if (!target) return;
+    
     e.preventDefault();
-    const offset = 70; // nav height
+    
+    // Offset for sticky header + TOC bar
+    const offset = window.scrollY > 400 ? 150 : 80;
     const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    
     window.scrollTo({ top, behavior: 'smooth' });
+
+    // Close mobile menu if open
+    if (typeof closeMobileMenu === 'function') closeMobileMenu();
   });
 });
 
