@@ -9,10 +9,12 @@
 const hamburger  = document.getElementById('navHamburger');
 const mobileMenu = document.getElementById('navMobile');
 
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-});
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+}
 
 function closeMobileMenu() {
   mobileMenu.classList.remove('open');
@@ -240,23 +242,26 @@ const tocLinks = document.querySelectorAll('.toc-bar__link');
 window.addEventListener('scroll', () => {
   const scrollPos = window.scrollY;
   
-  nav.classList.toggle('scrolled', scrollPos > 40);
+  if (nav) nav.classList.toggle('scrolled', scrollPos > 40);
   if (backToTop) backToTop.classList.toggle('visible', scrollPos > 400);
   if (tpToc) tpToc.classList.toggle('scrolled', scrollPos > 500);
 
   // Highlight active section in ToC
-  let currentId = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 150;
-    if (scrollPos >= sectionTop) {
-      if (section.getAttribute('id')) currentId = section.getAttribute('id');
-    }
-  });
-  
-  if (currentId) {
-    tocLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+  if (tocLinks.length > 0) {
+    let currentId = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (scrollPos >= sectionTop) {
+        const id = section.getAttribute('id');
+        if (id) currentId = id;
+      }
     });
+    
+    if (currentId) {
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+      });
+    }
   }
 }, { passive: true });
 
