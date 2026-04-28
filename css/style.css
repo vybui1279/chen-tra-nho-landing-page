@@ -293,7 +293,7 @@ blockquote { font-family: var(--font-accent); }
   transition: color .25s;
   position: relative;
 }
-.nav__links a::after {
+..nav__links a::after {
   content: '';
   position: absolute;
   bottom: -4px; left: 0;
@@ -304,6 +304,61 @@ blockquote { font-family: var(--font-accent); }
 }
 .nav__links a:hover { color: var(--gold-light); }
 .nav__links a:hover::after { width: 100%; }
+
+.nav__dropdown {
+  position: relative;
+}
+.nav__dropdown-toggle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--white);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+.nav__dropdown-toggle span {
+  font-size: 0.82rem;
+  line-height: 1;
+}
+.nav__dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  background: rgba(16, 16, 34, 0.96);
+  border-radius: 18px;
+  min-width: 190px;
+  box-shadow: 0 22px 40px rgba(16, 16, 34, 0.35);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  display: none;
+  transition: opacity .24s ease, transform .24s ease;
+  z-index: 50;
+}
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown:focus-within .nav__dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav__dropdown-menu li {
+  margin: 0;
+}
+.nav__dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.nav__dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
 
 .nav__cta-link {
   background: var(--green-lush);
@@ -369,6 +424,21 @@ blockquote { font-family: var(--font-accent); }
   transition: color .25s;
 }
 .nav__mobile a:hover { color: var(--green-lush); }
+.nav__mobile-group-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.nav__mobile-subnav {
+  padding-left: 16px;
+  margin-top: 8px;
+}
+.nav__mobile-subnav li {
+  margin-bottom: 18px;
+}
 
 /* ── HERO (Storybook Redesign) ─────────────────────────────── */
 .hero {

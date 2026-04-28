@@ -92,13 +92,15 @@ body {
   100% { opacity: 0; transform: translate(-50%, -50%) translateY(20px) scale(0); }
 }
 
-/* Hide default cursor on this page */
-body {
-  cursor: none !important;
-}
+/* Hide default cursor on desktop only */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none !important;
+  }
 
-a, button, input, select, textarea {
-  cursor: none !important;
+  a, button, input, select, textarea {
+    cursor: none !important;
+  }
 }
 
 /* Typography styles */

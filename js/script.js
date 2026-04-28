@@ -187,4 +187,40 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── Final Init ─────────────────────────────────────────── */
   updateCarousel(0, false);
   handleScroll();
+
+  /* ── Custom Cursor Sparkle (Desktop Only) ───────────────── */
+  const cursorSparkle = document.getElementById('cursorSparkle');
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (cursorSparkle && !isTouchDevice) {
+    let mouseX = 0, mouseY = 0;
+    let sparkleX = 0, sparkleY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateSparkle() {
+      sparkleX += (mouseX - sparkleX) * 0.1;
+      sparkleY += (mouseY - sparkleY) * 0.1;
+      cursorSparkle.style.left = `${sparkleX}px`;
+      cursorSparkle.style.top = `${sparkleY}px`;
+      requestAnimationFrame(updateSparkle);
+    }
+    updateSparkle();
+
+    // Optional: Add particles on click
+    document.addEventListener('click', (e) => {
+      for (let i = 0; i < 3; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'cursor-particle';
+        particle.style.left = `${e.clientX}px`;
+        particle.style.top = `${e.clientY}px`;
+        particle.style.animationDelay = `${i * 0.1}s`;
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 1000);
+      }
+    });
+  }
 });

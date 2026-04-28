@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBE Collection – Bộ Sưu Tập Khoai Tím | Le'Monet Art Café</title>
+  <meta name="description"
+    content="Khám phá BST UBE – bộ sưu tập khoai tím đặc biệt của Le'Monet Art Café. UBE Coffee, UBE Latte, UBE Milk Tea – ngọt ngào, đẹp mắt và đầy tình yêu. Tháng 4 · 2026." />
+  <meta property="og:title" content="UBE Collection – Bộ Sưu Tập Khoai Tím | Le'Monet Art Café" />
+  <meta property="og:description"
+    content="A cup of sweet, pretty UBE – Be with love. BST khoai tím mới nhất từ Le'Monet Art Café." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       UBE COLLECTION — Dedicated Stylesheet
+       Le'Monet Art Café · April 2026
+    ============================================================ */
+
+    /* ── Local Fonts ────────────────────────────────────────── */
+    @font-face {
+      font-family: 'SVNAbrilFatface';
+      src: url('../assets/fonts/svn-abril-fatface.ttf') format('truetype');
+      font-weight: 100 900;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'AfacadFlux';
+      src: url('../assets/fonts/afacad-flux-variable.ttf') format('truetype');
+      font-weight: 100 1000;
+      font-display: block;
+    }
+
+    /* ── UBE Color Palette ─────────────────────────────────── */
+    :root {
+      --ube-deep:      #4A2875;
+      --ube-rich:      #6B3FA0;
+      --ube-mid:       #8B5EC0;
+      --ube-soft:      #B48FD8;
+      --ube-pale:      #D4B8F0;
+      --ube-blush:     #E8D5F8;
+      --ube-lavender:  #C5A3E8;
+      --ube-lilac:     #DEC8F5;
+      --ube-bg:        #C4A0E0;
+      --ube-hero-bg:   #B896D4;
+
+      --cream-ube:     #F8F2FF;
+      --white:         #FEFCFF;
+      --ink:           #1A0D2E;
+      --ink-mid:       #3D2460;
+      --ink-soft:      #6B4A8A;
+
+      --gold:          #E8C56A;
+      --gold-deep:     #C8A040;
+
+      --font-display:  'SVNAbrilFatface', 'Cormorant Garamond', Georgia, serif;
+      --font-serif:    'Cormorant Garamond', Georgia, serif;
+      --font-body:     'AfacadFlux', 'Be Vietnam Pro', sans-serif;
+
+      --radius-sm:     8px;
+      --radius-md:     16px;
+      --radius-lg:     28px;
+      --radius-xl:     48px;
+
+      --shadow-soft:   0 4px 24px rgba(74,40,117,.12);
+      --shadow-md:     0 8px 40px rgba(74,40,117,.20);
+      --shadow-lg:     0 16px 64px rgba(74,40,117,.28);
+
+      --transition:    .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream-ube);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a  { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { border: none; cursor: pointer; font-family: inherit; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── Navigation ────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(74,40,117,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(45,15,80,0.97);
+      padding: 12px 40px;
+      box-shadow: 0 4px 30px rgba(74,40,117,.35);
+    }
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--white);
+    }
+    .nav__logo-img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav__links a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: .03em;
+      transition: color .25s;
+      position: relative;
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--ube-pale);
+      border-radius: 2px;
+      transition: width .3s;
+    }
+    .nav__links a:hover { color: var(--ube-lilac); }
+    .nav__links a:hover::after { width: 100%; }
+
+    .nav__dropdown {
+      position: relative;
+    }
+    .nav__dropdown-toggle {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0;
+    }
+    .nav__dropdown-toggle span {
+      font-size: 0.82rem;
+      line-height: 1;
+    }
+    .nav__dropdown-menu {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: rgba(14, 6, 31, 0.95);
+      border-radius: 18px;
+      min-width: 190px;
+      box-shadow: 0 22px 40px rgba(16, 16, 34, 0.35);
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      display: none;
+      transition: opacity .24s ease, transform .24s ease;
+      z-index: 50;
+    }
+    .nav__dropdown:hover .nav__dropdown-menu,
+    .nav__dropdown:focus-within .nav__dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .nav__dropdown-menu li {
+      margin: 0;
+    }
+    .nav__dropdown-menu a {
+      display: block;
+      padding: 12px 18px;
+      color: rgba(255,255,255,0.95);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .nav__dropdown-menu a:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav__cta {
+      background: var(--ube-mid);
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-weight: 700 !important;
+      box-shadow: 0 3px 16px rgba(139,94,192,.45);
+      transition: var(--transition);
+    }
+    .nav__cta::after { display: none !important; }
+    .nav__cta:hover {
+      background: var(--ube-rich) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(107,63,160,.5);
+    }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 4px;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav__mobile {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--ube-deep);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(100%);
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    .nav__mobile.open { transform: translateX(0); }
+    .nav__mobile ul { text-align: center; }
+    .nav__mobile li { margin-bottom: 28px; }
+    .nav__mobile a {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--white);
+      transition: color .25s;
+    }
+    .nav__mobile a:hover { color: var(--ube-pale); }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .ube-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--ube-hero-bg);
+      padding: 120px 40px 80px;
+    }
+
+    /* Animated gradient background mesh */
+    .ube-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(107,63,160,0.5) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(74,40,117,0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 50% 10%, rgba(180,143,216,0.3) 0%, transparent 50%),
+        linear-gradient(160deg, #C4A0E0 0%, #9B6EC8 40%, #7040A8 80%, #4A2875 100%);
+      z-index: 0;
+    }
+
+    /* Floating orbs */
+    .ube-hero__orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: orbFloat 8s ease-in-out infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .ube-hero__orb--1 {
+      width: 400px; height: 400px;
+      background: rgba(196,160,224,0.35);
+      top: -100px; left: -80px;
+      animation-delay: 0s;
+    }
+    .ube-hero__orb--2 {
+      width: 300px; height: 300px;
+      background: rgba(107,63,160,0.4);
+      top: 40%; right: -60px;
+      animation-delay: 3s;
+    }
+    .ube-hero__orb--3 {
+      width: 250px; height: 250px;
+      background: rgba(232,197,106,0.15);
+      bottom: 10%; left: 30%;
+      animation-delay: 5s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .ube-hero__inner {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Hero Text */
+    .ube-hero__text { }
+
+    .ube-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .ube-hero__badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--ube-pale);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(1.4); }
+    }
+
+    .ube-hero__eyebrow {
+      font-family: var(--font-body);
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 12px;
+    }
+
+    .ube-hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 20px rgba(45,15,80,0.3);
+    }
+    .ube-hero__title em {
+      font-style: italic;
+      font-weight: 400;
+    }
+    .ube-hero__title-big {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 9rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 0.9;
+      display: block;
+      text-shadow: 0 6px 30px rgba(45,15,80,0.4);
+    }
+
+    .ube-hero__desc {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin: 24px 0 36px;
+      max-width: 480px;
+    }
+
+    .ube-hero__meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .ube-hero__meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ube-hero__meta-label {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      font-weight: 700;
+    }
+    .ube-hero__meta-value {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+    .ube-hero__meta-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* Hero Visual */
+    .ube-hero__visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ube-hero__product-img {
+      width: min(480px, 90%);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 30px 80px rgba(45,15,80,0.5), 0 0 60px rgba(139,94,192,0.3);
+      animation: heroFloat 7s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-16px); }
+    }
+
+    .ube-hero__glow {
+      position: absolute;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(180,143,216,0.4) 0%, transparent 70%);
+      z-index: 1;
+      filter: blur(20px);
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%       { opacity: 1; transform: scale(1.15); }
+    }
+
+    .ube-hero__sparkle {
+      position: absolute;
+      color: rgba(255,255,255,0.8);
+      animation: sparkleTwinkle 3s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .ube-hero__sparkle svg { filter: drop-shadow(0 0 8px rgba(255,255,255,0.9)); }
+    .ube-hero__sparkle--1 { top: 10%; left: 5%;   animation-delay: 0s; }
+    .ube-hero__sparkle--2 { top: 20%; right: 10%; animation-delay: 1s; }
+    .ube-hero__sparkle--3 { bottom: 25%; left: 15%; animation-delay: 2s; }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: 0.4; transform: scale(0.8) rotate(0deg); }
+      50%       { opacity: 1; transform: scale(1.2) rotate(20deg); }
+    }
+
+    /* Scroll indicator */
+    .ube-hero__scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.7);
+      z-index: 10;
+    }
+    .ube-hero__scroll-text {
+      font-size: .65rem;
+      letter-spacing: .3em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .ube-hero__scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%    { transform: scaleY(0); transform-origin: top; opacity: 0; }
+      50%   { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      51%   { transform: scaleY(1); transform-origin: bottom; }
+      100%  { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    }
+
+    /* ── INTRO SECTION ────────────────────────────────────── */
+    .ube-intro {
+      background: linear-gradient(180deg, #4A2875 0%, #6B3FA0 50%, #8B5EC0 100%);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .ube-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .ube-intro__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .ube-intro__label {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ube-pale);
+      border: 1px solid rgba(212,184,240,0.4);
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .ube-intro__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .ube-intro__title em {
+      font-style: italic;
+      color: var(--ube-pale);
+    }
+
+    .ube-intro__body {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 16px;
+    }
+
+    .ube-intro__quote {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--ube-pale);
+      margin: 40px auto 0;
+      padding: 24px 32px;
+      border-top: 1px solid rgba(212,184,240,0.3);
+      border-bottom: 1px solid rgba(212,184,240,0.3);
+      position: relative;
+    }
+    .ube-intro__quote::before {
+      content: '"';
+      position: absolute;
+      top: -20px; left: 20px;
+      font-size: 5rem;
+      color: rgba(212,184,240,0.2);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    /* Wave divider */
+    .wave-divider { line-height: 0; }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ── PRODUCTS SECTION — CAROUSEL ─────────────────────── */
+    .ube-products {
+      background: var(--cream-ube);
+      padding: 90px 0 100px;
+      position: relative;
+    }
+
+    .ube-products__header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .ube-products__label {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ube-mid);
+      background: rgba(139,94,192,0.1);
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .ube-products__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .ube-products__title em { color: var(--ube-rich); font-style: italic; }
+    .ube-products__subtitle {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Carousel wrapper ─────────────────────────────────── */
+    .prd-carousel {
+      position: relative;
+    }
+
+    .prd-carousel__track-wrap {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+
+    .prd-carousel__track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+
+    /* ── Carousel slide ───────────────────────────────────── */
+    .prd-slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px 80px;
+      align-items: center;
+      padding: 0 4px;
+    }
+
+    /* Visual side */
+    .prd-slide__visual {
+      position: relative;
+    }
+    .prd-slide__img-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .prd-slide__img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      transition: transform .7s ease;
+    }
+    .prd-slide__img-wrap:hover .prd-slide__img-placeholder {
+      transform: scale(1.02);
+    }
+    .prd-slide__badge {
+      position: absolute;
+      top: 20px; right: -14px;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(200,160,64,.45);
+      white-space: nowrap;
+      z-index: 2;
+    }
+    .prd-slide__number {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.22);
+      line-height: 1;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .prd-slide__ornament {
+      position: absolute;
+      width: 50px; height: 50px;
+      border: 2px solid rgba(139,94,192,0.35);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .prd-slide__ornament.tl {
+      top: 12px; left: 12px;
+      border-right: none; border-bottom: none;
+      border-radius: 8px 0 0 0;
+    }
+    .prd-slide__ornament.br {
+      bottom: 12px; right: 12px;
+      border-left: none; border-top: none;
+      border-radius: 0 0 8px 0;
+    }
+
+    /* Text side */
+    .prd-slide__text {}
+    .prd-slide__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ube-mid);
+      margin-bottom: 12px;
+    }
+    .prd-slide__tag::before { content: '✦'; font-size: .7rem; }
+    .prd-slide__name {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .prd-slide__sub {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--ube-rich);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .prd-slide__divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--ube-mid), var(--ube-pale));
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+    .prd-slide__desc {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--ink-mid);
+      margin-bottom: 20px;
+    }
+    .prd-slide__highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .prd-slide__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(139,94,192,0.1);
+      border: 1px solid rgba(139,94,192,0.2);
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--ube-rich);
+      transition: var(--transition);
+    }
+    .prd-slide__chip:hover {
+      background: var(--ube-mid);
+      color: var(--white);
+      border-color: var(--ube-mid);
+    }
+    .prd-slide__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 32px;
+      background: linear-gradient(135deg, var(--ube-mid), var(--ube-deep));
+      color: var(--white);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      box-shadow: 0 8px 30px rgba(107,63,160,0.4);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .prd-slide__cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--ube-rich), var(--ube-mid));
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .prd-slide__cta:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(107,63,160,0.5); }
+    .prd-slide__cta:hover::before { opacity: 1; }
+    .prd-slide__cta span, .prd-slide__cta svg { position: relative; z-index: 1; }
+    .prd-slide__cta svg { width: 18px; height: 18px; }
+
+    /* ── Carousel Controls ────────────────────────────────── */
+    .prd-carousel__controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .prd-carousel__btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid rgba(139,94,192,0.25);
+      color: var(--ube-mid);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(107,63,160,0.12);
+      flex-shrink: 0;
+    }
+    .prd-carousel__btn svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; }
+    .prd-carousel__btn:hover {
+      background: var(--ube-mid);
+      border-color: var(--ube-mid);
+      color: var(--white);
+      transform: scale(1.08);
+      box-shadow: 0 8px 24px rgba(107,63,160,0.35);
+    }
+    .prd-carousel__btn:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .prd-carousel__dots {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .prd-carousel__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(139,94,192,0.25);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+    }
+    .prd-carousel__dot.active {
+      background: var(--ube-mid);
+      width: 28px;
+      border-radius: 4px;
+      box-shadow: 0 0 8px rgba(139,94,192,0.5);
+    }
+
+    .prd-carousel__hint {
+      text-align: center;
+      margin-top: 16px;
+      font-size: .82rem;
+      color: var(--ink-soft);
+      letter-spacing: .05em;
+      opacity: .7;
+    }
+
+    /* ── Responsive carousel ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .prd-slide {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .prd-slide__badge { right: 10px; }
+    }
+
+    /* ── COLLECTION OVERVIEW (All 3 together) ──────────────── */
+    .ube-family {
+      background: linear-gradient(180deg, #6B3FA0 0%, #8B5EC0 100%);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .ube-family::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,160,224,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 90% 20%, rgba(74,40,117,0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .ube-family__header {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+    .ube-family__label {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .ube-family__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .ube-family__title em {
+      font-style: italic;
+      color: var(--ube-pale);
+    }
+
+    .ube-family__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ube-family-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .ube-family-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.18);
+      box-shadow: 0 20px 60px rgba(45,15,80,.4);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .ube-family-card__img-wrap {
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .ube-family-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .ube-family-card:hover .ube-family-card__img { transform: scale(1.06); }
+
+    .ube-family-card__img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .ube-family-card__body {
+      padding: 20px 22px 24px;
+    }
+    .ube-family-card__name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .ube-family-card__vi {
+      font-family: var(--font-serif);
+      font-size: .95rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+    }
+    .ube-family-card__desc {
+      font-size: .92rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .ube-family-card__sparkle {
+      display: flex;
+      gap: 4px;
+      margin-top: 14px;
+    }
+    .ube-family-card__sparkle span {
+      font-size: .65rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .ube-family-card__sparkle span.active {
+      color: var(--gold);
+    }
+
+    /* ── STORY / ORIGIN ────────────────────────────────────── */
+    .ube-story {
+      background: var(--cream-ube);
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .ube-story__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .ube-story__visual {
+      position: relative;
+    }
+
+    .ube-story__img-stack {
+      position: relative;
+      height: 520px;
+    }
+
+    .ube-story__img-main {
+      position: absolute;
+      width: 78%;
+      right: 0;
+      top: 0;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      object-fit: cover;
+      aspect-ratio: 3/4;
+    }
+    .ube-story__img-sec {
+      position: absolute;
+      width: 54%;
+      left: 0;
+      bottom: 0;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      object-fit: cover;
+      aspect-ratio: 1;
+      border: 4px solid var(--white);
+    }
+
+    /* Placeholder versions */
+    .ube-story__img-placeholder-main {
+      position: absolute;
+      width: 78%; right: 0; top: 0;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 3/4;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ube-story__img-placeholder-sec {
+      position: absolute;
+      width: 54%; left: 0; bottom: 0;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      border: 4px solid var(--white);
+    }
+
+    .ube-story__floating-tag {
+      position: absolute;
+      top: 40%;
+      left: -20px;
+      background: var(--ube-deep);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: .85rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: .08em;
+    }
+
+    .ube-story__text {}
+    .ube-story__label {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ube-mid);
+      background: rgba(139,94,192,0.1);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .ube-story__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .ube-story__title em { color: var(--ube-rich); font-style: italic; }
+
+    .ube-story__divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .ube-story__divider::before,
+    .ube-story__divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ube-pale), transparent);
+    }
+    .ube-story__divider-icon { font-size: 1rem; }
+
+    .ube-story__body {
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .ube-story__body--highlight {
+      background: rgba(139,94,192,0.08);
+      border-left: 3px solid var(--ube-mid);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* ── CTA BANNER ────────────────────────────────────────── */
+    .ube-cta {
+      background: linear-gradient(135deg, #4A2875 0%, #7040A8 50%, #9B6EC8 100%);
+      padding: 90px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ube-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 60%, rgba(255,255,255,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,0.04) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .ube-cta__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .ube-cta__eyebrow {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--ube-pale);
+      margin-bottom: 16px;
+    }
+
+    .ube-cta__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .ube-cta__title em { font-style: italic; color: var(--ube-pale); }
+
+    .ube-cta__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .ube-cta__actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-ube-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 34px;
+      background: var(--white);
+      color: var(--ube-deep);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      transition: var(--transition);
+    }
+    .btn-ube-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.3);
+      background: var(--ube-lilac);
+    }
+
+    .btn-ube-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 32px;
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      transition: var(--transition);
+    }
+    .btn-ube-ghost:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    .ube-footer {
+      background: var(--ube-deep);
+      padding: 50px 0 30px;
+    }
+
+    .ube-footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 24px;
+    }
+
+    .ube-footer__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ube-footer__logo img {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .ube-footer__logo-text {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--white);
+    }
+
+    .ube-footer__links {
+      display: flex;
+      gap: 28px;
+    }
+    .ube-footer__links a {
+      font-size: .95rem;
+      color: rgba(255,255,255,0.65);
+      transition: color .25s;
+    }
+    .ube-footer__links a:hover { color: var(--ube-pale); }
+
+    .ube-footer__social {
+      display: flex;
+      gap: 14px;
+    }
+    .ube-footer__social a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.75);
+      transition: var(--transition);
+    }
+    .ube-footer__social a:hover {
+      background: var(--ube-mid);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .ube-footer__social svg {
+      width: 18px; height: 18px;
+      fill: currentColor;
+    }
+
+    .ube-footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ube-footer__copy {
+      font-size: .85rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .ube-footer__collection-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+    }
+    .ube-footer__collection-badge::before {
+      content: '✦';
+      color: var(--ube-soft);
+    }
+
+    /* ── Back to top ───────────────────────────────────────── */
+    .back-to-top {
+      position: fixed;
+      bottom: 36px; right: 28px;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--ube-mid);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(107,63,160,.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 888;
+      cursor: pointer;
+      border: none;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background: var(--ube-deep);
+      transform: translateY(-3px);
+    }
+    .back-to-top svg {
+      width: 20px; height: 20px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    /* ── Animations / Reveals ─────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    [data-reveal="up"]    { transform: translateY(40px); }
+    [data-reveal="left"]  { transform: translateX(-40px); }
+    [data-reveal="right"] { transform: translateX(40px); }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Responsive ────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .ube-hero__inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+      .ube-hero__desc  { max-width: 560px; margin-left: auto; margin-right: auto; }
+      .ube-hero__meta  { justify-content: center; }
+      .ube-hero__product-img { width: min(380px, 80%); }
+
+      .ube-family__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+      .ube-story__grid { grid-template-columns: 1fr; }
+      .ube-story__img-stack { height: 400px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
+      .nav.scrolled { padding: 10px 20px; }
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
+
+      .ube-hero { padding: 100px 24px 70px; }
+      .ube-hero__title-big { font-size: clamp(3.5rem, 18vw, 5.5rem); }
+      .ube-hero__title { font-size: clamp(2rem, 8vw, 3.5rem); }
+
+      .ube-family__grid { grid-template-columns: 1fr; }
+
+      .ube-footer__inner { flex-direction: column; align-items: flex-start; }
+      .ube-footer__bottom { flex-direction: column; }
+
+      .ube-story__img-stack { height: 320px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <a href="../index.html" class="nav__logo">
+      <img src="../assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" class="nav__logo-img">
+      <span>Le'Monet Art Café</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../index.html">Chén Trà Nhỏ</a></li>
+      <li><a href="../pages/tach-tra-cua-ban.html">Test Tính Cách Trà</a></li>
+      <li class="nav__dropdown">
+        <button type="button" class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          Our Menu <span aria-hidden="true">▾</span>
+        </button>
+        <ul class="nav__dropdown-menu" aria-label="Our Menu">
+          <li><a href="ubecollection.html">BST UBE 💜</a></li>
+        </ul>
+      </li>
+      <li><a href="../pages/thue-phong.html">Thuê Không Gian</a></li>
+      <li><a href="../index.html#booking" class="nav__cta">Đặt Chỗ</a></li>
+    </ul>
+    <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="navMobile">
+    <ul>
+      <li><a href="../index.html" onclick="closeMobileMenu()">Chén Trà Nhỏ</a></li>
+      <li><a href="../pages/tach-tra-cua-ban.html" onclick="closeMobileMenu()">Test Tính Cách Trà</a></li>
+      <li class="nav__mobile-group">
+        <span class="nav__mobile-group-title">Our Menu</span>
+        <ul class="nav__mobile-subnav">
+          <li><a href="ubecollection.html" onclick="closeMobileMenu()">BST UBE 💜</a></li>
+        </ul>
+      </li>
+      <li><a href="../pages/thue-phong.html" onclick="closeMobileMenu()">Thuê Không Gian</a></li>
+      <li><a href="../index.html#booking" onclick="closeMobileMenu()">Đặt Chỗ</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="ube-hero" id="home">
+
+    <!-- Orbs -->
+    <div class="ube-hero__orb ube-hero__orb--1" aria-hidden="true"></div>
+    <div class="ube-hero__orb ube-hero__orb--2" aria-hidden="true"></div>
+    <div class="ube-hero__orb ube-hero__orb--3" aria-hidden="true"></div>
+
+    <div class="ube-hero__inner container">
+
+      <!-- Text -->
+      <div class="ube-hero__text">
+        <div class="ube-hero__badge">
+          <span class="ube-hero__badge-dot"></span>
+          New Collection · April 2026
+        </div>
+        <p class="ube-hero__eyebrow">Le'Monet Art Café · BST Mới</p>
+        <h1 class="ube-hero__title">
+          A cup of <em>sweet, pretty</em>
+          <span class="ube-hero__title-big">UBE</span>
+          <em>Be with love ✦</em>
+        </h1>
+        <p class="ube-hero__desc">
+          Khoai tím — màu sắc của thiên nhiên, hương vị của tuổi thơ. BST UBE của Le'Monet mang cả ba thức uống
+          khoai tím vào một bộ sưu tập ngọt ngào, đẹp mắt và đầy tình yêu.
+        </p>
+        <div class="ube-hero__meta">
+          <div class="ube-hero__meta-item">
+            <span class="ube-hero__meta-label">Bộ sưu tập</span>
+            <span class="ube-hero__meta-value">UBE</span>
+          </div>
+          <div class="ube-hero__meta-divider"></div>
+          <div class="ube-hero__meta-item">
+            <span class="ube-hero__meta-label">Sản phẩm</span>
+            <span class="ube-hero__meta-value">3 thức uống</span>
+          </div>
+          <div class="ube-hero__meta-divider"></div>
+          <div class="ube-hero__meta-item">
+            <span class="ube-hero__meta-label">Ra mắt</span>
+            <span class="ube-hero__meta-value">Tháng 4 · 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="ube-hero__visual">
+        <!-- Sparkles -->
+        <div class="ube-hero__sparkle ube-hero__sparkle--1" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L13.5 9.5L21 11L13.5 12.5L12 20L10.5 12.5L3 11L10.5 9.5L12 2Z"/>
+          </svg>
+        </div>
+        <div class="ube-hero__sparkle ube-hero__sparkle--2" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L13.5 9.5L21 11L13.5 12.5L12 20L10.5 12.5L3 11L10.5 9.5L12 2Z"/>
+          </svg>
+        </div>
+        <div class="ube-hero__sparkle ube-hero__sparkle--3" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L13.5 9.5L21 11L13.5 12.5L12 20L10.5 12.5L3 11L10.5 9.5L12 2Z"/>
+          </svg>
+        </div>
+
+        <div class="ube-hero__glow" aria-hidden="true"></div>
+
+        <!-- Hero product image (UBE Collection main photo) -->
+        <img
+          src="../assets/images/ube - subpage/main.jpg"
+          alt="UBE Collection – Le'Monet Art Café"
+          class="ube-hero__product-img"
+          style="
+            width: min(480px, 90%);
+            border-radius: 28px;
+            box-shadow: 0 30px 80px rgba(45,15,80,0.5), 0 0 60px rgba(139,94,192,0.35);
+            animation: heroFloat 7s ease-in-out infinite;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            z-index: 2;
+          "
+        />
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="ube-hero__scroll" aria-hidden="true">
+      <span class="ube-hero__scroll-text">Scroll</span>
+      <div class="ube-hero__scroll-line"></div>
+    </div>
+
+    <!-- Wave bottom -->
+    <div style="position:absolute;bottom:0;left:0;width:100%;z-index:5;line-height:0;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;">
+        <path d="M0,40 Q360,80 720,40 Q1080,0 1440,50 L1440,80 L0,80 Z" fill="#4A2875"/>
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       INTRO
+  ============================================================ -->
+  <section class="ube-intro" id="about">
+    <div class="ube-intro__inner">
+      <span class="ube-intro__label">Câu Chuyện BST</span>
+      <h2 class="ube-intro__title">
+        Ngọt ngào như khoai tím,<br/>
+        <em>đẹp như màu của yêu thương</em>
+      </h2>
+      <p class="ube-intro__body" data-reveal="up">
+        Ube — khoai tím Philippines — từ lâu đã là linh hồn của những món ăn vặt tuổi thơ. Màu tím mộng mơ, vị ngọt nhẹ
+        hòa cùng hương thơm đặc trưng khiến khoai tím trở thành nguyên liệu không thể cưỡng lại.
+      </p>
+      <p class="ube-intro__body" data-reveal="up">
+        Tháng 4 này, Le'Monet Art Café mang cả một bộ sưu tập thuần khoai tím ra mắt — từ cà phê đến latte, đến trà sữa —
+        mỗi ly là một tác phẩm nhỏ dành tặng cho những buổi chiều đáng nhớ.
+      </p>
+      <blockquote class="ube-intro__quote" data-reveal="up">
+        Sweet · Pretty · With Love — đủ ba điều đó trong mỗi ngụm.
+      </blockquote>
+    </div>
+
+    <!-- Wave -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,30 Q360,80 720,30 Q1080,-10 1440,40 L1440,80 L0,80 Z" fill="#F8F2FF"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRODUCTS — CAROUSEL
+  ============================================================ -->
+  <section class="ube-products" id="products">
+    <div class="container">
+
+      <div class="ube-products__header" data-reveal="up">
+        <span class="ube-products__label">BST UBE · 3 Thức Uống</span>
+        <h2 class="ube-products__title">Ba Tác Phẩm<br/><em>Khoai Tím</em></h2>
+        <p class="ube-products__subtitle">Mỗi ly được pha chế tỉ mỉ — tôn vinh màu tím tự nhiên, vị ngọt thanh và hương thơm thuần khiết.</p>
+      </div>
+
+      <div class="prd-carousel" id="prdCarousel" data-reveal="up">
+        <div class="prd-carousel__track-wrap">
+          <div class="prd-carousel__track" id="prdTrack">
+
+            <!-- ── Slide 1: UBE Coffee ──────────────────── -->
+            <div class="prd-slide" id="slide-ube-coffee">
+              <div class="prd-slide__visual">
+                <div class="prd-slide__img-wrap">
+                  <img src="../assets/images/ube - subpage/ubecoffee.jpg" alt="UBE coffee" style="width:100%;display:block;object-fit:cover;" />
+                </div>
+                <div class="prd-slide__badge">Signature</div>
+                <div class="prd-slide__number">01</div>
+                <div class="prd-slide__ornament tl"></div>
+                <div class="prd-slide__ornament br"></div>
+              </div>
+              <div class="prd-slide__text">
+                <span class="prd-slide__tag">Sản Phẩm 01</span>
+                <h2 class="prd-slide__name">UBE coffee</h2>
+                <p class="prd-slide__sub">✦ Cà Phê Sữa Khoai Tím</p>
+                <div class="prd-slide__divider"></div>
+                <p class="prd-slide__desc">
+                  Cà phê đậm vị gặp lớp foam khoai tím mịn màng — từ đáy ly trong vắt, lớp sữa tươi béo ngậy, đến tầng cà phê đậm đà, và trên cùng là lớp foam tím pha thêm bột cacao. Mỗi ngụm là một trải nghiệm đa tầng.
+                </p>
+                <p class="prd-slide__desc">
+                  Hương cà phê mạnh mẽ không lấn át đi màu tím dịu dàng — hai thứ cùng tồn tại trong một ly, như nghệ thuật và cảm xúc song hành.
+                </p>
+                <div class="prd-slide__highlights">
+                  <span class="prd-slide__chip">✦ Foam Khoai Tím</span>
+                  <span class="prd-slide__chip">☕ Cà Phê Đậm Vị</span>
+                  <span class="prd-slide__chip">🥛 Sữa Tươi Béo</span>
+                  <span class="prd-slide__chip">🍫 Bột Cacao</span>
+                </div>
+                <a href="../index.html#booking" class="prd-slide__cta" id="cta-ube-coffee">
+                  <span>Đặt bàn thưởng thức</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- ── Slide 2: UBE Latte ───────────────────── -->
+            <div class="prd-slide" id="slide-ube-latte">
+              <div class="prd-slide__visual">
+                <div class="prd-slide__img-wrap">
+                  <img src="../assets/images/ube - subpage/ubelatte.jpg" alt="UBE latte" style="width:100%;display:block;object-fit:cover;" />
+                </div>
+                <div class="prd-slide__badge">Bestseller</div>
+                <div class="prd-slide__number">02</div>
+                <div class="prd-slide__ornament tl"></div>
+                <div class="prd-slide__ornament br"></div>
+              </div>
+              <div class="prd-slide__text">
+                <span class="prd-slide__tag">Sản Phẩm 02</span>
+                <h2 class="prd-slide__name">UBE latte</h2>
+                <p class="prd-slide__sub">✦ Sữa Tươi Khoai Tím</p>
+                <div class="prd-slide__divider"></div>
+                <p class="prd-slide__desc">
+                  Màu tím mộng mơ — khoai tím pha vào sữa tươi mát lạnh, thêm những viên thạch khoai tím và hoa lavender khô điểm xuyết bên trên. Một ly đẹp đến nỗi bạn không nỡ uống ngay.
+                </p>
+                <p class="prd-slide__desc">
+                  Vị ngọt thanh nhẹ, hương khoai tím đặc trưng hòa cùng sữa tươi mát lạnh — nhẹ nhàng, thư giãn và đủ ngọt ngào cho cả một buổi chiều.
+                </p>
+                <div class="prd-slide__highlights">
+                  <span class="prd-slide__chip">💜 Khoai Tím Nguyên Chất</span>
+                  <span class="prd-slide__chip">🌸 Hoa Lavender</span>
+                  <span class="prd-slide__chip">🧊 Thạch Khoai Tím</span>
+                  <span class="prd-slide__chip">🥛 Sữa Tươi Mát</span>
+                </div>
+                <a href="../index.html#booking" class="prd-slide__cta" id="cta-ube-latte">
+                  <span>Đặt bàn thưởng thức</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- ── Slide 3: UBE Milk Tea ────────────────── -->
+            <div class="prd-slide" id="slide-ube-milktea">
+
+              <div class="prd-slide__visual">
+                <div class="prd-slide__img-wrap">
+                  <img src="../assets/images/ube - subpage/ubemilktea.jpg" alt="UBE milktea" style="width:100%;display:block;object-fit:cover;" />
+                </div>
+                <div class="prd-slide__badge">New Comer</div>
+                <div class="prd-slide__number">03</div>
+                <div class="prd-slide__ornament tl"></div>
+                <div class="prd-slide__ornament br"></div>
+              </div>
+              <div class="prd-slide__text">
+                <span class="prd-slide__tag">Sản Phẩm 03</span>
+                <h2 class="prd-slide__name">UBE milktea</h2>
+                <p class="prd-slide__sub">✦ Cúc Sữa Khoai Tím with Chamomile</p>
+                <div class="prd-slide__divider"></div>
+                <p class="prd-slide__desc">
+                  Trà hoa cúc nhẹ nhàng kết hợp cùng khoai tím và lớp foam sữa mịn — đây là sự giao thoa giữa thanh mát và ngọt bùi. Những viên trân châu hoàng kim óng trên cùng thêm phần thú vị cho từng ngụm.
+                </p>
+                <p class="prd-slide__desc">
+                  Hương chamomile dịu nhẹ không át đi khoai tím — cả hai bổ trợ nhau, tạo nên một thức uống tinh tế, thư thái và đẹp đến mê hồn ngay từ cái nhìn đầu tiên.
+                </p>
+                <div class="prd-slide__highlights">
+                  <span class="prd-slide__chip">🌼 Hoa Cúc Chamomile</span>
+                  <span class="prd-slide__chip">💜 Khoai Tím Thuần</span>
+                  <span class="prd-slide__chip">🟡 Trân châu hoàng kim</span>
+                  <span class="prd-slide__chip">☁️ Foam Sữa Mịn</span>
+                </div>
+                <a href="../index.html#booking" class="prd-slide__cta" id="cta-ube-milktea">
+                  <span>Đặt bàn thưởng thức</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div><!-- /slide 3 -->
+
+          </div><!-- /prd-carousel__track -->
+        </div><!-- /prd-carousel__track-wrap -->
+
+        <!-- Controls -->
+        <div class="prd-carousel__controls">
+          <button class="prd-carousel__btn" id="prdPrev" aria-label="Sản phẩm trước">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <div class="prd-carousel__dots" id="prdDots" role="tablist">
+            <button class="prd-carousel__dot active" data-index="0" aria-label="UBE Coffee"></button>
+            <button class="prd-carousel__dot" data-index="1" aria-label="UBE Latte"></button>
+            <button class="prd-carousel__dot" data-index="2" aria-label="UBE Milk Tea"></button>
+          </div>
+          <button class="prd-carousel__btn" id="prdNext" aria-label="Sản phẩm tiếp">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <p class="prd-carousel__hint">← Vuốt hoặc dùng nút → để chuyển sản phẩm</p>
+
+      </div><!-- /prd-carousel -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- ============================================================
+       FAMILY OVERVIEW (All 3 together)
+  ============================================================ -->
+  <section class="ube-family" id="collection">
+    <div class="container">
+
+      <div class="ube-family__header" data-reveal="up">
+        <span class="ube-family__label">Trọn Bộ Sưu Tập</span>
+        <h2 class="ube-family__title">Cả Ba Người Bạn Tím<br/><em>Trong Một Bộ Sưu Tập</em></h2>
+      </div>
+
+      <div class="ube-family__grid">
+
+        <!-- Card 1: UBE Coffee -->
+        <div class="ube-family-card" data-reveal="up" id="card-ube-coffee" tabindex="0">
+          <div class="ube-family-card__img-wrap">
+            <img src="../assets/images/ube - subpage/ubecoffee.jpg" alt="UBE coffee" style="width:100%;display:block;object-fit:cover;" />
+          </div>
+          <div class="ube-family-card__body">
+            <h3 class="ube-family-card__name">UBE coffee</h3>
+            <p class="ube-family-card__vi">Cà Phê Sữa Khoai Tím</p>
+            <p class="ube-family-card__desc">Đậm đà cà phê · Foam tím mịn · Bột cacao thơm</p>
+            <div class="ube-family-card__sparkle">
+              <span class="active">✦</span><span class="active">✦</span>
+              <span class="active">✦</span><span class="active">✦</span><span class="active">✦</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: UBE Latte -->
+        <div class="ube-family-card" data-reveal="up" id="card-ube-latte" tabindex="0" style="transition-delay:.15s">
+          <div class="ube-family-card__img-wrap">
+            <img src="../assets/images/ube - subpage/ubelatte.jpg" alt="UBE latte" style="width:100%;display:block;object-fit:cover;" />
+          </div>
+          <div class="ube-family-card__body">
+            <h3 class="ube-family-card__name">UBE latte</h3>
+            <p class="ube-family-card__vi">Sữa Tươi Khoai Tím</p>
+            <p class="ube-family-card__desc">Tươi mát nhẹ nhàng · Thạch khoai tím · Lavender</p>
+            <div class="ube-family-card__sparkle">
+              <span class="active">✦</span><span class="active">✦</span>
+              <span class="active">✦</span><span class="active">✦</span><span class="active">✦</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: UBE Milk Tea -->
+        <div class="ube-family-card" data-reveal="up" id="card-ube-milktea" tabindex="0" style="transition-delay:.3s">
+          <div class="ube-family-card__img-wrap">
+            <img src="../assets/images/ube - subpage/ubemilktea.jpg" alt="UBE milktea" style="width:100%;display:block;object-fit:cover;" />
+          </div>
+          <div class="ube-family-card__body">
+            <h3 class="ube-family-card__name">UBE milktea</h3>
+            <p class="ube-family-card__vi">Cúc Sữa Khoai Tím · Chamomile</p>
+            <p class="ube-family-card__desc">Thanh hoa cúc · Trân châu hoàng kim · Foam mịn</p>
+            <div class="ube-family-card__sparkle">
+              <span class="active">✦</span><span class="active">✦</span>
+              <span class="active">✦</span><span class="active">✦</span><span class="active">✦</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WAVE + STORY
+  ============================================================ -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;background:#8B5EC0;">
+      <path d="M0,30 Q360,60 720,20 Q1080,-10 1440,40 L1440,60 L0,60 Z" fill="#F8F2FF"/>
+    </svg>
+  </div>
+
+  <section class="ube-story" id="story">
+    <div class="container">
+      <div class="ube-story__grid">
+
+        <!-- Visual stack -->
+        <div class="ube-story__visual" data-reveal="left">
+          <div class="ube-story__img-stack">
+            <!-- Main image -->
+            <img class="ube-story__img-main" src="../assets/images/ube - subpage/purple1.jpg" alt="Ảnh khoai tím" />
+            <!-- Secondary image -->
+            <img class="ube-story__img-sec" src="../assets/images/ube - subpage/purple2.jpg" alt="Ảnh màu tím" />
+            <!-- Floating tag -->
+            <div class="ube-story__floating-tag">BST Tháng 4 · 2026</div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="ube-story__text" data-reveal="right">
+          <span class="ube-story__label">Nguồn Gốc</span>
+          <h2 class="ube-story__title">
+            Tại sao lại là<br/><em>Khoai Tím?</em>
+          </h2>
+
+          <div class="ube-story__divider">
+            <span class="ube-story__divider-icon">✦</span>
+          </div>
+
+          <p class="ube-story__body">
+            Khoai tím (Ube) không chỉ là màu sắc — đó là ký ức. Là những buổi chiều ăn chè khoai ở nhà bà ngoại,
+            là màu áo tím thướt tha của mùa hè, là hương ngọt lạ lùng không nhầm lẫn với bất cứ thứ gì khác.
+          </p>
+          <p class="ube-story__body">
+            Tháng 4 năm nay, Le'Monet chọn Ube — khoai tím — như một lời cảm ơn dành cho màu sắc đặc biệt nhất
+            trong tự nhiên. Không phẩm màu nhân tạo. Chỉ là khoai tím thật, vị ngọt thật và màu tím thật.
+          </p>
+          <p class="ube-story__body ube-story__body--highlight">
+            "Chúng tôi không tạo ra màu tím — chúng tôi chỉ bảo vệ màu tím đó, nguyên xi như thiên nhiên vốn có."
+          </p>
+
+          <div style="display:flex;gap:28px;margin-top:28px;flex-wrap:wrap;">
+            <div>
+              <p style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:500;color:var(--ube-rich);">100%</p>
+              <p style="font-size:.82rem;color:var(--ink-soft);font-weight:600;letter-spacing:.08em;">Khoai tím tự nhiên</p>
+            </div>
+            <div style="width:1px;background:rgba(139,94,192,0.2);"></div>
+            <div>
+              <p style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:500;color:var(--ube-rich);">3</p>
+              <p style="font-size:.82rem;color:var(--ink-soft);font-weight:600;letter-spacing:.08em;">Thức uống đặc sắc</p>
+            </div>
+            <div style="width:1px;background:rgba(139,94,192,0.2);"></div>
+            <div>
+              <p style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:500;color:var(--ube-rich);">1</p>
+              <p style="font-size:.82rem;color:var(--ink-soft);font-weight:600;letter-spacing:.08em;">BST Limited Edition</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA BANNER
+  ============================================================ -->
+  <section class="ube-cta" id="booking">
+    <div class="ube-cta__inner">
+      <p class="ube-cta__eyebrow" data-reveal="up">✦ Limited Edition · Tháng 4 · 2026 ✦</p>
+      <h2 class="ube-cta__title" data-reveal="up">
+        Đặt một ly tím,<br/><em>giữ một kỷ niệm</em>
+      </h2>
+      <p class="ube-cta__sub" data-reveal="up">
+        BST UBE chỉ có trong tháng 4. Ghé Le'Monet Art Café, chọn cho mình một ly khoai tím yêu thích
+        và để màu tím đó lưu lại trong ký ức bạn mãi về sau.
+      </p>
+      <div class="ube-cta__actions" data-reveal="up">
+        <a href="../index.html#booking" class="btn-ube-primary" id="cta-book-ube">
+          <span>Đặt Bàn Ngay</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="../index.html" class="btn-ube-ghost" id="cta-back-home">
+          <span>Về Trang Chủ</span>
+        </a>
+      </div>
+
+      <!-- Floating sparkles decoration -->
+      <div style="position:absolute;top:20%;left:8%;font-size:2rem;color:rgba(255,255,255,0.15);animation:sparkleTwinkle 3s ease-in-out infinite;">✦</div>
+      <div style="position:absolute;top:15%;right:12%;font-size:2.5rem;color:rgba(255,255,255,0.1);animation:sparkleTwinkle 3.5s 1s ease-in-out infinite;">✦</div>
+      <div style="position:absolute;bottom:20%;left:15%;font-size:1.5rem;color:rgba(255,255,255,0.12);animation:sparkleTwinkle 4s 2s ease-in-out infinite;">✦</div>
+      <div style="position:absolute;bottom:25%;right:8%;font-size:2rem;color:rgba(255,255,255,0.1);animation:sparkleTwinkle 2.8s 0.5s ease-in-out infinite;">✦</div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="ube-footer">
+    <div class="container">
+      <div class="ube-footer__inner">
+        <div class="ube-footer__logo">
+          <img src="../assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo">
+          <span class="ube-footer__logo-text">Le'Monet Art Café</span>
+        </div>
+        <nav class="ube-footer__links" aria-label="Footer navigation">
+          <a href="../index.html">Trang Chủ</a>
+          <a href="../pages/tach-tra-cua-ban.html">Test Tính Cách</a>
+          <a href="../pages/thue-phong.html">Thuê Không Gian</a>
+          <a href="../index.html#booking">Đặt Bàn</a>
+        </nav>
+        <div class="ube-footer__social">
+          <a href="https://www.facebook.com/lemonetartcafe" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/lemonet.artcafe/" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@lemonet.art.cafe" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="ube-footer__bottom">
+        <p class="ube-footer__copy">© 2026 Le'Monet Art Café · Tất cả quyền được bảo lưu</p>
+        <span class="ube-footer__collection-badge">BST UBE · April 2026 · Limited Edition</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script>
+    /* ── Navigation scroll ─────────────────── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Mobile menu ───────────────────────── */
+    const hamburger = document.getElementById('navHamburger');
+    const mobileNav = document.getElementById('navMobile');
+
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
+        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+      });
+    }
+
+    function closeMobileMenu() {
+      if (mobileNav) mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* ── Back to top ───────────────────────── */
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* ── Scroll Reveal ─────────────────────── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    /* ── Staggered child reveals ───────────── */
+    document.querySelectorAll('.ube-family__grid').forEach(grid => {
+      const cards = grid.querySelectorAll('[data-reveal]');
+      cards.forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.15}s`;
+      });
+    });
+
+    /* ── Product Carousel ──────────────────── */
+    (function() {
+      const track    = document.getElementById('prdTrack');
+      const prevBtn  = document.getElementById('prdPrev');
+      const nextBtn  = document.getElementById('prdNext');
+      const dots     = document.querySelectorAll('.prd-carousel__dot');
+      if (!track || !prevBtn || !nextBtn) return;
+
+      const total = 3;
+      let current = 0;
+
+      function goTo(index) {
+        current = Math.max(0, Math.min(index, total - 1));
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        prevBtn.disabled = (current === 0);
+        nextBtn.disabled = (current === total - 1);
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
+      });
+
+      // Keyboard navigation
+      document.getElementById('prdCarousel')?.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      });
+
+      // Touch / drag swipe
+      let startX = 0, isDragging = false;
+      const wrap = track.parentElement;
+      wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+      wrap.addEventListener('touchend', e => {
+        if (!isDragging) return;
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+        isDragging = false;
+      });
+
+      // Mouse drag
+      let mouseStartX = 0;
+      wrap.addEventListener('mousedown', e => { mouseStartX = e.clientX; });
+      wrap.addEventListener('mouseup', e => {
+        const diff = mouseStartX - e.clientX;
+        if (Math.abs(diff) > 60) goTo(diff > 0 ? current + 1 : current - 1);
+      });
+
+      goTo(0); // init state
+    })();
+  </script>
+</body>
+
+</html>

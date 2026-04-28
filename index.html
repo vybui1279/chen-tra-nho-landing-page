@@ -120,6 +120,14 @@
     <ul class="nav__links">
       <li><a href="#nav">Chén Trà Nhỏ</a></li>
       <li><a href="pages/tach-tra-cua-ban.html">Test Tính Cách Trà</a></li>
+      <li class="nav__dropdown">
+        <button type="button" class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          Our Menu <span aria-hidden="true">▾</span>
+        </button>
+        <ul class="nav__dropdown-menu" aria-label="Our Menu">
+          <li><a href="pages/ubecollection.html">BST UBE 💜</a></li>
+        </ul>
+      </li>
       <li><a href="pages/thue-phong.html">Thuê Không Gian</a></li>
       <li><a href="#booking" class="nav__cta-link">Đặt Chỗ</a></li>
     </ul>
@@ -133,6 +141,12 @@
     <ul>
       <li><a href="#nav" onclick="closeMobileMenu()">Chén Trà Nhỏ</a></li>
       <li><a href="pages/tach-tra-cua-ban.html" onclick="closeMobileMenu()">Test Tính Cách Trà</a></li>
+      <li class="nav__mobile-group">
+        <span class="nav__mobile-group-title">Our Menu</span>
+        <ul class="nav__mobile-subnav">
+          <li><a href="pages/ubecollection.html" onclick="closeMobileMenu()">BST UBE 💜</a></li>
+        </ul>
+      </li>
       <li><a href="pages/thue-phong.html">Thuê Không Gian</a></li>
       <li><a href="#booking" onclick="closeMobileMenu()">Đặt Chỗ</a></li>
     </ul>
