@@ -327,13 +327,13 @@ blockquote { font-family: var(--font-accent); }
 .nav__dropdown-menu {
   position: absolute;
   left: 0;
-  top: calc(100% + 8px);
+  top: 100%;
   background: rgba(16, 16, 34, 0.96);
   border-radius: 18px;
   min-width: 190px;
   box-shadow: 0 22px 40px rgba(16, 16, 34, 0.35);
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(6px);
   pointer-events: none;
   display: none;
   transition: opacity .24s ease, transform .24s ease;
@@ -341,10 +341,10 @@ blockquote { font-family: var(--font-accent); }
 }
 .nav__dropdown:hover .nav__dropdown-menu,
 .nav__dropdown:focus-within .nav__dropdown-menu {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 .nav__dropdown-menu li {
   margin: 0;
