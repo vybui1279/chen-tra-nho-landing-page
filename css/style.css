@@ -228,6 +228,27 @@ blockquote { font-family: var(--font-accent); }
 
 .btn--full { width: 100%; justify-content: center; }
 
+/* ── Scroll progress ────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1200;
+  pointer-events: none;
+  background: rgba(245, 237, 216, 0.18);
+}
+
+.scroll-progress__bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--green-light));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.08s linear;
+}
+
 /* ── Navigation ─────────────────────────────────────────── */
 .nav {
   position: fixed;
@@ -264,6 +285,8 @@ blockquote { font-family: var(--font-accent); }
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--white);
+  cursor: pointer;
+  user-select: none;
 }
 .nav__logo-img {
   width: 44px;
@@ -278,6 +301,38 @@ blockquote { font-family: var(--font-accent); }
   font-family: var(--font-display);
   font-size: 1.45rem;
   letter-spacing: 0.02em;
+}
+
+/* ── Logo confetti easter egg ───────────────────────────── */
+.confetti-burst {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -16px;
+  width: var(--confetti-width, 9px);
+  height: var(--confetti-height, 14px);
+  background: var(--confetti-color, var(--gold));
+  border-radius: 2px;
+  opacity: 0;
+  animation: confettiFall 5s linear forwards;
+  animation-delay: var(--confetti-delay, 0s);
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0) rotate(0deg);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translate3d(var(--confetti-drift, 0px), calc(100vh + 80px), 0) rotate(var(--confetti-rotate, 720deg));
+  }
 }
 
 .nav__links {
@@ -998,9 +1053,19 @@ blockquote { font-family: var(--font-accent); }
   flex: 0 0 calc(85% - 24px);
   max-width: 320px;
 }
+
+.tutorial__item--embed {
+  max-width: min(320px, 85vw);
+}
+
 @media (min-width: 768px) {
   .tutorial__item {
     flex: 0 0 320px;
+  }
+
+  .tutorial__item--embed {
+    flex-basis: 360px;
+    max-width: 360px;
   }
 }
 
@@ -1031,6 +1096,36 @@ blockquote { font-family: var(--font-accent); }
   border-color: var(--green-light);
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(45,36,22, 0.06);
+}
+
+.tutorial__video-wrap--embed {
+  aspect-ratio: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: default;
+}
+
+.tutorial__video-wrap--embed:hover {
+  background: transparent;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.tutorial__instagram-embed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tutorial__instagram-embed iframe {
+  width: 100% !important;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--white);
+  margin: 0 auto !important;
 }
 .tutorial__video-placeholder-text {
   font-size: 1.1rem;

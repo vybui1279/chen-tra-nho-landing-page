@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Navbar & Theme logic ────────────────────────────────── */
   const nav = document.getElementById('nav');
+  const navLogo = document.getElementById('navLogo');
   const tpToc = document.getElementById('tpToc');
   const backToTop = document.getElementById('backToTop');
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
   const sections = document.querySelectorAll('section, footer');
   const tocLinks = document.querySelectorAll('.toc-bar__link');
   const isTpPage = document.body.classList.contains('tp-page');
@@ -40,12 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleScroll() {
     const scrollPos = window.scrollY;
+    const scrollableHeight = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
 
     // Navbar scrolled state
     if (nav) {
       nav.classList.toggle('scrolled', scrollPos > 40);
     }
-    if (backToTop) backToTop.classList.toggle('visible', scrollPos > 400);
+    if (scrollProgressBar) {
+      const scrollProgress = scrollableHeight > 0 ? scrollPos / scrollableHeight : 0;
+      scrollProgressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, scrollProgress))})`;
+    }
+    if (backToTop) backToTop.classList.toggle('visible', scrollPos > scrollableHeight / 2);
     if (tpToc) tpToc.classList.toggle('scrolled', scrollPos > 500);
 
     // Parallax logic
@@ -80,6 +87,79 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', handleScroll);
+
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ── Logo confetti easter egg ───────────────────────────── */
+  if (navLogo) {
+    let logoClickCount = 0;
+    let logoClickTimer;
+    let pendingLogoNavigation;
+    let confettiRunning = false;
+
+    function launchLogoConfetti() {
+      if (confettiRunning) return;
+      confettiRunning = true;
+
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti-burst';
+      confetti.setAttribute('aria-hidden', 'true');
+
+      const colors = ['#E8B84B', '#5A8F4E', '#A3C882', '#F2A0A0', '#F5EDD8', '#7BBDD4'];
+      const pieceCount = 150;
+
+      for (let i = 0; i < pieceCount; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti-piece';
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.setProperty('--confetti-color', colors[Math.floor(Math.random() * colors.length)]);
+        piece.style.setProperty('--confetti-width', `${6 + Math.random() * 8}px`);
+        piece.style.setProperty('--confetti-height', `${9 + Math.random() * 12}px`);
+        piece.style.setProperty('--confetti-delay', `${Math.random() * 0.75}s`);
+        piece.style.setProperty('--confetti-drift', `${(Math.random() - 0.5) * 260}px`);
+        piece.style.setProperty('--confetti-rotate', `${360 + Math.random() * 1080}deg`);
+        confetti.appendChild(piece);
+      }
+
+      document.body.appendChild(confetti);
+      setTimeout(() => {
+        confetti.remove();
+        confettiRunning = false;
+      }, 5750);
+    }
+
+    navLogo.addEventListener('click', (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      const logoHref = navLogo.getAttribute('href');
+      if (logoHref) event.preventDefault();
+
+      logoClickCount += 1;
+      clearTimeout(logoClickTimer);
+      clearTimeout(pendingLogoNavigation);
+
+      if (logoClickCount >= 3) {
+        logoClickCount = 0;
+        launchLogoConfetti();
+        return;
+      }
+
+      logoClickTimer = setTimeout(() => {
+        logoClickCount = 0;
+      }, 1000);
+
+      if (logoHref) {
+        pendingLogoNavigation = setTimeout(() => {
+          window.location.href = logoHref;
+        }, 650);
+      }
+    });
+  }
 
   /* ── Reveal on scroll (Intersection Observer) ─────────────── */
   const revealEls = document.querySelectorAll('[data-reveal]');

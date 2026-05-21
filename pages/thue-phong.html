@@ -75,6 +75,7 @@
       background-image: url('../assets/images/hero_water_ripple.jpg');
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
       z-index: 0;
       opacity: 1;
     }
@@ -131,6 +132,137 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.25);
     }
 
+    @keyframes pixieGlow {
+      0% { text-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(253, 240, 213, 0.15); }
+      50% { text-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 0 15px rgba(255,255,255,0.6), 0 0 30px rgba(253, 240, 213, 0.4), 0 0 45px rgba(253, 240, 213, 0.2); }
+      100% { text-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(253, 240, 213, 0.15); }
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    @keyframes shimmerSlide {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes labelPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+      50%       { box-shadow: 0 0 0 6px rgba(255,255,255,0.12), 0 0 18px rgba(255,255,255,0.15); }
+    }
+
+    @keyframes orbDrift1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%     { transform: translate(40px,-30px) scale(1.1); }
+      66%     { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    @keyframes orbDrift2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%     { transform: translate(-35px, 25px) scale(1.08); }
+      66%     { transform: translate(25px,-15px) scale(0.92); }
+    }
+
+    @keyframes sparkleIn {
+      0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+      50%  { opacity: 1; transform: scale(1.2) rotate(180deg); }
+      100% { opacity: 0; transform: scale(0) rotate(360deg); }
+    }
+
+    /* ── Dreamy floating orbs on hero ────────────────────── */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(60px);
+    }
+    .hero-orb--1 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(232,160,173,0.25) 0%, transparent 70%);
+      top: -80px; right: -60px;
+      animation: orbDrift1 12s ease-in-out infinite;
+    }
+    .hero-orb--2 {
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(123,189,212,0.22) 0%, transparent 70%);
+      bottom: -60px; left: -40px;
+      animation: orbDrift2 15s ease-in-out infinite;
+    }
+    .hero-orb--3 {
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(253,240,213,0.20) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation: orbDrift1 18s ease-in-out infinite reverse;
+    }
+
+    /* ── Particle canvas overlay ─────────────────────────── */
+    #pixie-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    /* ── Floating highlight cards ────────────────────────── */
+    .highlight-card:nth-child(1) { animation: floatCard 6s ease-in-out infinite 0s; }
+    .highlight-card:nth-child(2) { animation: floatCard 6s ease-in-out infinite 1.5s; }
+    .highlight-card:nth-child(3) { animation: floatCard 6s ease-in-out infinite 3s; }
+    .highlight-card:hover { animation: none; transform: translateY(-12px) scale(1.02); }
+
+    /* ── Shimmer shine on CTA buttons ───────────────────── */
+    .deposit-cta-btn, .btn--sky {
+      background-size: 200% auto;
+    }
+    .deposit-cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+      background-size: 200% auto;
+      animation: shimmerSlide 3s linear infinite;
+    }
+
+    /* ── Pulsing section labels on dark/image sections ───── */
+    #decision .tp-section-label,
+    #lich .tp-section-label,
+    .tp-section--dark .tp-section-label {
+      animation: labelPulse 3s ease-in-out infinite;
+    }
+
+    /* ── Ambient soft glow orbs behind plain sections ───── */
+    .tp-section--sky,
+    .tp-section--blush {
+      position: relative;
+      overflow: hidden;
+    }
+    .tp-section--sky::after,
+    .tp-section--blush::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+      animation: orbDrift2 14s ease-in-out infinite;
+    }
+    .tp-section--sky::after {
+      background: radial-gradient(circle, rgba(123,189,212,0.12) 0%, transparent 70%);
+      bottom: -200px; right: -150px;
+    }
+    .tp-section--blush::after {
+      background: radial-gradient(circle, rgba(232,160,173,0.12) 0%, transparent 70%);
+      top: -200px; left: -150px;
+    }
+    .tp-section--sky .container,
+    .tp-section--blush .container { position: relative; z-index: 1; }
+
     .tp-hero__title {
       font-size: clamp(2.2rem, 5.5vw, 4rem);
       color: var(--white);
@@ -138,6 +270,7 @@
       margin-bottom: 24px;
       font-family: var(--font-display);
       text-shadow: 0 4px 12px rgba(0,0,0,0.38);
+      animation: pixieGlow 4s ease-in-out infinite;
     }
 
     .tp-hero__title em {
@@ -237,7 +370,8 @@
 
     /* Dark teal CTA */
     .tp-section--dark {
-      background: var(--bg-dark);
+      background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('../book-phong-page/nen8.jpeg') center/cover no-repeat;
+      background-attachment: fixed;
       color: var(--cream);
       position: relative;
       overflow: hidden;
@@ -349,10 +483,11 @@
       overflow: hidden;
     }
 
-    /* Card 1 — sky blue */
+    /* Card 1 — nen3 */
     .highlight-card:nth-child(1) {
-      background: linear-gradient(160deg, #fff 60%, var(--sky-light) 100%);
-      border: 1px solid rgba(123, 189, 212, 0.2);
+      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../book-phong-page/nen3.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .highlight-card:nth-child(1)::before {
@@ -365,10 +500,11 @@
       transition: transform 0.4s ease;
     }
 
-    /* Card 2 — blush pink */
+    /* Card 2 — nen4 */
     .highlight-card:nth-child(2) {
-      background: linear-gradient(160deg, #fff 60%, var(--blush-light) 100%);
-      border: 1px solid rgba(232, 160, 173, 0.2);
+      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../book-phong-page/nen4.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .highlight-card:nth-child(2)::before {
@@ -381,10 +517,11 @@
       transition: transform 0.4s ease;
     }
 
-    /* Card 3 — sage green */
+    /* Card 3 — nen5 */
     .highlight-card:nth-child(3) {
-      background: linear-gradient(160deg, #fff 60%, var(--sage-pale) 100%);
-      border: 1px solid rgba(125, 155, 118, 0.2);
+      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../book-phong-page/nen5.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .highlight-card:nth-child(3)::before {
@@ -407,19 +544,17 @@
     }
 
     .highlight-card__icon {
-      width: 64px;
-      height: 64px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 16px;
-      margin: 0 auto 24px;
-      flex-shrink: 0;
+      margin: 0 auto 20px;
+      color: #fff;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
     }
 
     .highlight-card__icon svg {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       fill: none;
       stroke: currentColor;
       stroke-width: 1.5;
@@ -428,14 +563,16 @@
     .highlight-card__title {
       font-family: var(--font-display);
       font-size: 1.6rem;
-      color: var(--ink);
+      color: #fff;
       margin-bottom: 16px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
     }
 
     .highlight-card__desc {
-      color: var(--ink-soft);
+      color: rgba(255,255,255,0.95);
       font-size: 1.4rem;
       line-height: 1.8;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
     /* ── Section 3: Rooms ────────────────────────────────── */
@@ -563,14 +700,41 @@
     }
 
     /* ── Section 4: Decision Table ───────────────────────── */
+    #decision {
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../book-phong-page/nen2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    #decision .tp-section-title {
+      color: var(--white);
+      animation: pixieGlow 4s ease-in-out infinite 0.5s;
+    }
+    
+    #decision .tp-section-subtitle {
+      color: var(--white);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    #decision .tp-section-label {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
     .decision-table-wrap {
       max-width: 760px;
       margin: 0 auto;
-      background: var(--white);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      border: 1px solid rgba(123, 189, 212, 0.2);
+      overflow-x: auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.7);
     }
 
     .decision-table {
@@ -580,7 +744,7 @@
     }
 
     .decision-table thead {
-      background: linear-gradient(90deg, var(--sky) 0%, var(--sky-mid) 100%);
+      background: rgba(255, 255, 255, 0.2);
       color: var(--white);
     }
 
@@ -589,32 +753,35 @@
       text-align: left;
       font-weight: 700;
       letter-spacing: 0.04em;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       text-transform: uppercase;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     }
 
     .decision-table td {
       padding: 22px 24px;
-      border-bottom: 1px solid rgba(42, 127, 168, 0.1);
-      color: var(--ink-mid);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
       line-height: 1.65;
       font-size: 1.35rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
     .decision-table tr:last-child td { border-bottom: none; }
 
-    .decision-table tr:nth-child(even) td { background: var(--sky-pale); }
-    .decision-table tr:hover td { background: rgba(123,189,212,0.08); }
+    .decision-table tr:nth-child(even) td { background: rgba(255, 255, 255, 0.1); }
+    .decision-table tr:hover td { background: rgba(255, 255, 255, 0.2); }
 
     .decision-table .plan-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-weight: 700;
-      color: var(--sky);
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
-    .plan-badge--star { color: var(--blush); }
+    .plan-badge--star { color: #fff; }
 
     /* ── Section 5: Packages ─────────────────────────────── */
     .packages-stack {
@@ -995,15 +1162,16 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: var(--sky-mid);
+      color: #fff;
       font-size: 1.2rem;
       text-decoration: underline;
       text-underline-offset: 4px;
       transition: color 0.25s;
       margin-top: 16px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     }
 
-    .booking-cta__fanpage-link:hover { color: var(--blush-mid); }
+    .booking-cta__fanpage-link:hover { color: rgba(255,255,255,0.8); }
 
     /* CTA button in dark section */
     .btn--cta-main {
@@ -1027,6 +1195,166 @@
       filter: brightness(1.1);
       transform: translateY(-4px);
       box-shadow: 0 8px 30px rgba(123,189,212,0.65);
+    }
+
+    /* ── Deposit Section Premium ────────────────────────────── */
+    .deposit-section-wrap {
+      width: 100%;
+      margin-top: 80px;
+      padding-top: 72px;
+      border-top: 1px solid rgba(245,237,216,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .deposit-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 8px 22px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .deposit-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: #EDF6FB;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      animation: pixieGlow 4s ease-in-out infinite 1.5s;
+    }
+
+    .deposit-title em {
+      font-style: italic;
+      color: #fff;
+    }
+
+    .deposit-subtitle {
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.75;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+
+    .deposit-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 44px;
+    }
+
+    .deposit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .deposit-pill__icon {
+      font-size: 1rem;
+    }
+
+    .deposit-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 52px;
+      background: linear-gradient(135deg, #5AAACE 0%, #2A7FA8 100%);
+      border-radius: 999px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 32px rgba(42,127,168,0.45);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Section 6: Calendar background override ──────────────── */
+    #lich {
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../book-phong-page/nen7.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+
+    #lich .tp-section-title {
+      color: #fff;
+      animation: pixieGlow 4s ease-in-out infinite 1s;
+    }
+    
+    #lich .tp-section-title em {
+      color: #fff !important;
+    }
+
+    #lich .tp-section-subtitle {
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    #lich .tp-section-label {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
+    .deposit-cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+      border-radius: 999px;
+    }
+
+    .deposit-cta-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(42,127,168,0.55);
+    }
+
+    .deposit-cta-btn svg {
+      transition: transform 0.3s;
+    }
+
+    .deposit-cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .deposit-reassurance {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: rgba(245,237,216,0.38);
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 640px) {
+      .deposit-section-wrap { margin-top: 56px; padding-top: 52px; }
+      .deposit-cta-btn { padding: 18px 36px; font-size: 1rem; }
+      .deposit-pills { gap: 8px; }
+      .deposit-pill { padding: 8px 14px; font-size: 0.82rem; }
     }
 
     /* ── Scroll Reveal ────────────────────────────────────── */
@@ -1115,10 +1443,76 @@
       background: rgba(255,255,255,0.4); transform: translateY(-2px);
     }
 
+    /* ── Music Button (minimal) ──────────────────────── */
+    #musicBtn {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      z-index: 9999;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: labelPulse 3s ease-in-out infinite;
+    }
+    #musicBtn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.1);
+    }
+    #musicBtn svg {
+      width: 22px;
+      height: 22px;
+      transition: opacity 0.2s;
+    }
+    #musicBtn .icon-play  { display: block; }
+    #musicBtn .icon-pause { display: none; }
+    #musicBtn.is-playing .icon-play  { display: none; }
+    #musicBtn.is-playing .icon-pause { display: block; }
+
+    /* Tooltip on hover */
+    #musicBtn::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 62px;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      padding: 5px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: all 0.25s ease;
+      pointer-events: none;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+    #musicBtn:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .highlights-grid, .rooms-grid { grid-template-columns: 1fr; }
+    }
+    
     @media (max-width: 640px) {
       .tp-hero { padding: 100px 20px 60px; }
       .tp-section { padding: 72px 20px; }
+      .highlights-grid { grid-template-columns: 1fr; }
       .rooms-grid { grid-template-columns: 1fr; }
       .pkg-card { padding: 28px 20px; }
       .decision-table th, .decision-table td { padding: 14px 14px; }
@@ -1159,7 +1553,7 @@
        NAV (same structure as index)
   ============================================================ -->
   <nav class="nav" id="nav">
-    <a href="../index.html" class="nav__logo">
+    <a href="../index.html" class="nav__logo" id="navLogo">
       <img src="../assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" class="nav__logo-img">
       <span class="nav__logo-text">Le'Monet Art Café</span>
     </a>
@@ -1214,8 +1608,14 @@
   <!-- ============================================================
        SECTION 1 — HERO
   ============================================================ -->
+  <!-- Pixie dust canvas -->
+  <canvas id="pixie-canvas"></canvas>
+
   <section class="tp-hero" id="home">
     <div class="tp-hero__bg"></div>
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-orb hero-orb--3"></div>
 
     <div class="tp-hero__content" data-reveal="up">
       <div style="display: flex; justify-content: center; margin-bottom: 24px;">
@@ -1258,7 +1658,7 @@
 
       <div class="highlights-grid">
         <div class="highlight-card" data-reveal="up">
-          <div class="highlight-card__icon" style="background: var(--sage-pale); color: var(--sage-dark);">
+          <div class="highlight-card__icon">
             <svg class="icon-svg"><use href="#svg-leaf"></use></svg>
           </div>
           <h3 class="highlight-card__title">Yên Tĩnh</h3>
@@ -1266,7 +1666,7 @@
         </div>
 
         <div class="highlight-card" data-reveal="up">
-          <div class="highlight-card__icon" style="background: var(--blush-pale); color: var(--blush);">
+          <div class="highlight-card__icon">
             <svg class="icon-svg"><use href="#svg-palette"></use></svg>
           </div>
           <h3 class="highlight-card__title">Nghệ Thuật</h3>
@@ -1274,7 +1674,7 @@
         </div>
 
         <div class="highlight-card" data-reveal="up">
-          <div class="highlight-card__icon" style="background: var(--sky-pale); color: var(--sky);">
+          <div class="highlight-card__icon">
             <svg class="icon-svg"><use href="#svg-teacup"></use></svg>
           </div>
           <h3 class="highlight-card__title">Được Chăm Sóc</h3>
@@ -1607,7 +2007,7 @@
   <!-- ============================================================
        SECTION 6 — LỊCH TRỐNG
   ============================================================ -->
-  <section class="tp-section" id="lich" style="background: white;">
+  <section class="tp-section" id="lich">
     <div class="container">
       <div class="tp-section-header" data-reveal="up">
         <span class="tp-section-label">Lịch Phòng</span>
@@ -1629,7 +2029,7 @@
     <div class="container">
       <div class="tp-section-header" data-reveal="up">
         <span class="tp-section-label tp-section-label--light">Liên Hệ</span>
-        <h2 class="tp-section-title tp-section-title--light">Đặt Chỗ Ngay</h2>
+        <h2 class="tp-section-title tp-section-title--light" style="animation: pixieGlow 4s ease-in-out infinite 1.5s;">Đặt Chỗ Ngay</h2>
         <p class="tp-section-subtitle tp-section-subtitle--light">Quét mã → Nhắn tin → Le'Monet xác nhận trong vòng vài tiếng.</p>
       </div>
 
@@ -1664,6 +2064,38 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           Hoặc nhắn tin trực tiếp qua Fanpage Le'Monet
         </a>
+
+        <!-- Deposit Section Premium -->
+        <div class="deposit-section-wrap" data-reveal="up">
+
+          <span class="deposit-eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Ưu tiên giữ chỗ
+          </span>
+
+          <h2 class="deposit-title">
+            Cọc trước — <em>Le'Monet giữ chỗ ngay cho bạn</em>
+          </h2>
+
+          <p class="deposit-subtitle">
+            Chỉ 100.000 VNĐ, quét mã QR chuyển khoản là xong.<br>
+            Hệ thống tự xác nhận — không cần chờ nhân viên phản hồi.
+          </p>
+
+          <div class="deposit-pills">
+            <span class="deposit-pill"><span class="deposit-pill__icon">⚡</span> QR tự động điền đúng số tiền & mã</span>
+            <span class="deposit-pill"><span class="deposit-pill__icon">✅</span> Xác nhận tức thì sau khi chuyển khoản</span>
+            <span class="deposit-pill"><span class="deposit-pill__icon">📋</span> Nhận trang xác nhận đặt chỗ ngay</span>
+          </div>
+
+          <a href="coc-phong.html" class="deposit-cta-btn">
+            Cọc giữ chỗ ngay — 100.000 VNĐ
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <p class="deposit-reassurance">Hoàn cọc 100% nếu Le'Monet không giữ được chỗ cho bạn</p>
+
+        </div>
 
       </div>
 
@@ -1774,6 +2206,134 @@
         dot.classList.toggle('is-active', i === currentIndex);
       });
     }
+  </script>
+
+  <script>
+    /* ── Pixie Dust Particle System ──────────────────────── */
+    (function() {
+      const canvas = document.getElementById('pixie-canvas');
+      const ctx = canvas.getContext('2d');
+      let W, H, particles = [];
+
+      const COLORS = [
+        'rgba(253,240,213,', // warm cream
+        'rgba(232,160,173,', // blush
+        'rgba(123,189,212,', // sky
+        'rgba(255,255,255,', // white
+      ];
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+
+      function createParticle() {
+        return {
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 2.2 + 0.4,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          alpha: Math.random() * 0.5 + 0.1,
+          speed: Math.random() * 0.4 + 0.1,
+          angle: Math.random() * Math.PI * 2,
+          twinkleSpeed: Math.random() * 0.02 + 0.005,
+          twinkleDir: Math.random() > 0.5 ? 1 : -1,
+        };
+      }
+
+      function init() {
+        resize();
+        particles = Array.from({ length: 110 }, createParticle);
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+          // Twinkle
+          p.alpha += p.twinkleSpeed * p.twinkleDir;
+          if (p.alpha > 0.65 || p.alpha < 0.05) p.twinkleDir *= -1;
+
+          // Gentle drift
+          p.x += Math.cos(p.angle) * p.speed;
+          p.y += Math.sin(p.angle) * p.speed - 0.15; // slight upward float
+          p.angle += 0.008;
+
+          // Wrap around
+          if (p.y < -10) p.y = H + 10;
+          if (p.x < -10) p.x = W + 10;
+          if (p.x > W + 10) p.x = -10;
+
+          // Draw soft glow dot
+          ctx.beginPath();
+          const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2.5);
+          grd.addColorStop(0, p.color + p.alpha + ')');
+          grd.addColorStop(1, p.color + '0)');
+          ctx.fillStyle = grd;
+          ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', () => { resize(); });
+      init();
+      draw();
+    })();
+  </script>
+
+  <!-- Hidden YouTube audio player (off-screen, plays audio only) -->
+  <div id="ytHolder" style="position:fixed;top:-9999px;left:-9999px;width:0;height:0;overflow:hidden;"></div>
+
+  <!-- Minimal music button -->
+  <button id="musicBtn" data-tooltip="Bật nhạc nền" aria-label="Bật/tắt nhạc">
+    <!-- Play icon -->
+    <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.5)"/>
+      <polygon points="10 8 16 12 10 16 10 8" fill="rgba(255,255,255,0.9)" stroke="none"/>
+    </svg>
+    <!-- Pause icon -->
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.5)"/>
+      <line x1="10" y1="8" x2="10" y2="16" stroke-width="2"/>
+      <line x1="14" y1="8" x2="14" y2="16" stroke-width="2"/>
+    </svg>
+  </button>
+
+  <script>
+    /* ── Background Music via YouTube embed ─────────────────
+       Browser policy: audio can ONLY autoplay after a user gesture.
+       Clicking the button IS the user gesture — this will work.
+       Scroll-triggered autoplay is blocked by all modern browsers.
+    ────────────────────────────────────────────────────────── */
+
+    // YouTube video ID for Arrietty's Song - Instrumental (Cécile Corbel)
+    const YT_ID  = '0KSOMA3QBU0';
+    const ytDiv  = document.getElementById('ytHolder');
+    const mBtn   = document.getElementById('musicBtn');
+    let isOn     = false;
+
+    function startBgMusic() {
+      isOn = true;
+      mBtn.classList.add('is-playing');
+      mBtn.setAttribute('data-tooltip', 'Tắt nhạc');
+      // YouTube embed: autoplay=1, mute=0, controls=0, loop=1, playlist repeats same video
+      ytDiv.style.cssText = 'position:fixed;bottom:0;right:-400px;width:320px;height:180px;';
+      ytDiv.innerHTML = `<iframe
+        width="320" height="180" frameborder="0"
+        src="https://www.youtube.com/embed/${YT_ID}?autoplay=1&mute=0&controls=0&loop=1&playlist=${YT_ID}&rel=0&showinfo=0"
+        allow="autoplay; fullscreen">
+      </iframe>`;
+    }
+
+    function stopBgMusic() {
+      isOn = false;
+      mBtn.classList.remove('is-playing');
+      mBtn.setAttribute('data-tooltip', 'Bật nhạc nền');
+      ytDiv.innerHTML = '';
+      ytDiv.style.cssText = 'position:fixed;top:-9999px;left:-9999px;width:0;height:0;overflow:hidden;';
+    }
+
+    mBtn.addEventListener('click', () => isOn ? stopBgMusic() : startBgMusic());
   </script>
 
   <script src="../js/script.js"></script>

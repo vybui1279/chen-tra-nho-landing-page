@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặt Chỗ Thành Công – Le'Monet Art Café</title>
+  <meta name="description" content="Cảm ơn bạn đã cọc giữ chỗ tại Le'Monet Art Café." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/back-to-top.css">
+  <style>
+    :root {
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Be Vietnam Pro', sans-serif;
+      --cream: #f5edd8;
+      --sky: #7bbdd4;
+      --sage: #a8b89a;
+      --blush: #d4a5a5;
+      --dark-bg: #0f1923;
+      --card-bg: rgba(255,255,255,0.04);
+      --border: rgba(245,237,216,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--dark-bg);
+      color: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    /* ── Confetti canvas ── */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Card ── */
+    .ty-card {
+      position: relative;
+      z-index: 1;
+      width: 100%; max-width: 480px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px 40px;
+      text-align: center;
+      animation: card-in 0.7s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes card-in {
+      from { opacity: 0; transform: translateY(40px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ── Success Icon ── */
+    .success-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 24px;
+      background: rgba(74,222,128,0.1);
+      border: 2px solid rgba(74,222,128,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      animation: icon-pop 0.5s 0.3s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes icon-pop {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .success-icon svg { color: #4ade80; }
+
+    /* ── Text ── */
+    .ty-brand {
+      font-size: 0.8rem;
+      color: rgba(245,237,216,0.4);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .ty-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .ty-sub {
+      font-size: 0.95rem;
+      color: rgba(245,237,216,0.6);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ── Booking Summary ── */
+    .booking-summary {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(245,237,216,0.1);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .booking-summary__title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(245,237,216,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(245,237,216,0.06);
+      font-size: 0.88rem;
+      gap: 12px;
+    }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row__label { color: rgba(245,237,216,0.45); white-space: nowrap; }
+    .summary-row__value { color: var(--cream); font-weight: 600; text-align: right; }
+    .summary-ref {
+      font-family: monospace;
+      font-size: 1rem;
+      color: var(--sky);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Promise badge ── */
+    .promise-badge {
+      background: rgba(168,184,154,0.08);
+      border: 1px solid rgba(168,184,154,0.2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      color: rgba(245,237,216,0.6);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .promise-badge strong { color: var(--sage); }
+
+    /* ── Actions ── */
+    .ty-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 15px 24px;
+      background: linear-gradient(135deg, var(--sky), #5aa8c8);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,189,212,0.35); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      background: transparent;
+      border: 1px solid rgba(245,237,216,0.2);
+      border-radius: 12px;
+      color: rgba(245,237,216,0.6);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-ghost:hover { border-color: rgba(245,237,216,0.4); color: var(--cream); }
+
+    /* ── Logo footer ── */
+    .ty-footer {
+      margin-top: 32px;
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .ty-footer a {
+      color: rgba(245,237,216,0.3);
+      font-size: 0.82rem;
+      text-decoration: none;
+    }
+    .ty-footer a:hover { color: rgba(245,237,216,0.6); }
+
+    @media (max-width: 500px) {
+      .ty-card { padding: 36px 24px; }
+      .ty-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="ty-card" id="tyCard">
+
+    <!-- Icon -->
+    <div class="success-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+
+    <p class="ty-brand">Le'Monet Art Café · Quận 2</p>
+    <h1 class="ty-title">Cọc thành công! 🎉</h1>
+    <p class="ty-sub">Le'Monet đã nhận được cọc của bạn và sẽ ưu tiên <strong>giữ chỗ</strong> cho khung giờ bạn chọn. Hẹn gặp bạn tại tiệm nhé!</p>
+
+    <!-- Booking summary (populated by JS) -->
+    <div class="booking-summary" id="bookingSummary">
+      <p class="booking-summary__title">Thông tin đặt chỗ</p>
+      <div id="summaryRows"></div>
+    </div>
+
+    <!-- Promise -->
+    <div class="promise-badge">
+      📞 Le'Monet sẽ liên hệ xác nhận qua số điện thoại của bạn trong vòng <strong>2 tiếng</strong> (trong giờ hoạt động 8h–22h). Nếu chưa nhận được, vui lòng nhắn tin qua Fanpage.
+    </div>
+
+    <!-- Actions -->
+    <div class="ty-actions">
+      <a href="https://www.facebook.com/lemonetartcafe" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        Nhắn tin qua Fanpage Le'Monet
+      </a>
+      <a href="thue-phong.html" class="btn-ghost">
+        ← Quay lại trang thuê phòng
+      </a>
+    </div>
+
+  </div>
+
+  <div class="ty-footer">
+    <a href="../index.html">© 2025 Le'Monet Art Café · Chén Trà Nhỏ</a>
+  </div>
+
+  <script>
+    // ── Populate booking info from sessionStorage ──
+    (function() {
+      const raw = sessionStorage.getItem('lm_booking');
+      if (!raw) return;
+
+      const b = JSON.parse(raw);
+      const roomMap = {
+        P01: 'Phòng 01 – Căn Phòng Xanh',
+        P02: 'Phòng 02 – Thư Viện Bàn Lớn',
+        P03: 'Phòng 03 – Có Ban Công',
+      };
+      const pkgMap = {
+        Goi01: 'Gói 01 – Khởi Đầu Cảm Hứng',
+        Goi02: 'Gói 02 – Văn Phòng Sáng Tạo',
+        Goi03: 'Gói 03 – Lớp Học Cảm Hứng',
+      };
+
+      const rows = [
+        { label: 'Tên',         value: b.name  || '—' },
+        { label: 'Điện thoại',  value: b.phone || '—' },
+        { label: 'Ngày',        value: b.date  ? formatDate(b.date) : '—' },
+        { label: 'Giờ',         value: b.time  || '—' },
+        { label: 'Phòng',       value: roomMap[b.room] || b.room || '—' },
+        { label: 'Gói',         value: pkgMap[b.pkg]   || b.pkg  || '—' },
+        { label: 'Mã đặt chỗ', value: `<span class="summary-ref">${b.ref || '—'}</span>` },
+        { label: 'Số tiền cọc', value: '100.000 VNĐ' },
+      ];
+
+      document.getElementById('summaryRows').innerHTML = rows.map(r => `
+        <div class="summary-row">
+          <span class="summary-row__label">${r.label}</span>
+          <span class="summary-row__value">${r.value}</span>
+        </div>
+      `).join('');
+
+      // Clear after reading so it doesn't persist on refresh
+      sessionStorage.removeItem('lm_booking');
+    })();
+
+    function formatDate(d) {
+      const [y, m, day] = d.split('-');
+      return `${day}/${m}/${y}`;
+    }
+
+    // ── Confetti ──
+    (function() {
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const colors = ['#7bbdd4','#d4a5a5','#a8b89a','#f5edd8','#4ade80','#fbbf24'];
+      const particles = Array.from({ length: 120 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        w: Math.random() * 10 + 5,
+        h: Math.random() * 5 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 2,
+        vy: Math.random() * 3 + 2,
+        angle: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.15,
+        opacity: Math.random() * 0.6 + 0.4,
+      }));
+
+      let frame = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          ctx.save();
+          ctx.globalAlpha = p.opacity;
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.angle);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          ctx.restore();
+          p.x += p.vx;
+          p.y += p.vy;
+          p.angle += p.spin;
+          if (p.y > canvas.height) { p.y = -20; p.x = Math.random() * canvas.width; }
+        });
+        frame++;
+        if (frame < 300) requestAnimationFrame(draw); // Run ~5 seconds then stop
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      draw();
+    })();
+  </script>
+
+  <button class="back-to-top" id="backToTop" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+  <script src="../js/back-to-top.js"></script>
+</body>
+</html>

@@ -18,6 +18,10 @@
 </head>
 
 <body>
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollProgressBar"></div>
+  </div>
+
   <!-- SVG Symbols for Icons -->
   <svg width="0" height="0" style="display: none;" aria-hidden="true">
     <defs>
@@ -113,7 +117,7 @@
        NAV
   ============================================================ -->
   <nav class="nav" id="nav">
-    <div class="nav__logo">
+    <div class="nav__logo" id="navLogo">
       <img src="assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" class="nav__logo-img">
       <span class="nav__logo-text">Le'Monet Art Café</span>
     </div>
@@ -409,33 +413,51 @@
         <div class="tutorial__track">
           
           <!-- Video 1 -->
-          <div class="tutorial__item">
+          <div class="tutorial__item tutorial__item--embed">
             <div class="tutorial__video-card">
-              <div class="tutorial__video-wrap">
-                <div class="tutorial__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-                <p class="tutorial__video-placeholder-text">Clip 1<br/><small>(Chèn video tại đây)</small></p>
+              <div class="tutorial__video-wrap tutorial__video-wrap--embed">
+                <div class="tutorial__instagram-embed">
+                  <iframe
+                    src="https://www.instagram.com/reel/DXzAOnrTOOv/embed"
+                    title="Instagram Reel - Hãy Đến Với Chén Trà Nhỏ"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
               </div>
-              <h3 class="tutorial__video-title">Booth Ngày Thử Trà</h3>
+              <h3 class="tutorial__video-title">Hãy Đến Với Chén Trà Nhỏ</h3>
             </div>
           </div>
 
           <!-- Video 2 -->
-          <div class="tutorial__item">
+          <div class="tutorial__item tutorial__item--embed">
             <div class="tutorial__video-card">
-              <div class="tutorial__video-wrap">
-                <div class="tutorial__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-                <p class="tutorial__video-placeholder-text">Clip 2<br/><small>(Chèn video tại đây)</small></p>
+              <div class="tutorial__video-wrap tutorial__video-wrap--embed">
+                <div class="tutorial__instagram-embed">
+                  <iframe
+                    src="https://www.instagram.com/reel/DYTmkbczv8l/embed"
+                    title="Instagram Reel - Trải nghiệm 15 Phút Cùng Người Thân"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
               </div>
               <h3 class="tutorial__video-title">Trải nghiệm 15 Phút<br/>Cùng Người Thân</h3>
             </div>
           </div>
 
           <!-- Video 3 -->
-          <div class="tutorial__item">
+          <div class="tutorial__item tutorial__item--embed">
             <div class="tutorial__video-card">
-              <div class="tutorial__video-wrap">
-                <div class="tutorial__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-                <p class="tutorial__video-placeholder-text">Clip 3<br/><small>(Chèn video tại đây)</small></p>
+              <div class="tutorial__video-wrap tutorial__video-wrap--embed">
+                <div class="tutorial__instagram-embed">
+                  <iframe
+                    src="https://www.instagram.com/reel/DYRA3A_yzix/embed"
+                    title="Instagram Reel - Câu Chuyện của Chén Trà Nhỏ"
+                    loading="lazy"
+                    allowfullscreen>
+                  </iframe>
+                </div>
               </div>
               <h3 class="tutorial__video-title">Câu Chuyện của<br/>Chén Trà Nhỏ</h3>
             </div>

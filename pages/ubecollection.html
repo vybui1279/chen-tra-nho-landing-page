@@ -141,6 +141,8 @@
       font-family: var(--font-display);
       font-size: 1.35rem;
       color: var(--white);
+      cursor: pointer;
+      user-select: none;
     }
     .nav__logo-img {
       width: 40px; height: 40px;
@@ -153,6 +155,38 @@
       display: flex;
       align-items: center;
       gap: 32px;
+    }
+
+    /* ── Logo confetti easter egg ───────────────────────────── */
+    .confetti-burst {
+      position: fixed;
+      inset: 0;
+      z-index: 1300;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -16px;
+      width: var(--confetti-width, 9px);
+      height: var(--confetti-height, 14px);
+      background: var(--confetti-color, var(--ube-mid));
+      border-radius: 2px;
+      opacity: 0;
+      animation: confettiFall 5s linear forwards;
+      animation-delay: var(--confetti-delay, 0s);
+    }
+
+    @keyframes confettiFall {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, -20px, 0) rotate(0deg);
+      }
+      100% {
+        opacity: 0.95;
+        transform: translate3d(var(--confetti-drift, 0px), calc(100vh + 80px), 0) rotate(var(--confetti-rotate, 720deg));
+      }
     }
     .nav__links a {
       font-size: 1rem;
@@ -1457,7 +1491,7 @@
        NAV
   ============================================================ -->
   <nav class="nav" id="nav">
-    <a href="../index.html" class="nav__logo">
+    <a href="../index.html" class="nav__logo" id="navLogo">
       <img src="../assets/images/logo_lemonet.png" alt="Le'Monet Art Café Logo" class="nav__logo-img">
       <span>Le'Monet Art Café</span>
     </a>
@@ -2015,15 +2049,93 @@
       document.body.style.overflow = '';
     }
 
+    /* ── Logo confetti easter egg ───────────────────────────── */
+    const navLogo = document.getElementById('navLogo');
+    if (navLogo) {
+      let logoClickCount = 0;
+      let logoClickTimer;
+      let pendingLogoNavigation;
+      let confettiRunning = false;
+
+      function launchLogoConfetti() {
+        if (confettiRunning) return;
+        confettiRunning = true;
+
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-burst';
+        confetti.setAttribute('aria-hidden', 'true');
+
+        const colors = ['#4A2875', '#8B5EC0', '#B48FD8', '#D4B8F0', '#E8C56A', '#FEFCFF'];
+        const pieceCount = 150;
+
+        for (let i = 0; i < pieceCount; i++) {
+          const piece = document.createElement('span');
+          piece.className = 'confetti-piece';
+          piece.style.left = `${Math.random() * 100}%`;
+          piece.style.setProperty('--confetti-color', colors[Math.floor(Math.random() * colors.length)]);
+          piece.style.setProperty('--confetti-width', `${6 + Math.random() * 8}px`);
+          piece.style.setProperty('--confetti-height', `${9 + Math.random() * 12}px`);
+          piece.style.setProperty('--confetti-delay', `${Math.random() * 0.75}s`);
+          piece.style.setProperty('--confetti-drift', `${(Math.random() - 0.5) * 260}px`);
+          piece.style.setProperty('--confetti-rotate', `${360 + Math.random() * 1080}deg`);
+          confetti.appendChild(piece);
+        }
+
+        document.body.appendChild(confetti);
+        setTimeout(() => {
+          confetti.remove();
+          confettiRunning = false;
+        }, 5750);
+      }
+
+      navLogo.addEventListener('click', (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+        const logoHref = navLogo.getAttribute('href');
+        if (logoHref) event.preventDefault();
+
+        logoClickCount += 1;
+        clearTimeout(logoClickTimer);
+        clearTimeout(pendingLogoNavigation);
+
+        if (logoClickCount >= 3) {
+          logoClickCount = 0;
+          launchLogoConfetti();
+          return;
+        }
+
+        logoClickTimer = setTimeout(() => {
+          logoClickCount = 0;
+        }, 1000);
+
+        if (logoHref) {
+          pendingLogoNavigation = setTimeout(() => {
+            window.location.href = logoHref;
+          }, 650);
+        }
+      });
+    }
+
     /* ── Back to top ───────────────────────── */
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
+      function getHalfPageScrollThreshold() {
+        const scrollableHeight = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        return scrollableHeight / 2;
+      }
+
+      function updateBackToTop() {
+        backToTop.classList.toggle('visible', window.scrollY > getHalfPageScrollThreshold());
+      }
+
       window.addEventListener('scroll', () => {
-        backToTop.classList.toggle('visible', window.scrollY > 400);
+        updateBackToTop();
       }, { passive: true });
+      window.addEventListener('resize', updateBackToTop);
       backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+      updateBackToTop();
     }
 
     /* ── Scroll Reveal ─────────────────────── */

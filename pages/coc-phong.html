@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cọc Giữ Chỗ – Le'Monet Art Café</title>
+  <meta name="description" content="Cọc trước 100.000 VNĐ để Le'Monet ưu tiên giữ khung giờ phòng cho bạn." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/back-to-top.css">
+  <style>
+    :root {
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Be Vietnam Pro', sans-serif;
+      --ink: #1a1a2e;
+      --cream: #f5edd8;
+      --sky: #7bbdd4;
+      --blush: #d4a5a5;
+      --sage: #a8b89a;
+      --dark-bg: #0f1923;
+      --card-bg: rgba(255,255,255,0.04);
+      --border: rgba(245,237,216,0.12);
+      --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--dark-bg);
+      color: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .page-header__logo {
+      width: 60px; height: 60px;
+      border-radius: 50%; object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.2);
+      margin-bottom: 16px;
+    }
+    .page-header__brand {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: rgba(245,237,216,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .page-header__title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    /* ── Steps ── */
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      font-size: 0.8rem;
+      color: rgba(245,237,216,0.4);
+    }
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .flow-step__num {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(245,237,216,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 600;
+    }
+    .flow-step--active { color: var(--sky); }
+    .flow-step--active .flow-step__num { border-color: var(--sky); background: rgba(123,189,212,0.15); color: var(--sky); }
+    .flow-step--done { color: var(--sage); }
+    .flow-step--done .flow-step__num { border-color: var(--sage); background: rgba(168,184,154,0.15); }
+    .flow-arrow { opacity: 0.3; }
+
+    /* ── Main Card ── */
+    .main-card {
+      width: 100%; max-width: 520px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* ── Form Section ── */
+    .form-section {
+      padding: 32px;
+    }
+    .form-section__title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(245,237,216,0.6);
+      margin-bottom: 7px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(245,237,216,0.15);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+      appearance: none;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--sky);
+      box-shadow: 0 0 0 3px rgba(123,189,212,0.15);
+    }
+    .form-input::placeholder { color: rgba(245,237,216,0.25); }
+    .form-select option { background: #1a2a3a; color: var(--cream); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .btn-generate {
+      width: 100%;
+      margin-top: 8px;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--sky) 0%, #5aa8c8 100%);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .btn-generate:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,189,212,0.4); }
+    .btn-generate:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* ── QR Section (hidden initially) ── */
+    .qr-section {
+      display: none;
+      padding: 0 32px 32px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .qr-section.is-visible { display: flex; }
+
+    .qr-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 28px;
+    }
+
+    .qr-label {
+      font-size: 0.82rem;
+      color: rgba(245,237,216,0.5);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .qr-amount {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--sky);
+      margin-bottom: 4px;
+    }
+    .qr-ref {
+      font-size: 0.82rem;
+      color: rgba(245,237,216,0.4);
+      margin-bottom: 24px;
+      font-family: monospace;
+      letter-spacing: 0.05em;
+    }
+
+    .qr-image-wrap {
+      position: relative;
+      width: 220px; height: 220px;
+      margin-bottom: 20px;
+    }
+    .qr-image-wrap img {
+      width: 100%; height: 100%;
+      border-radius: 16px;
+      border: 3px solid rgba(245,237,216,0.1);
+    }
+
+    /* Pulse ring animation */
+    .qr-pulse {
+      position: absolute;
+      inset: -8px;
+      border-radius: 22px;
+      border: 2px solid rgba(123,189,212,0.4);
+      animation: qr-ring 2s ease-in-out infinite;
+    }
+    @keyframes qr-ring {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0; transform: scale(1.04); }
+    }
+
+    .qr-hint {
+      font-size: 0.88rem;
+      color: rgba(245,237,216,0.55);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* ── Status Indicator ── */
+    .status-bar {
+      width: 100%;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(245,237,216,0.1);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .status-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--sage);
+      animation: dot-pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+    .status-dot--success { background: #4ade80; animation: none; }
+    .status-dot--error { background: #f87171; animation: none; }
+    .status-text { font-size: 0.87rem; color: rgba(245,237,216,0.7); }
+
+    /* ── Info strip ── */
+    .info-strip {
+      margin-top: 20px;
+      background: rgba(168,184,154,0.08);
+      border: 1px solid rgba(168,184,154,0.2);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: rgba(245,237,216,0.55);
+      line-height: 1.6;
+      text-align: left;
+      width: 100%;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      margin-top: 32px;
+      color: rgba(245,237,216,0.35);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--cream); }
+
+    @media (max-width: 540px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-section { padding: 24px; }
+      .qr-section { padding: 0 24px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <img src="../assets/images/logo_lemonet.png" alt="Le'Monet Logo" class="page-header__logo" />
+    <p class="page-header__brand">Le'Monet Art Café · Quận 2</p>
+    <h1 class="page-header__title">Cọc Giữ Chỗ</h1>
+  </header>
+
+  <!-- Steps -->
+  <div class="flow-steps">
+    <div class="flow-step flow-step--active">
+      <span class="flow-step__num">1</span>
+      <span>Điền thông tin</span>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" id="step2">
+      <span class="flow-step__num">2</span>
+      <span>Quét QR</span>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" id="step3">
+      <span class="flow-step__num">3</span>
+      <span>Xác nhận</span>
+    </div>
+  </div>
+
+  <!-- Main Card -->
+  <div class="main-card">
+
+    <!-- STEP 1: FORM -->
+    <div class="form-section" id="formSection">
+      <p class="form-section__title">Thông tin đặt chỗ</p>
+
+      <div class="form-group">
+        <label class="form-label" for="guestName">Tên của bạn *</label>
+        <input id="guestName" class="form-input" type="text" placeholder="Nguyễn Văn A" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="guestPhone">Số điện thoại *</label>
+        <input id="guestPhone" class="form-input" type="tel" placeholder="0912 345 678" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="bookDate">Ngày thuê *</label>
+          <input id="bookDate" class="form-input" type="date" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bookTime">Giờ bắt đầu *</label>
+          <input id="bookTime" class="form-input" type="time" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="bookRoom">Phòng *</label>
+        <select id="bookRoom" class="form-select">
+          <option value="P01">Phòng 01 – Căn Phòng Xanh (10–14 người)</option>
+          <option value="P02">Phòng 02 – Thư Viện Bàn Lớn (10–14 người)</option>
+          <option value="P03">Phòng 03 – Có Ban Công (12–30 người)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="bookPkg">Gói thuê *</label>
+        <select id="bookPkg" class="form-select">
+          <option value="Goi01">Gói 01 – Khởi Đầu Cảm Hứng (200K/2h)</option>
+          <option value="Goi02">Gói 02 – Văn Phòng Sáng Tạo (450K/2h)</option>
+          <option value="Goi03">Gói 03 – Lớp Học Cảm Hứng (theo tháng)</option>
+        </select>
+      </div>
+
+      <button class="btn-generate" id="btnGenQR" onclick="generateQR()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M17 14h.01M14 17h.01M17 17h.01M20 14v3M20 20v.01"/></svg>
+        Tạo mã QR để cọc 100.000 VNĐ
+      </button>
+    </div>
+
+    <!-- STEP 2: QR -->
+    <div class="qr-section" id="qrSection">
+      <div class="qr-divider"></div>
+
+      <p class="qr-label">Số tiền cọc</p>
+      <p class="qr-amount">100.000 VNĐ</p>
+      <p class="qr-ref" id="qrRefDisplay"></p>
+
+      <div class="qr-image-wrap">
+        <div class="qr-pulse"></div>
+        <img id="qrImage" src="" alt="QR Code chuyển khoản" />
+      </div>
+
+      <p class="qr-hint">Mở app ngân hàng → quét mã → <strong>giữ nguyên nội dung</strong> chuyển khoản → xác nhận.</p>
+
+      <div class="status-bar" id="statusBar">
+        <div class="status-dot" id="statusDot"></div>
+        <span class="status-text" id="statusText">Đang chờ thanh toán…</span>
+      </div>
+
+      <div class="info-strip">
+        📌 Sau khi chuyển khoản thành công, trang sẽ tự động chuyển sang trang xác nhận trong vài giây.
+      </div>
+    </div>
+
+  </div>
+
+  <a href="thue-phong.html" class="back-link">← Quay lại trang thuê phòng</a>
+
+  <script>
+    // ─────────────────────────────────────────────────────────
+    // CONFIG
+    // ─────────────────────────────────────────────────────────
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwd1MlUobK2nBukZfUoSWcY9vJxvYlvRFVKSz-Nl_h_H7csSOmvs6RKzdtqU9Pdi_Mt/exec';
+    const BANK_ACCOUNT    = '77933133411';
+    const BANK_CODE       = 'MB';
+    const DEPOSIT_AMOUNT  = 100000;
+    const POLL_INTERVAL   = 2000;        // poll mỗi 2s
+    const POLL_TIMEOUT    = 10 * 60 * 1000; // 10 phút
+    const THANKYOU_URL    = 'cam-on.html';
+    // ─────────────────────────────────────────────────────────
+
+    let pollTimer  = null;
+    let pollExpiry = null;
+    let orderRef   = '';
+
+    document.getElementById('bookDate').min = new Date().toISOString().split('T')[0];
+
+    function generateOrderRef(name, date, time) {
+      const d       = date.replace(/-/g, '').slice(4); // MMDD
+      const t       = time.replace(':', '');
+      const initials = name.trim().split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 3);
+      const rand    = Math.floor(Math.random() * 900 + 100);
+      return `LM${d}${t}${initials}${rand}`;
+    }
+
+    async function generateQR() {
+      const name  = document.getElementById('guestName').value.trim();
+      const phone = document.getElementById('guestPhone').value.trim();
+      const date  = document.getElementById('bookDate').value;
+      const time  = document.getElementById('bookTime').value;
+
+      if (!name || !phone || !date || !time) {
+        alert('Vui lòng điền đầy đủ thông tin nhé!');
+        return;
+      }
+
+      const room = document.getElementById('bookRoom').value;
+      const pkg  = document.getElementById('bookPkg').value;
+      const btn  = document.getElementById('btnGenQR');
+
+      btn.disabled = true;
+      btn.textContent = 'Đang xử lý…';
+
+      orderRef = generateOrderRef(name, date, time);
+
+      // ── BƯỚC 1: Ghi booking vào Google Sheet ──
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'booking', name, phone, date, time, room, pkg, ref: orderRef })
+        });
+      } catch (err) {
+        console.warn('Không ghi được vào Sheet, vẫn tiếp tục hiện QR:', err);
+      }
+
+      // ── BƯỚC 2: Tạo QR từ qr.sepay.vn ──
+      const des   = encodeURIComponent(orderRef);
+      const qrUrl = `https://qr.sepay.vn/img?acc=${BANK_ACCOUNT}&bank=${encodeURIComponent(BANK_CODE)}&amount=${DEPOSIT_AMOUNT}&des=${des}&template=compact`;
+
+      document.getElementById('qrImage').src    = qrUrl;
+      document.getElementById('qrRefDisplay').textContent = `Mã đặt chỗ: ${orderRef}`;
+
+      // Hiển thị QR section
+      document.getElementById('qrSection').classList.add('is-visible');
+      document.getElementById('qrSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('step2').classList.add('flow-step--active');
+      btn.textContent = 'Đã tạo QR — đang chờ thanh toán';
+
+      // Lưu vào sessionStorage cho trang cảm ơn
+      sessionStorage.setItem('lm_booking', JSON.stringify({ name, phone, date, time, room, pkg, ref: orderRef }));
+
+      // ── BƯỚC 3: Poll Apps Script chờ webhook confirm ──
+      startPolling();
+    }
+
+    function startPolling() {
+      pollExpiry = Date.now() + POLL_TIMEOUT;
+      pollTimer  = setInterval(checkPaymentStatus, POLL_INTERVAL);
+    }
+
+    async function checkPaymentStatus() {
+      if (Date.now() > pollExpiry) {
+        clearInterval(pollTimer);
+        document.getElementById('statusDot').className  = 'status-dot status-dot--error';
+        document.getElementById('statusText').textContent = 'Hết thời gian chờ. Vui lòng nhắn tin qua Fanpage để xác nhận.';
+        return;
+      }
+
+      try {
+        // Poll Apps Script với ref — Apps Script sẽ check Sheet
+        const url  = `${APPS_SCRIPT_URL}?ref=${encodeURIComponent(orderRef)}`;
+        const resp = await fetch(url, { mode: 'cors' });
+
+        if (!resp.ok) return; // retry lần sau
+        const result = await resp.json();
+
+        if (result.paid === true) {
+          clearInterval(pollTimer);
+          onPaymentConfirmed(result);
+        }
+      } catch (err) {
+        // Silently retry
+        console.warn('Poll error:', err);
+      }
+    }
+
+    function onPaymentConfirmed(result) {
+      // Update UI
+      document.getElementById('statusDot').className   = 'status-dot status-dot--success';
+      document.getElementById('statusText').textContent = '✅ Thanh toán thành công! Đang chuyển trang…';
+      document.getElementById('step3').classList.add('flow-step--done');
+
+      document.querySelector('.qr-pulse').style.animation   = 'none';
+      document.querySelector('.qr-pulse').style.borderColor = 'rgba(74,222,128,0.5)';
+
+      // Gộp thêm thông tin thanh toán vào sessionStorage
+      const booking = JSON.parse(sessionStorage.getItem('lm_booking') || '{}');
+      booking.tx_status = result.status;
+      sessionStorage.setItem('lm_booking', JSON.stringify(booking));
+
+      setTimeout(() => { window.location.href = THANKYOU_URL; }, 1500);
+    }
+  </script>
+
+  <button class="back-to-top" id="backToTop" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+  <script src="../js/back-to-top.js"></script>
+</body>
+</html>
