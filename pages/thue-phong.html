@@ -1511,12 +1511,17 @@
     
     @media (max-width: 640px) {
       .tp-hero { padding: 100px 20px 60px; }
+      .tp-hero__supertitle { font-size: 0.95rem; padding: 8px 20px; margin-bottom: 20px; }
+      .tp-hero__title { font-size: clamp(1.8rem, 8vw, 2.6rem); line-height: 1.25; }
+      .tp-hero__title br { display: none; }
+      .tp-hero__subtext { font-size: 1.15rem; line-height: 1.7; margin-bottom: 28px; }
       .tp-section { padding: 72px 20px; }
       .highlights-grid { grid-template-columns: 1fr; }
       .rooms-grid { grid-template-columns: 1fr; }
       .pkg-card { padding: 28px 20px; }
       .decision-table th, .decision-table td { padding: 14px 14px; }
-      .tp-hero__cta { flex-direction: column; align-items: center; }
+      .tp-hero__cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; margin: 0 auto; gap: 12px; }
+      .tp-hero__cta .btn { width: 100%; justify-content: center; text-align: center; }
     }
   </style>
 

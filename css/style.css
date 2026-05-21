@@ -713,7 +713,7 @@ blockquote { font-family: var(--font-accent); }
   .hero__frame { height: calc(100vh - 40px); }
   .hero__side-tabs { display: none; }
   .hero__teapot { width: 180px; left: 5%; bottom: 80px; }
-  .hero__title { font-size: 3rem; }
+  .hero__title { font-size: clamp(2rem, 9vw, 3rem); white-space: normal; }
 }
 
 /* ── STORY ────────────────────────────────────────────────── */
