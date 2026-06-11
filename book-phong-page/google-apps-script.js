@@ -14,11 +14,18 @@
  * 1. Vào my.sepay.vn → Cài đặt → Webhook
  * 2. URL: [URL Apps Script của bạn]
  * 3. Bật webhook → Save
+ *
+ * CẤU HÌNH TELEGRAM BOT (Tùy chọn):
+ * 1. Điền TELEGRAM_BOT_TOKEN và TELEGRAM_CHAT_ID bên dưới.
  * ================================================================
  */
 
 const SHEET_NAME   = 'Đặt Cọc';
 const DEPOSIT_AMOUNT = 100000; // VNĐ — số tiền cọc tối thiểu
+
+// Thay bằng Token và Chat ID của bạn (nếu muốn nhận thông báo Telegram)
+const TELEGRAM_BOT_TOKEN = '8841224502:AAGsjzofHIjG8bAFLBf-DDHBQK5mppSRboE'; // VD: '123456789:ABCDefghIJKlmnop...'
+const TELEGRAM_CHAT_ID   = '8842929764'; // VD: '123456789' hoặc '-100123456789'
 
 // ── doPost: nhận 2 loại request ──────────────────────────────
 function doPost(e) {
@@ -142,6 +149,12 @@ function handleSePayWebhook(data) {
   for (let i = 1; i < rows.length; i++) {
     const ref = String(rows[i][1]).trim().toUpperCase();
     if (ref && content.includes(ref)) {
+      // ── Chống gửi trùng: nếu đã thanh toán rồi thì bỏ qua ──
+      const currentStatus = String(rows[i][11]);
+      if (currentStatus.includes('✅')) {
+        return jsonResponse({ success: true, updated: false, reason: 'already_paid' });
+      }
+
       // Tìm thấy! Update hàng này
       const rowNum = i + 1;
       sheet.getRange(rowNum, 10).setValue(data.id || '');                         // Mã GD
@@ -151,6 +164,31 @@ function handleSePayWebhook(data) {
       // Highlight hàng xanh
       sheet.getRange(rowNum, 1, 1, 12).setBackground('#d4edda');
       updated = true;
+
+      // ── Gửi thông báo Telegram ──
+      const name  = rows[i][2];
+      const phone = rows[i][3];
+      const date  = rows[i][4];
+      const time  = rows[i][5];
+      const room  = rows[i][6];
+      const pkg   = rows[i][7];
+
+      // Format ngày (nếu là Date object)
+      const dateStr = date instanceof Date ? date.toLocaleDateString('vi-VN') : date;
+      // Format giờ (nếu là Date object)
+      const timeStr = time instanceof Date ? time.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'}) : time;
+
+      const msg = `🎉 <b>CÓ KHÁCH CỌC PHÒNG THÀNH CÔNG!</b>\n\n` +
+                  `👤 Khách: ${name}\n` +
+                  `📞 SĐT: ${phone}\n` +
+                  `📅 Ngày: ${dateStr}\n` +
+                  `⏰ Giờ: ${timeStr}\n` +
+                  `🚪 Phòng: ${room} (${pkg})\n` +
+                  `💰 Số tiền cọc: ${DEPOSIT_AMOUNT.toLocaleString('vi-VN')} VNĐ\n` +
+                  `💳 Mã GD: ${data.id || ''}\n` +
+                  `🔗 Trạng thái: Đã thanh toán ✅`;
+      sendTelegramMessage(msg);
+
       break;
     }
   }
@@ -159,6 +197,29 @@ function handleSePayWebhook(data) {
 }
 
 // ── Helpers ──────────────────────────────────────────────────
+function sendTelegramMessage(text) {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
+
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+  const payload = {
+    chat_id: TELEGRAM_CHAT_ID,
+    text: text,
+    parse_mode: 'HTML'
+  };
+
+  const options = {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify(payload)
+  };
+
+  try {
+    UrlFetchApp.fetch(url, options);
+  } catch (e) {
+    console.error("Lỗi gửi Telegram: " + e.message);
+  }
+}
+
 function getOrCreateSheet() {
   const ss    = SpreadsheetApp.getActiveSpreadsheet();
   let   sheet = ss.getSheetByName(SHEET_NAME);
@@ -170,4 +231,9 @@ function jsonResponse(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ── HÀM TEST (DÙNG ĐỂ CẤP QUYỀN) ──
+function testTelegram() {
+  sendTelegramMessage("✅ Bot Telegram đã được kết nối thành công với Google Apps Script!");
 }

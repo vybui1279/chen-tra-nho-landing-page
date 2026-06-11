@@ -283,6 +283,35 @@
       .form-section { padding: 24px; }
       .qr-section { padding: 0 24px 24px; }
     }
+
+    .form-warning-message {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #fca5a5;
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+      padding: 12px 14px;
+      border-radius: 8px;
+      text-align: left;
+    }
+    .form-warning-message strong {
+      color: #fca5a5;
+    }
+    .form-info-message {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #93c5fd;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      padding: 12px 14px;
+      border-radius: 8px;
+      text-align: left;
+    }
+    .form-info-message strong {
+      color: #93c5fd;
+    }
   </style>
 </head>
 <body>
@@ -341,7 +370,7 @@
 
       <div class="form-group">
         <label class="form-label" for="bookRoom">Phòng *</label>
-        <select id="bookRoom" class="form-select">
+        <select id="bookRoom" class="form-select" onchange="validateRoomPkg()">
           <option value="P01">Phòng 01 – Căn Phòng Xanh (10–14 người)</option>
           <option value="P02">Phòng 02 – Thư Viện Bàn Lớn (10–14 người)</option>
           <option value="P03">Phòng 03 – Có Ban Công (12–30 người)</option>
@@ -350,12 +379,15 @@
 
       <div class="form-group">
         <label class="form-label" for="bookPkg">Gói thuê *</label>
-        <select id="bookPkg" class="form-select">
+        <select id="bookPkg" class="form-select" onchange="validateRoomPkg()">
           <option value="Goi01">Gói 01 – Khởi Đầu Cảm Hứng (200K/2h)</option>
           <option value="Goi02">Gói 02 – Văn Phòng Sáng Tạo (450K/2h)</option>
           <option value="Goi03">Gói 03 – Lớp Học Cảm Hứng (theo tháng)</option>
         </select>
       </div>
+
+      <div id="roomNotice" class="form-info-message" style="display: none;"></div>
+      <div id="roomWarning" class="form-warning-message" style="display: none;"></div>
 
       <button class="btn-generate" id="btnGenQR" onclick="generateQR()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M17 14h.01M14 17h.01M17 17h.01M20 14v3M20 20v.01"/></svg>
@@ -410,6 +442,44 @@
     let orderRef   = '';
 
     document.getElementById('bookDate').min = new Date().toISOString().split('T')[0];
+
+    // Parse URL query parameters to pre-fill select fields
+    const urlParams = new URLSearchParams(window.location.search);
+    const roomParam = urlParams.get('room');
+    const pkgParam = urlParams.get('pkg');
+    if (roomParam) document.getElementById('bookRoom').value = roomParam;
+    if (pkgParam) document.getElementById('bookPkg').value = pkgParam;
+
+    function validateRoomPkg() {
+      const room = document.getElementById('bookRoom').value;
+      const pkg  = document.getElementById('bookPkg').value;
+      const noticeDiv = document.getElementById('roomNotice');
+      const warningDiv = document.getElementById('roomWarning');
+      const btn = document.getElementById('btnGenQR');
+
+      // Reset
+      noticeDiv.style.display = 'none';
+      noticeDiv.innerHTML = '';
+      warningDiv.style.display = 'none';
+      warningDiv.innerHTML = '';
+      btn.disabled = false;
+      btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M17 14h.01M14 17h.01M17 17h.01M20 14v3M20 20v.01"/></svg> Tạo mã QR để cọc 100.000 VNĐ`;
+
+      if (room === 'P03') {
+        noticeDiv.style.display = 'block';
+        noticeDiv.innerHTML = `<strong>📌 Lưu ý nhỏ từ tiệm:</strong> Nhằm đảm bảo sự yên tĩnh tuyệt đối và giữ gìn các trang thiết bị chuyên dụng cao cấp, Phòng 03 chỉ áp dụng cho các buổi họp, học tập hoặc workshop nghiêm túc. Tiệm xin phép không tiếp nhận khách gia đình có trẻ nhỏ đi cùng hoặc nhu cầu thuê chỉ để chụp ảnh/quay phim. Le'Monet rất mong nhận được sự thông cảm từ bạn!`;
+
+        if (pkg === 'Goi01') {
+          warningDiv.style.display = 'block';
+          warningDiv.innerHTML = `<strong>⚠️ Lựa chọn chưa phù hợp:</strong> Phòng 03 (Có Ban Công) chỉ áp dụng cho <strong>Gói 02</strong> và <strong>Gói 03</strong>. Bạn vui lòng chọn gói thuê tương ứng hoặc đổi sang Phòng 01 / Phòng 02 nhé.`;
+          btn.disabled = true;
+          btn.textContent = 'Lựa chọn chưa phù hợp';
+        }
+      }
+    }
+
+    // Run validation immediately on load
+    validateRoomPkg();
 
     function generateOrderRef(name, date, time) {
       const d       = date.replace(/-/g, '').slice(4); // MMDD
